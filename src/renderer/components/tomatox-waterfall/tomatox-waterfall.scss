@@ -48,6 +48,21 @@
     object-fit: cover;
 }
 
+.resource-delete {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    color: #ff5c49 !important;
+    font-size: 18px;
+    transition: all 0.2s linear;
+    &:hover {
+        font-size: 30px;
+        right: 10px;
+        top: 10px;
+    }
+}
+
 .resource-collect {
     position: absolute;
     right: 7px;
@@ -62,6 +77,7 @@
         top: 193px;
     }
 }
+
 .resource-not-collect {
     position: absolute;
     right: 7px;

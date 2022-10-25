@@ -1,9 +1,11 @@
 import store from '@/utils/store';
 import Req from '../index';
 import xmlParser from '@/utils/xmlParser';
-import { filterResources } from '@/utils/filterResources';
-import { message } from 'antd';
-import { defaultIndexMapper } from '@/utils/constants';
+import { filterResource, filterResources } from '@/utils/filterResources';
+import { message, Result } from 'antd';
+import { defaultIndexMapper , TABLES } from '@/utils/constants';
+import Indexed from '@/utils/db/indexed';
+
 
 // ac：模式（videolist或detail详细模式），为空＝列表标准模式
 // ids: 影片id，多个使用,隔开
@@ -111,9 +113,7 @@ export function searchResources(curPage: number, keyWord: string) {
     });
 }
 
-export function queryDetail(
-    id?: string
-): any {
+export function queryDetail(id: string) {
     return new Promise(resolve => {
         Req({
             method: 'get',
@@ -128,20 +128,12 @@ export function queryDetail(
                 return;
             }
             try {
-                const result: IplayResource[] = [];
                 const parseJson = xmlParser((xmlData as unknown) as string);
-                console.log(parseJson);
-                // const jsonData = parseJson.rss ? parseJson.rss : parseJson;
-                // if (jsonData.list && jsonData.list.video) {
-                //     const videoList =
-                //         jsonData.list.video instanceof Array
-                //             ? jsonData.list.video
-                //             : [jsonData.list.video];
-                //     result.push(...filterResources(videoList));
-                // }
-                resolve({
-                    list: result
-                });
+                console.log('返回结果：', parseJson);
+                const jsonData = parseJson.rss ? parseJson.rss : parseJson;
+                const result: IplayResource = filterResource(jsonData.list.video[0]);
+                Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, result);
+                resolve({});
             } catch (e) {
                 message.error(e);
                 resolve(null);
