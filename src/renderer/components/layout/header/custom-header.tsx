@@ -58,7 +58,7 @@ export default function CustomHeader() {
                 className={cssModule.headerInput}
                 />
             <span className={cssModule.appBtn}>
-                {process.env.NODE_ENV !== 'production' && (
+                {(
                     <BugOutlined
                         onClick={() => {
                             ipcRenderer.send('WINDOW_DEBUG');

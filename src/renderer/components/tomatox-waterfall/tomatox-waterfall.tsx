@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-keeper';
 import TOMATOX_ICON from '@/images/svg/icon.svg';
-import { HeartOutlined, HeartFilled } from '@ant-design/icons';
+import { HeartOutlined, HeartFilled, DeleteFilled } from '@ant-design/icons';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import cssM from './tomatox-waterfall.scss';
@@ -19,6 +19,17 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] }) {
                             <div>
                                 <img src={ele.picture} className={cssM.descImg} />
                                 <span className={cssM.topRightTitle}>{ele.remark}</span>
+                                <div>
+                                    <DeleteFilled 
+                                        className={cssM.resourceDelete}
+                                        onClick={e => {
+                                            Indexed.instance?.deleteById(TABLES.TABLE_HISTORY,ele.id);
+                                            e.stopPropagation();
+                                            e.preventDefault();
+                                            history.back();
+                                        }}
+                                    ></DeleteFilled>
+                                </div>
                                 <div>
                                     {collectRes.has(ele.id) ? (
                                         <HeartFilled

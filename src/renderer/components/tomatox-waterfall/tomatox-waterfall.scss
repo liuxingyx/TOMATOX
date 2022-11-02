@@ -50,16 +50,16 @@
 
 .resource-delete {
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 5px;
+    top: 5px;
     cursor: pointer;
     color: #ff5c49 !important;
     font-size: 18px;
     transition: all 0.2s linear;
     &:hover {
-        font-size: 30px;
-        right: 10px;
-        top: 10px;
+        font-size: 22px;
+        right: 5px;
+        top: 5px;
     }
 }
 

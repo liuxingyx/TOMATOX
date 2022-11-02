@@ -25,10 +25,13 @@ export default class History extends React.Component<any, any> {
         const resOld = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
         const resourcesOld = resOld as IplayResource[];
         for (const ele of resourcesOld) {
-            queryDetail(ele.id);
+            queryDetail(ele);
         }
         const resNew = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
         const resourcesNew = resNew as IplayResource[];
+        for (const ele of resourcesNew) {
+            console.log('数据库结果：', ele);
+        }
         const resMap = new Map<string, Map<string, IplayResource[]>>();
         // step1: convert list to map
         resourcesNew.forEach(resource => {

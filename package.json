@@ -21,7 +21,7 @@
     "postinstall": "electron-builder install-app-deps",
     "build-win64": "electron-builder --win --x64",
     "build-mac": "electron-builder --mac",
-    "dist": "npm run build-win64 && npm run build-mac",
+    "dist": "npm run build && npm run build-win64 && npm run build-mac",
     "release": "npm run build && electron-builder -p always"
   },
   "husky": {

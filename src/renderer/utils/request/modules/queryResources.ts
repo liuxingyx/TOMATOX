@@ -6,7 +6,6 @@ import { message, Result } from 'antd';
 import { defaultIndexMapper , TABLES } from '@/utils/constants';
 import Indexed from '@/utils/db/indexed';
 
-
 // ac：模式（videolist或detail详细模式），为空＝列表标准模式
 // ids: 影片id，多个使用,隔开
 // t: 类型
@@ -113,14 +112,14 @@ export function searchResources(curPage: number, keyWord: string) {
     });
 }
 
-export function queryDetail(id: string) {
+export function queryDetail(ele: IplayResource) {
     return new Promise(resolve => {
         Req({
             method: 'get',
             url: store.getState('SITE_ADDRESS').api,
             params: {
                 ac: 'detail',
-                ids: id
+                ids: ele.id
             }
         }).then(xmlData => {
             if (!xmlData) {
@@ -129,10 +128,14 @@ export function queryDetail(id: string) {
             }
             try {
                 const parseJson = xmlParser((xmlData as unknown) as string);
-                console.log('返回结果：', parseJson);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
-                const result: IplayResource = filterResource(jsonData.list.video[0]);
-                Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, result);
+                const result: IplayResource = filterResource(jsonData.list.video);
+                console.log('返回结果：', result);
+                console.log('数据库结果：', ele);
+                ele.remark = result.remark;
+                ele.playList = result.playList;
+                console.log('数据库结果：', ele);
+                Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
                 resolve({});
             } catch (e) {
                 message.error(e);
