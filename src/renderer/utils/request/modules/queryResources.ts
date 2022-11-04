@@ -63,52 +63,43 @@ export function queryResources(
 
 export function searchResources(curPage: number, keyWord: string) {
     return new Promise(resolve => {
-        const filterIds: number[] = [];
-        for (const key in defaultIndexMapper) {
-            if (key.includes(keyWord)) {
-                filterIds.push(defaultIndexMapper[key]);
+        Req({
+            method: 'get',
+            url: store.getState('SITE_ADDRESS').api,
+            params: {
+                ac: 'videolist',
+                pg: curPage,
+                wd: keyWord
             }
-        }
-        if (filterIds.length === 0) {
-            resolve(null);
-        } else {
-            Req({
-                method: 'get',
-                url: store.getState('SITE_ADDRESS').api,
-                params: {
-                    ac: 'videolist',
-                    pg: curPage,
-                    ids: filterIds.join(',')
+        }).then(xmlData => {
+            if (!xmlData) {
+                resolve(xmlData);
+                return;
+            }
+            try {
+                const result: IplayResource[] = [];
+                const parseJson = xmlParser((xmlData as unknown) as string);
+                const jsonData = parseJson.rss ? parseJson.rss : parseJson;
+                console.log('返回结果：', jsonData);
+                if (jsonData.list && jsonData.list.video) {
+                    const videoList =
+                        jsonData.list.video instanceof Array
+                            ? jsonData.list.video
+                            : [jsonData.list.video];
+                    result.push(...filterResources(videoList));
                 }
-            }).then(xmlData => {
-                if (!xmlData) {
-                    resolve(xmlData);
-                    return;
-                }
-                try {
-                    const result: IplayResource[] = [];
-                    const parseJson = xmlParser((xmlData as unknown) as string);
-                    const jsonData = parseJson.rss ? parseJson.rss : parseJson;
-                    if (jsonData.list && jsonData.list.video) {
-                        const videoList =
-                            jsonData.list.video instanceof Array
-                                ? jsonData.list.video
-                                : [jsonData.list.video];
-                        result.push(...filterResources(videoList));
-                    }
-                    resolve({
-                        limit: jsonData.list.pagesize,
-                        list: result,
-                        page: jsonData.list.page,
-                        pagecount: jsonData.list.pagecount,
-                        total: jsonData.list.recordcount
-                    });
-                } catch (e) {
-                    message.error(e);
-                    resolve(null);
-                }
-            });
-        }
+                resolve({
+                    limit: jsonData.list.pagesize,
+                    list: result,
+                    page: jsonData.list.page,
+                    pagecount: jsonData.list.pagecount,
+                    total: jsonData.list.recordcount
+                });
+            } catch (e) {
+                message.error(e);
+                resolve(null);
+            }
+        });
     });
 }
 
@@ -130,7 +121,6 @@ export function queryDetail(ele: IplayResource) {
                 const parseJson = xmlParser((xmlData as unknown) as string);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
                 const result: IplayResource = filterResource(jsonData.list.video);
-                console.log('返回结果：', result);
                 console.log('数据库结果：', ele);
                 ele.remark = result.remark;
                 ele.playList = result.playList;

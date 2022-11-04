@@ -58,13 +58,11 @@ export default function CustomHeader() {
                 className={cssModule.headerInput}
                 />
             <span className={cssModule.appBtn}>
-                {(
-                    <BugOutlined
-                        onClick={() => {
-                            ipcRenderer.send('WINDOW_DEBUG');
-                        }}
-                        />
-                )}
+                <BugOutlined
+                    onClick={() => {
+                        ipcRenderer.send('WINDOW_DEBUG');
+                    }}
+                />
                 {process.env.NODE_ENV !== 'production' && (
                     <ReloadOutlined
                         onClick={() => {

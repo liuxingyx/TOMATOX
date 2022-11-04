@@ -50,7 +50,7 @@ export default class Indexed {
     }
 
     public queryById(tableName: string, id: any) {
-        return new Promise((resolve, reject) => {
+        return new Promise(resolve => {
             const req = Indexed.db!.transaction(tableName, 'readonly')
                 .objectStore(tableName)
                 .get(id);
