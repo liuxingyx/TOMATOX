@@ -4,9 +4,10 @@ import store from '@/utils/store';
 import InfiniteScroll from 'react-infinite-scroller';
 import CustomSpin from '@/components/custom-spin/custom-spin';
 import TomatoxWaterfall from '@/components/tomatox-waterfall/tomatox-waterfall';
-import { filterResources } from '@/utils/filterResources';
-import { queryResources } from '@/utils/request/modules/queryResources';
+import { queryResources , queryDetail } from '@/utils/request/modules/queryResources';
 import cssM from './recommend.scss';
+import Indexed from '@/utils/db/indexed';
+import { TABLES } from '@/utils/constants';
 
 export default class Recommend extends React.Component<any, any> {
     private page = 0;
@@ -21,7 +22,14 @@ export default class Recommend extends React.Component<any, any> {
         };
     }
 
-    componentWillMount(): void {
+    async componentWillMount() {
+        console.log('页面路径：', store.getState('CURRENT_PATH'));
+        const res = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
+        const resources = res as IplayResource[];
+        for (const ele of resources) {
+            queryDetail(ele);
+        }
+
         store.setState('GLOBAL_LOADING', true);
         this.initResource();
         store.subscribe('SITE_ADDRESS', () => {

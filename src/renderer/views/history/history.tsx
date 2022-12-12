@@ -3,7 +3,7 @@ import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import TomatoxWaterfall from '@/components/tomatox-waterfall/tomatox-waterfall';
 import cssM from './history.scss';
-import { queryDetail } from '@/utils/request/modules/queryResources';
+import store from '@/utils/store';
 
 function compareYMStr(a: string, b: string): number {
     return +a.replace('年', '').replace('月', '') - +b.replace('年', '').replace('月', '');
@@ -22,16 +22,12 @@ export default class History extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        const resOld = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
-        const resourcesOld = resOld as IplayResource[];
-        for (const ele of resourcesOld) {
-            queryDetail(ele);
-        }
-        const resNew = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
-        const resourcesNew = resNew as IplayResource[];
+        console.log('页面路径：', store.getState('CURRENT_PATH'));
+        const res = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
+        const resources = res as IplayResource[];
         const resMap = new Map<string, Map<string, IplayResource[]>>();
         // step1: convert list to map
-        resourcesNew.forEach(resource => {
+        resources.forEach(resource => {
             const date = new Date(resource.historyOption!.lastPlayDate!);
             const yearMonth = `${date.getFullYear()}年${date.getMonth() + 1}月`;
             const day = `${date.getDate()}日`;

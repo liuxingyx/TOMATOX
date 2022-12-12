@@ -16,6 +16,8 @@ import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import cssM from './palyer.scss';
 import { getPlayConfig, setPlayConfig } from '@/utils/db/storage';
+import { queryDetail } from '@/utils/request/modules/queryResources';
+import store from '@/utils/store';
 
 const HlsPlayer = require('xgplayer-hls.js');
 const { ipcRenderer, remote } = require('electron');
@@ -147,6 +149,7 @@ export default class Player extends React.Component<any, any> {
     }
 
     componentWillUnmount(): void {
+        console.log('页面路径：', store.getState('CURRENT_PATH'));
         const newData: IplayResource = {
             ...this.controlState,
             historyOption: {
@@ -158,8 +161,9 @@ export default class Player extends React.Component<any, any> {
                     this.xgPlayer?.currentTime || 0
                 )}`
             }
-        };
+        };console.log('播放列表：', newData.playList);
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
+        queryDetail(newData);
 
         shortcutManager.unregister(remote.getCurrentWindow(), Object.keys(this.mainEventHandler));
         this.xgPlayer!.src = '';

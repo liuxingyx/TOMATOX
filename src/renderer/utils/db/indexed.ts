@@ -1,4 +1,4 @@
-import { CANDIDATE_ORIGIN, DEFAULT_ORIGIN, TABLES } from '@/utils/constants';
+import { DEFAULT_ORIGIN, TABLES } from '@/utils/constants';
 import { cleanResourceData } from '@/utils/filterResources';
 import { setEnabledOrigin } from '@/utils/db/storage';
 
@@ -27,12 +27,10 @@ export default class Indexed {
                     if (!db.objectStoreNames.contains(TABLES.TABLE_ORIGIN)) {
                         const table = db.createObjectStore(TABLES.TABLE_ORIGIN, { keyPath: 'id' });
                         table.put(DEFAULT_ORIGIN);
-                        table.put(CANDIDATE_ORIGIN);
                     } else {
                         db.deleteObjectStore(TABLES.TABLE_ORIGIN);
                         const table = db.createObjectStore(TABLES.TABLE_ORIGIN, { keyPath: 'id' });
                         table.put(DEFAULT_ORIGIN);
-                        table.put(CANDIDATE_ORIGIN);
                         setEnabledOrigin('默认');
                     }
                 };

@@ -3,7 +3,7 @@ import { Input, Radio, Row, Space, Col, Button, message, Checkbox } from 'antd';
 import cssM from './setting.scss';
 import { getEnabledOrigin, setEnabledOrigin } from '@/utils/db/storage';
 import Indexed from '@/utils/db/indexed';
-import { TABLES } from '@/utils/constants';
+import { TABLES,DEFAULT_ORIGIN, CANDIDATE_ORIGIN1, CANDIDATE_ORIGIN2, CANDIDATE_ORIGIN3, CANDIDATE_ORIGIN4, CANDIDATE_ORIGIN5, CANDIDATE_ORIGIN6, CANDIDATE_ORIGIN7 } from '@/utils/constants';
 import store from '@/utils/store';
 
 export default class Setting extends React.Component<any, any> {
@@ -16,6 +16,15 @@ export default class Setting extends React.Component<any, any> {
     }
 
     componentWillMount(): void {
+        Indexed.instance!.deleteAll(TABLES.TABLE_ORIGIN);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, DEFAULT_ORIGIN);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN1);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN2);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN3);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN4);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN5);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN6);
+        Indexed.instance!.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN7);
         Indexed.instance!.queryAll(TABLES.TABLE_ORIGIN).then(res => {
             const result = res as Iorigin[];
             result.sort((a, b) => a.addTime - b.addTime);

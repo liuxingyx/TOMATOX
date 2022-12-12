@@ -80,7 +80,6 @@ export function searchResources(curPage: number, keyWord: string) {
                 const result: IplayResource[] = [];
                 const parseJson = xmlParser((xmlData as unknown) as string);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
-                console.log('返回结果：', jsonData);
                 if (jsonData.list && jsonData.list.video) {
                     const videoList =
                         jsonData.list.video instanceof Array
@@ -121,11 +120,13 @@ export function queryDetail(ele: IplayResource) {
                 const parseJson = xmlParser((xmlData as unknown) as string);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
                 const result: IplayResource = filterResource(jsonData.list.video);
-                console.log('数据库结果：', ele);
-                ele.remark = result.remark;
-                ele.playList = result.playList;
-                console.log('数据库结果：', ele);
-                Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                if (ele.remark != result.remark) {
+                    console.log('数据库修改前结果：', ele);
+                    ele.remark = result.remark;
+                    ele.playList = result.playList;
+                    console.log('数据库修改后结果：', ele);
+                    Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                }
                 resolve({});
             } catch (e) {
                 message.error(e);
