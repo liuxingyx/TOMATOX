@@ -67,8 +67,6 @@ export default class Classify extends React.Component<any, any> {
 
     private getRecommendLst() {
         Promise.all([
-            queryResources(++this.page, this.state.types[this.state.selectedType]),
-            queryResources(++this.page, this.state.types[this.state.selectedType]),
             queryResources(++this.page, this.state.types[this.state.selectedType])
         ]).then(
             reses => {

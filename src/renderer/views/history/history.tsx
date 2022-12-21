@@ -22,7 +22,7 @@ export default class History extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        console.log('页面路径：', store.getState('CURRENT_PATH'));
+        console.log('history页面路径：', store.getState('CURRENT_PATH'));
         const res = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
         const resources = res as IplayResource[];
         const resMap = new Map<string, Map<string, IplayResource[]>>();

@@ -46,6 +46,7 @@ export function queryResources(
                             : [jsonData.list.video];
                     result.push(...filterResources(videoList));
                 }
+                console.log('json:' , jsonData.list.pagecount);
                 resolve({
                     limit: jsonData.list.pagesize,
                     list: result,
@@ -106,7 +107,7 @@ export function queryDetail(ele: IplayResource) {
     return new Promise(resolve => {
         Req({
             method: 'get',
-            url: store.getState('SITE_ADDRESS').api,
+            url: ele.api?ele.api:store.getState('SITE_ADDRESS').api,
             params: {
                 ac: 'detail',
                 ids: ele.id
@@ -120,6 +121,13 @@ export function queryDetail(ele: IplayResource) {
                 const parseJson = xmlParser((xmlData as unknown) as string);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
                 const result: IplayResource = filterResource(jsonData.list.video);
+                console.log('remark:' , ele.name + ',' +  ele.remark + ',' + result.remark);
+                console.log('数据库:' , ele.api);
+                if (ele.playList == null) {
+                    ele.remark = result.remark;
+                    ele.playList = result.playList;
+                    Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                }
                 if (ele.remark != result.remark) {
                     console.log('数据库修改前结果：', ele);
                     ele.remark = result.remark;

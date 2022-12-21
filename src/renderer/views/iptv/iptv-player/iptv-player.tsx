@@ -13,7 +13,7 @@ import { getPlayConfig, setPlayConfig } from '@/utils/db/storage';
 import shortcutManager from 'electron-localshortcut';
 import XGPlayer from 'xgplayer';
 
-const HlsPlayer = require('xgplayer-hls.js');
+const HlsPlayer = require('xgplayer-hls');
 const FlvPlayer = require('xgplayer-flv.js');
 const { ipcRenderer, remote } = require('electron');
 
@@ -59,14 +59,18 @@ export default class IptvPlayer extends React.Component<any, any> {
         const PlayerClass = (this.state.resource.src.includes('.m3u8')
             ? HlsPlayer
             : FlvPlayer) as any;
+        console.log(PlayerClass);
         this.xgPlayer = new PlayerClass({
             el: this.refs.iptvPlayer as any,
             url: this.state.resource.src,
-            id: 'tomatox-iptv',
-            lang: 'zh-cn',
+            // id: 'tomatox-iptv',
+            // lang: 'zh-cn',
             width: '100%',
             height: '100%',
-            autoplay: false,
+            autoplay: true,
+            playsinline: true,
+            isLive: true, //直播场景设置为true
+            useHls: true,
             videoInit: true,
             screenShot: true,
             keyShortcut: 'off',
@@ -86,7 +90,7 @@ export default class IptvPlayer extends React.Component<any, any> {
             ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
             preloadTime: 300
         });
-        this.xgPlayer?.play();
+        // this.xgPlayer?.play();
         this.xgPlayer?.on('volumechange', this.updateVolumeConf);
         this.xgPlayer?.on('playbackrateChange', this.updateSpeedConf);
         for (const key in this.mainEventHandler) {

@@ -10,6 +10,7 @@ declare interface Iorigin {
 declare interface IplayResource {
     id: string;
     type: string;
+    api: string;
     picture: string;
     lang: string;
     name: string;

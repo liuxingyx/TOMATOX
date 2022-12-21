@@ -1,5 +1,5 @@
 // 引入electron并创建一个BrowserWindow
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 import { initUpdater } from './auto-update/auto-update';
 
 const path = require('path');
@@ -13,18 +13,40 @@ app.commandLine.appendSwitch('--ignore-certificate-errors', 'true'); // 忽略�
 let mainWindow: Electron.BrowserWindow | null;
 
 function createWindow() {
+    if (process.platform === 'darwin') {
+        const template = [
+          {
+            label: "Application",
+            submenu: [
+              { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+            ]
+          }, 
+          {
+            label: "Edit",
+            submenu: [
+              { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+              { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
+            ]
+          }
+        ];
+        Menu.setApplicationMenu(Menu.buildFromTemplate(template))
+      } else {
+        Menu.setApplicationMenu(null)
+      }
+
     // 创建浏览器窗口,宽高自定义具体大小你开心就好
     mainWindow = new BrowserWindow({
-        show: false,
+        // show: false,
         width: 1260,
         height: 700,
         minWidth: 1260,
         minHeight: 700,
         frame: false,
+        useContentSize: true,
         backgroundColor: '#403f3f',
         webPreferences: {
             webSecurity: false,
-            // nodeIntegration: true,
+            nodeIntegration: true,
             contextIsolation: false
         }
     });
@@ -42,9 +64,11 @@ function createWindow() {
             })
         );
     }
+    
     mainWindow.on('ready-to-show', () => {
         mainWindow?.show();
     });
+    
     initUpdater(mainWindow);
 }
 

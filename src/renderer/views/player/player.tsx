@@ -51,6 +51,8 @@ export default class Player extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.controlState = Control.state;
+        queryDetail(this.controlState);
+        console.log('播放列表：', this.controlState);
         if (this.controlState) {
             this.sourceList.set('播放列表', this.controlState.playList);
             this.state = {
@@ -97,16 +99,17 @@ export default class Player extends React.Component<any, any> {
         this.xgPlayer = new HlsPlayer({
             el: this.refs.playWrapperRef as any,
             url: this.state.curPlaySrc,
-            id: 'tomatox',
-            lang: 'zh-cn',
+            // id: 'tomatox',
+            // lang: 'zh-cn',
             width: '100%',
             height: '100%',
-            autoplay: false,
+            autoplay: true,
             videoInit: true,
             screenShot: true,
             keyShortcut: 'off',
             crossOrigin: true,
             cssFullscreen: true,
+            controls: true, //是否显示播放控件
             volume: getPlayConfig().voice,
             defaultPlaybackRate: getPlayConfig().speed,
             playbackRate: [0.5, 1, 1.25, 1.5, 2],
@@ -123,7 +126,7 @@ export default class Player extends React.Component<any, any> {
             preloadTime: 300
         });
         this.xgPlayer!.currentTime = this.controlState.historyOption?.lastPlayTime || 0;
-        this.xgPlayer?.play();
+        // this.xgPlayer?.play();
         this.xgPlayer?.on('ended', this.playNext);
         this.xgPlayer?.on('volumechange', this.updateVolumeConf);
         this.xgPlayer?.on('playbackrateChange', this.updateSpeedConf);
@@ -148,8 +151,8 @@ export default class Player extends React.Component<any, any> {
         return hours === 0 ? ms : `${hours < 10 ? '0' : ''}${hours}:${ms}`;
     }
 
-    componentWillUnmount(): void {
-        console.log('页面路径：', store.getState('CURRENT_PATH'));
+    async componentWillUnmount() {
+        console.log('play页面路径：', store.getState('CURRENT_PATH'));
         const newData: IplayResource = {
             ...this.controlState,
             historyOption: {
@@ -161,10 +164,12 @@ export default class Player extends React.Component<any, any> {
                     this.xgPlayer?.currentTime || 0
                 )}`
             }
-        };console.log('播放列表：', newData.playList);
+        };
+        console.log('api：', store.getState('SITE_ADDRESS').api.string);
+        newData.api = store.getState('SITE_ADDRESS').api.string;
+        console.log('api：', newData.api);
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
-        queryDetail(newData);
-
+        
         shortcutManager.unregister(remote.getCurrentWindow(), Object.keys(this.mainEventHandler));
         this.xgPlayer!.src = '';
         this.xgPlayer?.off('ended', this.playNext);

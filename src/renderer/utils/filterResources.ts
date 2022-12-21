@@ -21,6 +21,7 @@ export function filterResource(resource: any): IplayResource {
     return {
         id: resource.id,
         type: resource.type,
+        api: '',
         picture: resource.pic,
         lang: resource.lang,
         name: resource.name,
@@ -56,6 +57,7 @@ export function cleanResourceData(dataType: string, data: IplayResource): IplayR
     const optData: IplayResource = {
         id: data.id,
         type: data.type,
+        api: data.api,
         picture: data.picture,
         lang: data.lang,
         name: data.name,

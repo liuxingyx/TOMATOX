@@ -22,9 +22,10 @@ export default function CustomLayout() {
                 getEnabledOrigin()
             );
             store.setState('SITE_ADDRESS', origin);
+            console.log('api：', store.getState('SITE_ADDRESS'));
             setLoaded(true);
         });
-    }
+    } 
     return (
         <>
             {loaded ? (

@@ -19,9 +19,9 @@
     "unpacked": "npm run build && electron-builder --dir",
     "pack": "npm run build && electron-builder",
     "postinstall": "electron-builder install-app-deps",
-    "build-win64": "electron-builder --win --x64",
-    "build-mac": "electron-builder --mac",
-    "dist": "npm run build && npm run build-win64 && npm run build-mac",
+    "build-win64": "npm run build && electron-builder --win --x64",
+    "build-mac": "npm run build && electron-builder --mac",
+    "dist": "npm run build-win64 && npm run build-mac",
     "release": "npm run build && electron-builder -p always"
   },
   "husky": {
@@ -88,11 +88,11 @@
       "icon": "public/icon.png"
     },
     "mac": {
-      "icon": "public/icon.icn",
+      "icon": "public/icon.icns",
       "category": "public.app-category.developer-tools",
       "target": "default",
       "extendInfo": {
-        "LSUIElement": 1
+        "LSUIElement": 0
       }
     },
     "snap": {
@@ -207,9 +207,10 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1",
     "webpack-merge": "^4.2.1",
-    "xgplayer": "^2.20.8",
+    "xgplayer": "^2.32.0",
     "xgplayer-flv.js": "^2.3.0",
-    "xgplayer-hls.js": "^2.4.2"
+    "xgplayer-hls": "^2.5.2",
+    "xgplayer-hls.js": "^2.6.3"
   },
   "dependencies": {
     "electron-chromedriver": "^21.0.0"

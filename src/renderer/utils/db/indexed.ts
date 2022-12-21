@@ -1,6 +1,23 @@
-import { DEFAULT_ORIGIN, TABLES } from '@/utils/constants';
+import { TABLES,
+    DEFAULT_ORIGIN, 
+    CANDIDATE_ORIGIN, 
+    CANDIDATE_ORIGIN1, 
+    CANDIDATE_ORIGIN2, 
+    CANDIDATE_ORIGIN3, 
+    CANDIDATE_ORIGIN4, 
+    CANDIDATE_ORIGIN5, 
+    CANDIDATE_ORIGIN6, 
+    CANDIDATE_ORIGIN7, 
+    CANDIDATE_ORIGIN8, 
+    CANDIDATE_ORIGIN9, 
+    CANDIDATE_ORIGIN10, 
+    CANDIDATE_ORIGIN11, 
+    CANDIDATE_ORIGIN12, 
+    CANDIDATE_ORIGIN13
+ } from '@/utils/constants';
 import { cleanResourceData } from '@/utils/filterResources';
 import { setEnabledOrigin } from '@/utils/db/storage';
+import store from '@/utils/store';
 
 export default class Indexed {
     private static db: IDBDatabase | undefined;
@@ -27,6 +44,7 @@ export default class Indexed {
                     if (!db.objectStoreNames.contains(TABLES.TABLE_ORIGIN)) {
                         const table = db.createObjectStore(TABLES.TABLE_ORIGIN, { keyPath: 'id' });
                         table.put(DEFAULT_ORIGIN);
+                        setEnabledOrigin('默认');
                     } else {
                         db.deleteObjectStore(TABLES.TABLE_ORIGIN);
                         const table = db.createObjectStore(TABLES.TABLE_ORIGIN, { keyPath: 'id' });
@@ -37,7 +55,25 @@ export default class Indexed {
                 dbReq.onsuccess = () => {
                     this.db = dbReq.result;
                     this.instance = new Indexed();
-                    this.instance.removeThreeMonthAgoHistoryData();
+                    // this.instance.removeThreeMonthAgoHistoryData();
+                    
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, DEFAULT_ORIGIN);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN1);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN2);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN3);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN4);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN5);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN6);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN7);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN8);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN9);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN10);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN11);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN12);
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, CANDIDATE_ORIGIN13);
+                    setEnabledOrigin('默认');
+                    
                     this.instance.loadCollectedRes();
                     resolve(this.instance!);
                 };

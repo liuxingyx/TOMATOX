@@ -23,12 +23,7 @@ export default class Recommend extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        console.log('页面路径：', store.getState('CURRENT_PATH'));
-        const res = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
-        const resources = res as IplayResource[];
-        for (const ele of resources) {
-            queryDetail(ele);
-        }
+        console.log('ecommend 页面路径：', store.getState('CURRENT_PATH'));
 
         store.setState('GLOBAL_LOADING', true);
         this.initResource();
@@ -45,8 +40,14 @@ export default class Recommend extends React.Component<any, any> {
         });
     }
 
-    initResource() {
+    async initResource() {
         this.getRecommendLst();
+
+        const res = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
+        const resources = res as IplayResource[];
+        for (const ele of resources) {
+            queryDetail(ele);
+        }
     }
 
     getRecommendLst() {
@@ -54,8 +55,6 @@ export default class Recommend extends React.Component<any, any> {
             return;
         }
         Promise.all([
-            queryResources(++this.page, this.type, undefined, 24 * 30),
-            queryResources(++this.page, this.type, undefined, 24 * 30),
             queryResources(++this.page, this.type, undefined, 24 * 30)
         ]).then(
             resLst => {
