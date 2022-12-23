@@ -47,6 +47,10 @@ npm config set python_mirror https://repo.huaweicloud.com/python
 And then install the dependencies:
 
 ```bash
+npm view xgplayer versions
+npm view xgplayer-flv.js versions
+npm view xgplayer-hls versions
+npm view xgplayer-hls.js versions
 cd <your-project-name>
 npm install
 ```

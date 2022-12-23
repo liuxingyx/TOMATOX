@@ -64,33 +64,32 @@ export default class IptvPlayer extends React.Component<any, any> {
             el: this.refs.iptvPlayer as any,
             url: this.state.resource.src,
             // id: 'tomatox-iptv',
-            // lang: 'zh-cn',
             width: '100%',
             height: '100%',
-            autoplay: true,
-            playsinline: true,
-            isLive: true, //直播场景设置为true
-            useHls: true,
             videoInit: true,
-            screenShot: true,
-            keyShortcut: 'off',
-            crossOrigin: true,
-            cssFullscreen: true,
-            volume: getPlayConfig().voice,
-            defaultPlaybackRate: getPlayConfig().speed,
-            playPrev: true,
-            playNextOne: true,
-            videoStop: true,
-            showList: true,
-            showHistory: true,
-            quitMiniMode: true,
-            videoTitle: true,
-            airplay: true,
-            closeVideoTouch: true,
-            ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
-            preloadTime: 300
+            controls: false, //是否显示播放控件
+            autoplay: true,
+            // playsinline: true,
+            // useHls: true,
+            // screenShot: true,
+            // keyShortcut: 'off',
+            // crossOrigin: true,
+            // cssFullscreen: true,
+            // volume: getPlayConfig().voice,
+            // defaultPlaybackRate: getPlayConfig().speed,
+            // playPrev: true,
+            // playNextOne: false,
+            // videoStop: true,
+            // showList: true,
+            // showHistory: true,
+            // quitMiniMode: true,
+            // videoTitle: true,
+            // airplay: true,
+            // closeVideoTouch: true,
+            // ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
+            // preloadTime: 300
         });
-        // this.xgPlayer?.play();
+        this.xgPlayer?.play();
         this.xgPlayer?.on('volumechange', this.updateVolumeConf);
         this.xgPlayer?.on('playbackrateChange', this.updateSpeedConf);
         for (const key in this.mainEventHandler) {

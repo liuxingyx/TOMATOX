@@ -207,7 +207,7 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1",
     "webpack-merge": "^4.2.1",
-    "xgplayer": "^2.32.0",
+    "xgplayer": "^2.32.2",
     "xgplayer-flv.js": "^2.3.0",
     "xgplayer-hls": "^2.5.2",
     "xgplayer-hls.js": "^2.6.3"

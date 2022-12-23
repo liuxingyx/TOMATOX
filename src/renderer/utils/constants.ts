@@ -194,8 +194,8 @@ export const CANDIDATE_ORIGIN38: Iorigin = {
     addTime: Date.now() + 39
 };
 export const CANDIDATE_ORIGIN39: Iorigin = {
-    id: '百度云资源',
-    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
+    id: 'CK资源',
+    api: 'http://www.feifei67.com/api.php/provide/vod/at/xml',
     addTime: Date.now() + 40
 };
 export const CANDIDATE_ORIGIN41: Iorigin = {
