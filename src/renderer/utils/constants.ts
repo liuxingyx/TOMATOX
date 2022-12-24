@@ -30,7 +30,7 @@ export const CANDIDATE_ORIGIN4: Iorigin = {
 };
 export const CANDIDATE_ORIGIN5: Iorigin = {
     id: '八戒云',
-    api: 'http://cj.bajiecaiji.com/inc/bjm3u8.php',
+    api: 'http://cj.bajiecaiji.com/inc/api.php',
     addTime: Date.now() + 6
 };
 export const CANDIDATE_ORIGIN6: Iorigin = {
@@ -100,7 +100,7 @@ export const CANDIDATE_ORIGIN18: Iorigin = {
 };
 export const CANDIDATE_ORIGIN19: Iorigin = {
     id: '新浪资源',
-    api: 'https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlyun/at/xml/',
+    api: 'https://api.xinlangapi.com/xinlangapi.php/provide/vod/from/xlyun/at/xml',
     addTime: Date.now() + 20
 };
 export const CANDIDATE_ORIGIN20: Iorigin = {
@@ -169,34 +169,44 @@ export const CANDIDATE_ORIGIN32: Iorigin = {
     addTime: Date.now() + 33
 };
 export const CANDIDATE_ORIGIN33: Iorigin = {
-    id: '八戒资源',
-    api: 'http://cj.bajiecaiji.com/inc/api.php',
+    id: '可乐电影',
+    api: 'https://www.keledyw.com/api.php/provide/vod/at/xml',
     addTime: Date.now() + 34
 };
 export const CANDIDATE_ORIGIN34: Iorigin = {
-    id: '可乐电影',
-    api: 'https://www.keledyw.com/api.php/provide/vod/at/xml',
+    id: '09蓝光影视',
+    api: 'https://09tv.top/api.php/provide/vod/at/xml',
     addTime: Date.now() + 35
 };
 export const CANDIDATE_ORIGIN35: Iorigin = {
-    id: '09蓝光影视',
-    api: 'https://09tv.top/api.php/provide/vod/at/xml',
+    id: '飘花资源',
+    api: 'http://www.zzrhgg.com/api.php/provide/vod/at/xml',
     addTime: Date.now() + 36
 };
 export const CANDIDATE_ORIGIN36: Iorigin = {
-    id: '飘花资源',
-    api: 'http://www.zzrhgg.com/api.php/provide/vod/at/xml',
+    id: '阿里影视',
+    api: 'http://www.feishi.ltd/api.php/provide/vod/at/xml',
+    addTime: Date.now() + 37
+};
+export const CANDIDATE_ORIGIN37: Iorigin = {
+    id: 'CK资源',
+    api: 'http://www.feifei67.com/api.php/provide/vod/at/xml',
     addTime: Date.now() + 38
 };
 export const CANDIDATE_ORIGIN38: Iorigin = {
-    id: '阿里影视',
-    api: 'http://www.feishi.ltd/api.php/provide/vod/at/xml',
+    id: '百度云资源',
+    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
     addTime: Date.now() + 39
 };
 export const CANDIDATE_ORIGIN39: Iorigin = {
-    id: 'CK资源',
-    api: 'http://www.feifei67.com/api.php/provide/vod/at/xml',
+    id: '百度云资源',
+    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
     addTime: Date.now() + 40
+};
+export const CANDIDATE_ORIGIN40: Iorigin = {
+    id: '百度云资源',
+    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
+    addTime: Date.now() + 41
 };
 export const CANDIDATE_ORIGIN41: Iorigin = {
     id: '百度云资源',
@@ -222,21 +232,6 @@ export const CANDIDATE_ORIGIN45: Iorigin = {
     id: '百度云资源',
     api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
     addTime: Date.now() + 46
-};
-export const CANDIDATE_ORIGIN46: Iorigin = {
-    id: '百度云资源',
-    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
-    addTime: Date.now() + 47
-};
-export const CANDIDATE_ORIGIN47: Iorigin = {
-    id: '百度云资源',
-    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
-    addTime: Date.now() + 48
-};
-export const CANDIDATE_ORIGIN48: Iorigin = {
-    id: '百度云资源',
-    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
-    addTime: Date.now() + 49
 };
 // from/kbm3u8
 export const DEFAULT_SEARCH_INDEX = 'https://github.com/yanjiaxuan/TOMATOX_RES/raw/main/result.json';

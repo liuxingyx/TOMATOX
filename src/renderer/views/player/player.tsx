@@ -102,30 +102,29 @@ export default class Player extends React.Component<any, any> {
             // id: 'tomatox',
             width: '100%',
             height: '100%',
-            videoInit: true,
-            autoplay: true,
-            screenShot: true,
-            keyShortcut: 'off',
-            crossOrigin: true,
-            cssFullscreen: true,
+            videoInit: true,//初始化显示视频首帧
+            autoplay: true,//自动播放
+            cssFullscreen: true,//网页样式全屏
+            keyShortcut: 'on',//键盘快捷键
             controls: true, //是否显示播放控件
+            playsinline: true,//内联模式
+            useHls: true,//移动端环境下打开hls.js解析功能
             volume: getPlayConfig().voice,
+            playbackRate: [0.5, 0.75, 1, 1.5, 2],
             defaultPlaybackRate: getPlayConfig().speed,
-            playbackRate: [0.5, 1, 1.25, 1.5, 2],
-            playPrev: true,
-            playNextOne: true,
-            videoStop: true,
-            showList: true,
-            showHistory: true,
-            quitMiniMode: true,
-            videoTitle: true,
-            airplay: true,
-            closeVideoTouch: true,
+            crossOrigin: true,//是否跨域
+            // playPrev: true,
+            // playNextOne: true,
+            // videoStop: true,
+            // showList: true,
+            // showHistory: true,
+            // quitMiniMode: true,
+            // videoTitle: true,
             ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
-            preloadTime: 300
+            preloadTime: 300//预加载时长(秒)
         });
         this.xgPlayer!.currentTime = this.controlState.historyOption?.lastPlayTime || 0;
-        // this.xgPlayer?.play();
+        this.xgPlayer?.play();
         this.xgPlayer?.on('ended', this.playNext);
         this.xgPlayer?.on('volumechange', this.updateVolumeConf);
         this.xgPlayer?.on('playbackrateChange', this.updateSpeedConf);

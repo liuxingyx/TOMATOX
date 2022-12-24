@@ -2,7 +2,7 @@ const configName = 'tomatox_play_config';
 const enabledOriginName = 'tomatox_enabled_origin';
 const tomatoxThemeName = 'tomatox_theme';
 let playConfig: IplayConfig = {
-    voice: 0.7,
+    voice: 1,
     speed: 1
 };
 let enabledOrigin: string | null = localStorage.getItem(enabledOriginName);
