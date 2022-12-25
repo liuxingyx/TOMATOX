@@ -8,7 +8,8 @@ const path = require('path');
 const fs = require("fs");
 
 //获取本地json文件文件的路径
-const newFile_path = path.join('res/zhibo.json').replace(/\\/g, "\/");
+const zhibo_path = path.join('res/zhibo.json').replace(/\\/g, "\/");
+const original_path = path.join('res/original.json').replace(/\\/g, "\/");
 
 const { Search } = Input;
 
@@ -22,13 +23,10 @@ export default class Iptv extends React.Component<any, any> {
         };
     }
     async componentWillMount() {
-        fs.exists(newFile_path, function (exists : any) {
-            console.log(exists ? "文件存在" : "文件不存在");
-        });
-
-        let result = JSON.parse(fs.readFileSync(newFile_path));
-        const res = ((result) as Array<{ sourceName: string; src: string }>) || [];
-        // const res = ((await queryIptvResource()) as Array<{ sourceName: string; src: string }>) || [];
+        // let result = JSON.parse(fs.readFileSync(zhibo_path));
+        // let result = JSON.parse(fs.readFileSync(original_path));
+        // const res = ((result) as Array<{ sourceName: string; src: string }>) || [];
+        const res = ((await queryIptvResource()) as Array<{ sourceName: string; src: string }>) || [];
         this.allResources.push(...res);
         this.setState({
             sources: this.allResources

@@ -163,9 +163,9 @@ export default class Player extends React.Component<any, any> {
                 )}`
             }
         };
-        console.log('api：', store.getState('SITE_ADDRESS').api.string);
-        newData.api = store.getState('SITE_ADDRESS').api.string;
-        console.log('api：', newData.api);
+        console.log('api：', store.getState('SITE_ADDRESS').api);
+        newData.api = store.getState('SITE_ADDRESS').api;
+        console.log('修改数据库api：', newData.api);
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
         
         shortcutManager.unregister(remote.getCurrentWindow(), Object.keys(this.mainEventHandler));

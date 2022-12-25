@@ -234,19 +234,11 @@ export const CANDIDATE_ORIGIN45: Iorigin = {
     addTime: Date.now() + 46
 };
 // from/kbm3u8
-export const DEFAULT_SEARCH_INDEX = 'https://github.com/yanjiaxuan/TOMATOX_RES/raw/main/result.json';
-// export const DEFAULT_SEARCH_INDEX = 'https://raw.githubusercontent.com/yanjiaxuan/TOMATOX_RES/main/result.json';
-export const defaultIndexMapper: Record<string, number> = {};
-fetch(DEFAULT_SEARCH_INDEX)
-    .then(res => res.json())
-    .then(res => {
-        for (const key in res) {
-            defaultIndexMapper[key] = res[key];
-        }
-    });
 
 // export const IPTV_ORIGIN_URL = 'https://github.com/yanjiaxuan/TOMATOX_RES/raw/main/iptv.json';
-export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/yanjiaxuan/TOMATOX_RES/main/iptv.json';
+// export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/yanjiaxuan/TOMATOX_RES/main/iptv.json';
+// export const IPTV_ORIGIN_URL = 'https://github.com/liuxingyx/TOMATOX/blame/master/res/zhibo.json';
+export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/zhibo.json';
 export const PROD_STATEMENT =
     '版权声明：本人发布的所有资源或软件均来自网络，与本人没有任何关系，只能作为私下交流、学习、研究之用，版权归原作者及原软件公司所有。\n' +
     '                本人发布的所有资源或软件请在下载后24小时内自行删除。如果您喜欢这个资源或软件，请联系原作者或原软件公司购买正版。与本人无关！\n' +

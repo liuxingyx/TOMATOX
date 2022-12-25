@@ -3,7 +3,7 @@ import Req from '../index';
 import xmlParser from '@/utils/xmlParser';
 import { filterResource, filterResources } from '@/utils/filterResources';
 import { message, Result } from 'antd';
-import { defaultIndexMapper , TABLES } from '@/utils/constants';
+import { TABLES } from '@/utils/constants';
 import Indexed from '@/utils/db/indexed';
 
 // ac：模式（videolist或detail详细模式），为空＝列表标准模式
