@@ -24,6 +24,7 @@ export function queryResources(
             method: 'get',
             url: store.getState('SITE_ADDRESS').api,
             params: {
+                at: 'xml',
                 ac: 'videolist',
                 pg: curPage,
                 t: type,
@@ -68,6 +69,7 @@ export function searchResources(curPage: number, keyWord: string) {
             method: 'get',
             url: store.getState('SITE_ADDRESS').api,
             params: {
+                at: 'xml',
                 ac: 'videolist',
                 pg: curPage,
                 wd: keyWord
@@ -109,6 +111,7 @@ export function queryDetail(ele: IplayResource) {
             method: 'get',
             url: ele.api?ele.api:store.getState('SITE_ADDRESS').api,
             params: {
+                at: 'xml',
                 ac: 'detail',
                 ids: ele.id
             }
@@ -121,8 +124,7 @@ export function queryDetail(ele: IplayResource) {
                 const parseJson = xmlParser((xmlData as unknown) as string);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
                 const result: IplayResource = filterResource(jsonData.list.video);
-                console.log('remark:' , ele.name + ',' +  ele.remark + ',' + result.remark);
-                console.log('数据库:' , ele.api);
+                console.log('name:' , ele.name, 'api:' , ele.api?ele.api:store.getState('SITE_ADDRESS').api);
                 if (ele.playList == null) {
                     ele.remark = result.remark;
                     ele.playList = result.playList;

@@ -69,12 +69,13 @@ export default class History extends React.Component<any, any> {
 
     renderD(dData: Map<string, IplayResource[]>, ym: string) {
         const res: ReactElement[] = [];
+        
         dData.forEach((value, key) => {
             res.push(
                 <div key={key}>
                     <div className={[cssM.yearMonthStyle, 'theme-color'].join(' ')}>{ym}</div>
                     <div className={[cssM.dayStyle, 'theme-color'].join(' ')}>{key}</div>
-                    <TomatoxWaterfall data={value} />
+                    <TomatoxWaterfall data={value}/>
                 </div>
             );
         });
@@ -84,7 +85,7 @@ export default class History extends React.Component<any, any> {
     renderYM(ymData: Map<string, Map<string, IplayResource[]>>) {
         const res: ReactElement[] = [];
         ymData.forEach((value, key) => {
-            res.unshift(<div key={key}>{this.renderD(value, key)}</div>);
+            res.push(<div key={key}>{this.renderD(value, key)}</div>);
         });
         return res;
     }

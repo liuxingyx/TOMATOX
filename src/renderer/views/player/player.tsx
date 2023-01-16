@@ -52,7 +52,7 @@ export default class Player extends React.Component<any, any> {
         super(props);
         this.controlState = Control.state;
         queryDetail(this.controlState);
-        console.log('播放列表：', this.controlState);
+        console.log('play页面路径：', store.getState('CURRENT_PATH'));
         if (this.controlState) {
             this.sourceList.set('播放列表', this.controlState.playList);
             this.state = {
@@ -149,8 +149,7 @@ export default class Player extends React.Component<any, any> {
         return hours === 0 ? ms : `${hours < 10 ? '0' : ''}${hours}:${ms}`;
     }
 
-    async componentWillUnmount() {
-        console.log('play页面路径：', store.getState('CURRENT_PATH'));
+    async componentWillMount() {
         const newData: IplayResource = {
             ...this.controlState,
             historyOption: {
@@ -163,11 +162,14 @@ export default class Player extends React.Component<any, any> {
                 )}`
             }
         };
-        console.log('api：', store.getState('SITE_ADDRESS').api);
-        newData.api = store.getState('SITE_ADDRESS').api;
-        console.log('修改数据库api：', newData.api);
+        console.log(newData);
+        if (newData.api == '') {
+            newData.api = store.getState('SITE_ADDRESS').api;
+        } 
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
-        
+    }
+
+    async componentWillUnmount() {
         shortcutManager.unregister(remote.getCurrentWindow(), Object.keys(this.mainEventHandler));
         this.xgPlayer!.src = '';
         this.xgPlayer?.off('ended', this.playNext);

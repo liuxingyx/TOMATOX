@@ -8,6 +8,13 @@ import { queryResources , queryDetail } from '@/utils/request/modules/queryResou
 import cssM from './recommend.scss';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
+import { querySourceResource } from '@/utils/request/modules/querySource';
+
+const path = require('path');
+const fs = require("fs");
+
+//获取本地json文件文件的路径
+const source_path = path.join('res/source.json').replace(/\\/g, "\/");
 
 export default class Recommend extends React.Component<any, any> {
     private page = 0;
@@ -23,10 +30,11 @@ export default class Recommend extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        console.log('ecommend 页面路径：', store.getState('CURRENT_PATH'));
+        console.log('recommend 页面路径：', store.getState('CURRENT_PATH'));
 
         store.setState('GLOBAL_LOADING', true);
         this.initResource();
+        this.updateHistorySource();
         store.subscribe('SITE_ADDRESS', () => {
             this.page = 0;
             this.pageCount = 10;
@@ -40,14 +48,26 @@ export default class Recommend extends React.Component<any, any> {
         });
     }
 
-    async initResource() {
-        this.getRecommendLst();
-
-        const res = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
-        const resources = res as IplayResource[];
-        for (const ele of resources) {
+    async updateHistorySource() {
+        const resHistory = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
+        const resourcesHistory = resHistory as IplayResource[];
+        for (const ele of resourcesHistory) {
             queryDetail(ele);
         }
+
+        // let result = JSON.parse(fs.readFileSync(source_path));
+        // const resSource = ((result) as Array<Iorigin>) || [];
+        const resSource = ((await querySourceResource()) as Array<Iorigin>) || [];
+        const resourcesSource = resSource as Iorigin[];
+        console.log('初始化资源：', resourcesSource.length);
+        for (const value of resourcesSource) {
+            value.addTime = Date.now();
+            Indexed.instance?.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, value);
+        }
+    }
+
+    async initResource() {
+        this.getRecommendLst();
     }
 
     getRecommendLst() {
