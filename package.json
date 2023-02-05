@@ -57,7 +57,7 @@
   },
   "build": {
     "productName": "TOMATOX",
-    "copyright": "Copyright @ 2022 liuxingyx",
+    "copyright": "Copyright @ 2023 liuxingyx",
     "appId": "github.yanjiaxuan.tomatox",
     "publish": [
       {

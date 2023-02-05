@@ -17,15 +17,15 @@
 
 ## Screenshot
 
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-1.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-2.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-3.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-4.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-5.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-6.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-7.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-8.png?raw=true)
-![image](https://github.com/liuxingyx/TOMATOX/blob/main/docs/product/TOMATOX-9.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-1.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-2.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-3.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-4.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-5.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-6.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-7.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-8.png?raw=true)
+![image](https://github.com/liuxingyx/TOMATOX/raw/master/docs/product/TOMATOX-9.png?raw=true)
 
 ## Install
 Clone the repository with Git:
@@ -110,4 +110,4 @@ Also remove all mentions of Prettier from the `extends` section in `.eslintrc.js
     任何涉及商业盈利性目的的单位或个人，均不得使用本人发布的资源或软件，否则产生的一切后果将由使用者自己承担！
 
 ## License
-MIT © [yanjiaxuan](https://github.com/yanjiaxuan)
+MIT © [yanjiaxuan](https://github.com/yanjiaxuan/TOMATOX)

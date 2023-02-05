@@ -6,7 +6,15 @@ import cssM from './history.scss';
 import store from '@/utils/store';
 
 function compareYMStr(a: string, b: string): number {
-    return +a.replace('年', '').replace('月', '') - +b.replace('年', '').replace('月', '');
+    var fisrt = a.replace('年', '').replace('月', '');
+    var last = b.replace('年', '').replace('月', '');
+    if (fisrt.length != 6) {
+        fisrt = fisrt.slice(0,4) + '0' + fisrt.slice(4);
+    }
+    if (last.length != 6) {
+        last = last.slice(0,4) + '0' + last.slice(4);
+    }
+    return +fisrt - +last;
 }
 
 function compareDStr(a: string, b: string): number {
@@ -69,7 +77,6 @@ export default class History extends React.Component<any, any> {
 
     renderD(dData: Map<string, IplayResource[]>, ym: string) {
         const res: ReactElement[] = [];
-        
         dData.forEach((value, key) => {
             res.push(
                 <div key={key}>
@@ -85,7 +92,7 @@ export default class History extends React.Component<any, any> {
     renderYM(ymData: Map<string, Map<string, IplayResource[]>>) {
         const res: ReactElement[] = [];
         ymData.forEach((value, key) => {
-            res.push(<div key={key}>{this.renderD(value, key)}</div>);
+            res.unshift(<div key={key}>{this.renderD(value, key)}</div>);
         });
         return res;
     }

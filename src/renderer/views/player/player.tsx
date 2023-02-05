@@ -149,7 +149,7 @@ export default class Player extends React.Component<any, any> {
         return hours === 0 ? ms : `${hours < 10 ? '0' : ''}${hours}:${ms}`;
     }
 
-    async componentWillMount() {
+    initData() {
         const newData: IplayResource = {
             ...this.controlState,
             historyOption: {
@@ -169,7 +169,12 @@ export default class Player extends React.Component<any, any> {
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
     }
 
+    async componentWillMount() {
+        this.initData();
+    }
+
     async componentWillUnmount() {
+        this.initData();
         shortcutManager.unregister(remote.getCurrentWindow(), Object.keys(this.mainEventHandler));
         this.xgPlayer!.src = '';
         this.xgPlayer?.off('ended', this.playNext);
@@ -210,6 +215,8 @@ export default class Player extends React.Component<any, any> {
                             this.xgPlayer!.currentTime = 0;
                             this.xgPlayer!.src = playList.get(key)!;
                         }
+                        console.log(key,this.state.curPlayDrama);
+                        this.initData();
                     }}>
                     {key}
                 </span>
