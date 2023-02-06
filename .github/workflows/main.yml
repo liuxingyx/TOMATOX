@@ -24,7 +24,7 @@ jobs:
           node-version: 16
 
       - run: |
-          npm install
+          npm install --force
           npm run release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
