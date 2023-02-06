@@ -40,7 +40,7 @@ export default class Indexed {
                     this.instance = new Indexed();
                     // this.instance.removeThreeMonthAgoHistoryData();
                     
-                    // this.instance.deleteAll(TABLES.TABLE_ORIGIN);
+                    this.instance.deleteAll(TABLES.TABLE_ORIGIN);
                     this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, DEFAULT_ORIGIN);
                     setEnabledOrigin('默认');
 

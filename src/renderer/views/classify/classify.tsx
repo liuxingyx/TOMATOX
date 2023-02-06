@@ -141,7 +141,7 @@ export default class Classify extends React.Component<any, any> {
                         hasMore={this.state.recommendLoading}
                         loadMore={this.getRecommendLst.bind(this)}
                         useWindow={false}>
-                        <TomatoxWaterfall data={this.state.cardsData} />
+                        <TomatoxWaterfall data={this.state.cardsData} isDisplayDelete={false} />
                         {this.state.recommendLoading && (
                             <div style={{ height: 100, position: 'relative' }}>
                                 <Spin

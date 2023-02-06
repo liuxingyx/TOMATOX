@@ -55,6 +55,7 @@ export default class Recommend extends React.Component<any, any> {
             queryDetail(ele);
         }
 
+        Indexed.instance?.deleteAll(TABLES.TABLE_ORIGIN);
         // let result = JSON.parse(fs.readFileSync(source_path));
         // const resSource = ((result) as Array<Iorigin>) || [];
         const resSource = ((await querySourceResource()) as Array<Iorigin>) || [];
@@ -113,7 +114,7 @@ export default class Recommend extends React.Component<any, any> {
                     loadMore={this.getRecommendLst.bind(this)}
                     hasMore={this.page < this.pageCount}
                     useWindow={false}>
-                    <TomatoxWaterfall data={this.state.cardsData} />
+                    <TomatoxWaterfall data={this.state.cardsData} isDisplayDelete={false} />
                     <div style={{ height: 100, position: 'relative' }}>
                         <Spin
                             size={'large'}

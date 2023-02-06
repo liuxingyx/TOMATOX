@@ -23,7 +23,7 @@ export default class Collect extends React.Component<any, any> {
     render() {
         return (
             <div className={cssM.scrollWrapper}>
-                <TomatoxWaterfall data={this.state.resources} />
+                <TomatoxWaterfall data={this.state.resources} isDisplayDelete={false} />
             </div>
         );
     }

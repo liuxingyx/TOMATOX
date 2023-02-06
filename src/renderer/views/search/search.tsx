@@ -101,7 +101,7 @@ export default class Search extends React.Component<any, any> {
                         loadMore={this.searchWrapper.bind(this)}
                         hasMore
                         useWindow={false}>
-                        <TomatoxWaterfall data={this.state.cardsData} />
+                        <TomatoxWaterfall data={this.state.cardsData} isDisplayDelete={false} />
                         {this.state.recommendLoading && (
                             <div style={{ height: 100, position: 'relative' }}>
                                 <Spin

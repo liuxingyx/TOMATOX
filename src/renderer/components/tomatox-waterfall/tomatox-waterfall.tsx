@@ -6,7 +6,7 @@ import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import cssM from './tomatox-waterfall.scss';
 
-export default function tomatoxWaterfall(props: { data: IplayResource[] }) {
+export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDisplayDelete : boolean}) {
     const [collectRes, setCollectRes] = useState(Indexed.collectedRes);
     const cardsData = props.data;
     function convertEle() {
@@ -19,17 +19,21 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] }) {
                             <div>
                                 <img src={ele.picture} className={cssM.descImg} />
                                 <span className={cssM.topRightTitle}>{ele.remark}</span>
-                                <div>
-                                    <DeleteFilled 
-                                        className={cssM.resourceDelete}
-                                        onClick={e => {
-                                            Indexed.instance?.deleteById(TABLES.TABLE_HISTORY,ele.id);
-                                            e.stopPropagation();
-                                            e.preventDefault();
-                                            history.back();
-                                        }}
-                                    ></DeleteFilled>
-                                </div>
+                                {
+                                    props.isDisplayDelete ? 
+                                    (<div>
+                                        <DeleteFilled 
+                                            className={cssM.resourceDelete}
+                                            onClick={e => {
+                                                Indexed.instance?.deleteById(TABLES.TABLE_HISTORY,ele.id);
+                                                e.stopPropagation();
+                                                e.preventDefault();
+                                                history.back();
+                                            }}
+                                        ></DeleteFilled>
+                                    </div>)
+                                    : (<div> </div>)
+                                }
                                 <div>
                                     {collectRes.has(ele.id) ? (
                                         <HeartFilled

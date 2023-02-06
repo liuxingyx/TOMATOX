@@ -82,7 +82,7 @@ export default class History extends React.Component<any, any> {
                 <div key={key}>
                     <div className={[cssM.yearMonthStyle, 'theme-color'].join(' ')}>{ym}</div>
                     <div className={[cssM.dayStyle, 'theme-color'].join(' ')}>{key}</div>
-                    <TomatoxWaterfall data={value}/>
+                    <TomatoxWaterfall data={value} isDisplayDelete={true}/>
                 </div>
             );
         });

@@ -1,6 +1,6 @@
 {
   "name": "tomatox",
-  "version": "2.0.3",
+  "version": "1.0.0",
   "description": "A free fast beautiful online video player with electron.",
   "main": "./dist/main.js",
   "scripts": {
@@ -58,11 +58,11 @@
   "build": {
     "productName": "TOMATOX",
     "copyright": "Copyright @ 2023 liuxingyx",
-    "appId": "github.yanjiaxuan.tomatox",
+    "appId": "github.liuxingyx.tomatox",
     "publish": [
       {
         "provider": "github",
-        "owner": "yanjiaxuan",
+        "owner": "liuxingyx",
         "repo": "TOMATOX"
       }
     ],

@@ -10,7 +10,6 @@ export const CANDIDATE_ORIGIN: Iorigin = {
 };
 // from/kbm3u8
 
-// export const IPTV_ORIGIN_URL = 'https://github.com/yanjiaxuan/TOMATOX_RES/raw/main/iptv.json';
 // export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/yanjiaxuan/TOMATOX_RES/main/iptv.json';
 export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/zhibo.json';
 export const SOURCE_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/source.json';
