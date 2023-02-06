@@ -1,9 +1,16 @@
 import Req from '@/utils/request';
-import { IPTV_SOURCE_URL } from '@/utils/constants';
+import { SOURCE_URL,SOURCE18_URL } from '@/utils/constants';
 
 export function querySourceResource(): any {
     return Req({
         method: 'get',
-        url: IPTV_SOURCE_URL
+        url: SOURCE_URL
+    });
+}
+
+export function querySource18Resource(): any {
+    return Req({
+        method: 'get',
+        url: SOURCE18_URL
     });
 }

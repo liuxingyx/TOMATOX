@@ -12,10 +12,9 @@ export const CANDIDATE_ORIGIN: Iorigin = {
 
 // export const IPTV_ORIGIN_URL = 'https://github.com/yanjiaxuan/TOMATOX_RES/raw/main/iptv.json';
 // export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/yanjiaxuan/TOMATOX_RES/main/iptv.json';
-// export const IPTV_ORIGIN_URL = 'https://github.com/liuxingyx/TOMATOX/blame/master/res/zhibo.json';
 export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/zhibo.json';
-// export const IPTV_SOURCE_URL = 'https://github.com/liuxingyx/TOMATOX/blame/master/res/source.json';
-export const IPTV_SOURCE_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/source.json';
+export const SOURCE_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/source.json';
+export const SOURCE18_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/18.json';
 export const PROD_STATEMENT =
     '版权声明：本人发布的所有资源或软件均来自网络，与本人没有任何关系，只能作为私下交流、学习、研究之用，版权归原作者及原软件公司所有。\n' +
     '                本人发布的所有资源或软件请在下载后24小时内自行删除。如果您喜欢这个资源或软件，请联系原作者或原软件公司购买正版。与本人无关！\n' +
