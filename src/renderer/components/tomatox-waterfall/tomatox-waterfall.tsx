@@ -5,13 +5,40 @@ import { HeartOutlined, HeartFilled, DeleteFilled } from '@ant-design/icons';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import cssM from './tomatox-waterfall.scss';
+import { Route } from 'react-keeper';
+import History from '@/views/history/history';
 
 export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDisplayDelete : boolean}) {
     const [collectRes, setCollectRes] = useState(Indexed.collectedRes);
-    const cardsData = props.data;
-    function convertEle() {
+    const [historyRes, setHistoryRes] = useState(props.data);
+    let cardsData = props.data;
+    const removeHistory = (id : string) => {
+        if (props.isDisplayDelete) {
+            setHistoryRes(current =>
+                current.filter(history => {
+                    return history.id !== id;
+                }),
+            );
+        }
+    };
+    const updateHistory = async (ele:IplayResource) => {
+        const history = await Indexed.instance!.queryById(TABLES.TABLE_HISTORY, ele.id) as IplayResource;
+        console.log('waterfall',ele.historyOption?.lastPlayDrama,history.historyOption?.lastPlayDrama);
+        if (ele.historyOption?.lastPlayDrama !== history.historyOption?.lastPlayDrama) {
+            ele.historyOption = history.historyOption;
+            removeHistory("-1");
+        }
+    };
+    if (historyRes.length) {
+        cardsData = historyRes;
+    }
+    const convertEle = () => {
         const res = [];
-        for (const ele of cardsData) {
+        for (let index = 0; index < cardsData.length; index++) {
+            let ele = cardsData[index];
+            if (props.isDisplayDelete) {
+                updateHistory(ele);
+            }
             res.push(
                 <span key={ele.id}>
                     <Link to={`/play`} state={ele}>
@@ -26,9 +53,9 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDispl
                                             className={cssM.resourceDelete}
                                             onClick={e => {
                                                 Indexed.instance?.deleteById(TABLES.TABLE_HISTORY,ele.id);
+                                                removeHistory(ele.id);
                                                 e.stopPropagation();
                                                 e.preventDefault();
-                                                history.back();
                                             }}
                                         ></DeleteFilled>
                                     </div>)

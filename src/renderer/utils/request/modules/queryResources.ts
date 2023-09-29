@@ -15,9 +15,7 @@ import Indexed from '@/utils/db/indexed';
 // at：输出格式，可选xml
 export function queryResources(
     curPage: number,
-    type?: number,
-    keyWord?: string,
-    lastUpdate?: number
+    type?: number
 ): any {
     return new Promise(resolve => {
         Req({
@@ -28,8 +26,7 @@ export function queryResources(
                 ac: 'videolist',
                 pg: curPage,
                 t: type,
-                wd: keyWord,
-                h: lastUpdate
+                h: 24 * 30
             }
         }).then(xmlData => {
             if (!xmlData) {
@@ -63,7 +60,10 @@ export function queryResources(
     });
 }
 
-export function searchResources(curPage: number, keyWord: string) {
+export function searchResources(
+    curPage: number, 
+    keyWord: string
+):any {
     return new Promise(resolve => {
         Req({
             method: 'get',
@@ -72,7 +72,9 @@ export function searchResources(curPage: number, keyWord: string) {
                 at: 'xml',
                 ac: 'videolist',
                 pg: curPage,
-                wd: keyWord
+                wd: keyWord,
+                wdss: keyWord,
+                h: 24 * 30
             }
         }).then(xmlData => {
             if (!xmlData) {
@@ -130,6 +132,7 @@ export function queryDetail(ele: IplayResource) {
                     ele.playList = result.playList;
                     Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
                 }
+                console.log('查询详情');
                 if (ele.remark != result.remark) {
                     console.log('数据库修改前结果：', ele);
                     ele.remark = result.remark;

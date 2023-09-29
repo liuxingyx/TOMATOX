@@ -4,6 +4,7 @@ import { TABLES } from '@/utils/constants';
 import TomatoxWaterfall from '@/components/tomatox-waterfall/tomatox-waterfall';
 import cssM from './history.scss';
 import store from '@/utils/store';
+import { queryDetail } from '@/utils/request/modules/queryResources';
 
 function compareYMStr(a: string, b: string): number {
     var fisrt = a.replace('年', '').replace('月', '');
@@ -30,9 +31,9 @@ export default class History extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        console.log('history页面路径：', store.getState('CURRENT_PATH'));
-        const res = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
-        const resources = res as IplayResource[];
+        this.updateHistorySource();
+        const resources = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY) as IplayResource[];
+        console.log('count:' , resources.length);
         const resMap = new Map<string, Map<string, IplayResource[]>>();
         // step1: convert list to map
         resources.forEach(resource => {
@@ -75,6 +76,16 @@ export default class History extends React.Component<any, any> {
         });
     }
 
+    
+
+    async updateHistorySource() {
+        const resourcesHistory = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY) as IplayResource[];
+        for (const ele of resourcesHistory) {
+            queryDetail(ele);
+        }
+    }
+
+    
     renderD(dData: Map<string, IplayResource[]>, ym: string) {
         const res: ReactElement[] = [];
         dData.forEach((value, key) => {

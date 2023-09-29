@@ -13,7 +13,7 @@ if (!tomatoxTheme) {
 }
 
 if (!enabledOrigin) {
-    enabledOrigin = '默认';
+    enabledOrigin = '闪电资源';
     setEnabledOrigin(enabledOrigin);
 }
 

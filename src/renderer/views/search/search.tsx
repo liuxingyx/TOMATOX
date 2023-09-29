@@ -74,12 +74,7 @@ export default class Search extends React.Component<any, any> {
             store.setState('GLOBAL_LOADING', false);
             return;
         }
-        let res;
-        if (getEnabledOrigin() === '默认') {
-            res = await searchResources(++this.page, keyword);
-        } else {
-            res = await queryResources(++this.page, undefined, keyword);
-        }
+        let res = await searchResources(++this.page, keyword);
         if (!res) {
             this.pageCount = 0;
             return;

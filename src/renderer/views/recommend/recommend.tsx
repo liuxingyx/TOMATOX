@@ -14,7 +14,7 @@ const path = require('path');
 const fs = require("fs");
 
 //获取本地json文件文件的路径
-const source_path = path.join('res/source.json').replace(/\\/g, "\/");
+const source_path = path.join('res/tomatoxsource.json').replace(/\\/g, "\/");
 
 export default class Recommend extends React.Component<any, any> {
     private page = 0;
@@ -30,8 +30,6 @@ export default class Recommend extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        console.log('recommend 页面路径：', store.getState('CURRENT_PATH'));
-
         store.setState('GLOBAL_LOADING', true);
         this.initResource();
         this.updateHistorySource();
@@ -49,20 +47,22 @@ export default class Recommend extends React.Component<any, any> {
     }
 
     async updateHistorySource() {
-        const resHistory = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY);
-        const resourcesHistory = resHistory as IplayResource[];
+        const resourcesHistory = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY) as IplayResource[];
         for (const ele of resourcesHistory) {
             queryDetail(ele);
         }
-
-        Indexed.instance?.deleteAll(TABLES.TABLE_ORIGIN);
-        // let result = JSON.parse(fs.readFileSync(source_path));
-        // const resSource = ((result) as Array<Iorigin>) || [];
-        const resSource = ((await querySourceResource()) as Array<Iorigin>) || [];
-        const resourcesSource = resSource as Iorigin[];
-        console.log('初始化资源：', resourcesSource.length);
-        for (const value of resourcesSource) {
-            value.addTime = Date.now();
+        // Indexed.instance?.deleteAll(TABLES.TABLE_ORIGIN);
+        let resSource;
+        if (process.env.NODE_ENV == 'development') {
+            let result = JSON.parse(fs.readFileSync(source_path));
+            resSource = ((result) as Array<Iorigin>) || [];
+        } else {
+            resSource = ((await querySourceResource()) as Array<Iorigin>) || [];
+        } 
+        console.log('初始化资源：', resSource.length);
+        var id = 0;
+        for (const value of resSource) {
+            value.addTime = Date.now() + id++;
             Indexed.instance?.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, value);
         }
     }
@@ -76,7 +76,7 @@ export default class Recommend extends React.Component<any, any> {
             return;
         }
         Promise.all([
-            queryResources(++this.page, this.type, undefined, 24 * 30)
+            queryResources(++this.page, this.type)
         ]).then(
             resLst => {
                 const collectRes: IplayResource[] = [];

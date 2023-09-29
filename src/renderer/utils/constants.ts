@@ -1,18 +1,12 @@
 export const DEFAULT_ORIGIN: Iorigin = {
-    id: '默认',
-    api: 'https://www.kuaibozy.com/api.php/provide/vod/at/xml/from/kbm3u8',
+    id: '闪电资源',
+    api: 'https://sdzyapi.com/api.php/provide/vod/at/xml',
     addTime: Date.now()
 };
-export const CANDIDATE_ORIGIN: Iorigin = {
-    id: '百度云资源',
-    api: 'https://api.apibdzy.com/api.php/provide/vod/at/xml',
-    addTime: Date.now() + 1
-};
-// from/kbm3u8
 
 // export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/yanjiaxuan/TOMATOX_RES/main/iptv.json';
 export const IPTV_ORIGIN_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/zhibo.json';
-export const SOURCE_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/source.json';
+export const SOURCE_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/tomatoxsource.json';
 export const SOURCE18_URL = 'https://raw.githubusercontent.com/liuxingyx/TOMATOX/master/res/18.json';
 export const PROD_STATEMENT =
     '版权声明：本人发布的所有资源或软件均来自网络，与本人没有任何关系，只能作为私下交流、学习、研究之用，版权归原作者及原软件公司所有。\n' +

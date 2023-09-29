@@ -86,7 +86,7 @@ export default class Setting extends React.Component<any, any> {
                                 <Col span={16} className={cssM.originItem}>
                                     地址：{item.api}
                                 </Col>
-                                {item.id !== '默认' && this.state.enableOrigin !== item.id && (
+                                {this.state.enableOrigin !== item.id && (
                                     <Col span={2}>
                                         <span
                                             className={cssM.originBtn}

@@ -27,24 +27,20 @@ export default class Indexed {
                     if (!db.objectStoreNames.contains(TABLES.TABLE_ORIGIN)) {
                         const table = db.createObjectStore(TABLES.TABLE_ORIGIN, { keyPath: 'id' });
                         table.put(DEFAULT_ORIGIN);
-                        setEnabledOrigin('默认');
                     } else {
                         db.deleteObjectStore(TABLES.TABLE_ORIGIN);
                         const table = db.createObjectStore(TABLES.TABLE_ORIGIN, { keyPath: 'id' });
                         table.put(DEFAULT_ORIGIN);
-                        setEnabledOrigin('默认');
+                        setEnabledOrigin('闪电资源');
                     }
                 };
                 dbReq.onsuccess = () => {
                     this.db = dbReq.result;
                     this.instance = new Indexed();
-                    // this.instance.removeThreeMonthAgoHistoryData();
-                    
-                    this.instance.deleteAll(TABLES.TABLE_ORIGIN);
-                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, DEFAULT_ORIGIN);
-                    setEnabledOrigin('默认');
-
+                    // this.instance.deleteAll(TABLES.TABLE_ORIGIN);
                     this.instance.loadCollectedRes();
+                    this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, DEFAULT_ORIGIN);
+                    setEnabledOrigin('闪电资源');
                     resolve(this.instance!);
                 };
             } else {
@@ -144,18 +140,6 @@ export default class Indexed {
     }
     public cancelCollect(id: string) {
         this.deleteById(TABLES.TABLE_COLLECT, id);
-    }
-
-    private removeThreeMonthAgoHistoryData() {
-        const req = Indexed.db!.transaction(TABLES.TABLE_HISTORY, 'readwrite')
-            .objectStore(TABLES.TABLE_HISTORY)
-            .index('lastPlayDate')
-            .getAllKeys(IDBKeyRange.upperBound(Date.now() - 90 * 24 * 3600000));
-        req.onsuccess = res => {
-            req.result.forEach(key => {
-                this.deleteById(TABLES.TABLE_HISTORY, key);
-            });
-        };
     }
 
     private loadCollectedRes() {

@@ -16,8 +16,8 @@ import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import cssM from './palyer.scss';
 import { getPlayConfig, setPlayConfig } from '@/utils/db/storage';
-import { queryDetail } from '@/utils/request/modules/queryResources';
 import store from '@/utils/store';
+import History from '../history/history';
 
 const HlsPlayer = require('xgplayer-hls.js');
 const { ipcRenderer, remote } = require('electron');
@@ -36,12 +36,12 @@ export default class Player extends React.Component<any, any> {
         },
         Right: () => {
             this.xgPlayer!.currentTime = Math.min(
-                this.xgPlayer!.currentTime + 10,
+                this.xgPlayer!.currentTime + 5,
                 this.xgPlayer!.duration
             );
         },
         Left: () => {
-            this.xgPlayer!.currentTime = Math.max(this.xgPlayer!.currentTime - 10, 0);
+            this.xgPlayer!.currentTime = Math.max(this.xgPlayer!.currentTime - 5, 0);
         },
         Space: () => {
             this.xgPlayer!.paused ? this.xgPlayer!.play() : this.xgPlayer!.pause();
@@ -51,8 +51,6 @@ export default class Player extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.controlState = Control.state;
-        queryDetail(this.controlState);
-        console.log('play页面路径：', store.getState('CURRENT_PATH'));
         if (this.controlState) {
             this.sourceList.set('播放列表', this.controlState.playList);
             this.state = {
@@ -78,6 +76,8 @@ export default class Player extends React.Component<any, any> {
                 curPlaySrc: src
             });
             this.xgPlayer!.src = src;
+            this.xgPlayer!.currentTime = 0;
+            this.initData();
         }
     };
 
@@ -113,15 +113,15 @@ export default class Player extends React.Component<any, any> {
             playbackRate: [0.5, 0.75, 1, 1.5, 2],
             defaultPlaybackRate: getPlayConfig().speed,
             crossOrigin: true,//是否跨域
-            // playPrev: true,
-            // playNextOne: true,
-            // videoStop: true,
-            // showList: true,
-            // showHistory: true,
-            // quitMiniMode: true,
-            // videoTitle: true,
+            playPrev: true,
+            playNextOne: true,
+            videoStop: true,
+            showList: true,
+            showHistory: true,
+            quitMiniMode: true,
+            videoTitle: true,
             ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
-            preloadTime: 300//预加载时长(秒)
+            preloadTime: 600//预加载时长(秒)
         });
         this.xgPlayer!.currentTime = this.controlState.historyOption?.lastPlayTime || 0;
         this.xgPlayer?.play();
@@ -162,7 +162,6 @@ export default class Player extends React.Component<any, any> {
                 )}`
             }
         };
-        console.log(newData);
         if (newData.api == '') {
             newData.api = store.getState('SITE_ADDRESS').api;
         } 
@@ -215,8 +214,6 @@ export default class Player extends React.Component<any, any> {
                             this.xgPlayer!.currentTime = 0;
                             this.xgPlayer!.src = playList.get(key)!;
                         }
-                        console.log(key,this.state.curPlayDrama);
-                        this.initData();
                     }}>
                     {key}
                 </span>
