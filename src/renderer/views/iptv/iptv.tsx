@@ -7,7 +7,6 @@ import { SearchOutlined } from '@ant-design/icons';
 
 const path = require('path');
 const fs = require("fs");
-
 //获取本地json文件文件的路径
 const zhibo_path = path.join('res/zhibo.json').replace(/\\/g, "\/");
 const original_path = path.join('res/original.json').replace(/\\/g, "\/");

@@ -37,7 +37,7 @@ export default class Indexed {
                 dbReq.onsuccess = () => {
                     this.db = dbReq.result;
                     this.instance = new Indexed();
-                    // this.instance.deleteAll(TABLES.TABLE_ORIGIN);
+                    this.instance.deleteAll(TABLES.TABLE_ORIGIN);
                     this.instance.loadCollectedRes();
                     this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, DEFAULT_ORIGIN);
                     setEnabledOrigin('闪电资源');

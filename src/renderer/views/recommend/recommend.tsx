@@ -12,7 +12,6 @@ import { querySourceResource } from '@/utils/request/modules/querySource';
 
 const path = require('path');
 const fs = require("fs");
-
 //获取本地json文件文件的路径
 const source_path = path.join('res/tomatoxsource.json').replace(/\\/g, "\/");
 
@@ -52,19 +51,19 @@ export default class Recommend extends React.Component<any, any> {
             queryDetail(ele);
         }
         // Indexed.instance?.deleteAll(TABLES.TABLE_ORIGIN);
-        let resSource;
-        if (process.env.NODE_ENV == 'development') {
-            let result = JSON.parse(fs.readFileSync(source_path));
-            resSource = ((result) as Array<Iorigin>) || [];
-        } else {
-            resSource = ((await querySourceResource()) as Array<Iorigin>) || [];
-        } 
-        console.log('初始化资源：', resSource.length);
-        var id = 0;
-        for (const value of resSource) {
-            value.addTime = Date.now() + id++;
-            Indexed.instance?.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, value);
-        }
+        querySourceResource();
+        // let resSource;
+        // resSource = ((await querySourceResource()) as Array<Iorigin>) || [];
+        // if (process.env.NODE_ENV == 'development') {
+        //     let result = JSON.parse(fs.readFileSync(source_path));
+        //     resSource = ((result) as Array<Iorigin>) || [];
+        // } 
+        // console.log('初始化资源：', resSource.length);
+        // var id = 0;
+        // for (const value of resSource) {
+        //     value.addTime = Date.now() + id++;
+        //     Indexed.instance?.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, value);
+        // }
     }
 
     async initResource() {

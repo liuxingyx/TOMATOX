@@ -23,7 +23,6 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDispl
     };
     const updateHistory = async (ele:IplayResource) => {
         const history = await Indexed.instance!.queryById(TABLES.TABLE_HISTORY, ele.id) as IplayResource;
-        console.log('waterfall',ele.historyOption?.lastPlayDrama,history.historyOption?.lastPlayDrama);
         if (ele.historyOption?.lastPlayDrama !== history.historyOption?.lastPlayDrama) {
             ele.historyOption = history.historyOption;
             removeHistory("-1");
