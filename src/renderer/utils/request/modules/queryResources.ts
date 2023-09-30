@@ -25,8 +25,7 @@ export function queryResources(
                 at: 'xml',
                 ac: 'videolist',
                 pg: curPage,
-                t: type,
-                h: 24 * 30
+                t: type
             }
         }).then(xmlData => {
             if (!xmlData) {

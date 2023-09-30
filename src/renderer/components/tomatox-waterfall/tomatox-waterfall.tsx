@@ -23,12 +23,12 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDispl
     };
     const updateHistory = async (ele:IplayResource) => {
         const history = await Indexed.instance!.queryById(TABLES.TABLE_HISTORY, ele.id) as IplayResource;
-        if (ele.historyOption?.lastPlayDrama !== history.historyOption?.lastPlayDrama) {
+        if (ele.historyOption?.lastPlayDesc !== history.historyOption?.lastPlayDesc) {
             ele.historyOption = history.historyOption;
             removeHistory("-1");
         }
     };
-    if (historyRes.length) {
+    if (props.isDisplayDelete) {
         cardsData = historyRes;
     }
     const convertEle = () => {

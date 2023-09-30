@@ -1,6 +1,5 @@
 import Req from '@/utils/request';
 import { SOURCE_URL,SOURCE18_URL } from '@/utils/constants';
-import xmlParser from '@/utils/xmlParser';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 
