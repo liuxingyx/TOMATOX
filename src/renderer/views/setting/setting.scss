@@ -5,13 +5,14 @@
 }
 
 .setting-title {
-    display: block;
+    // display: block;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
 .setting-content {
+    margin-top: 10px;
     padding-left: 20px;
     margin-bottom: 15px;
     display: flex;
@@ -41,6 +42,15 @@
 .origin-btn {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
+    &:hover {
+        color: #ff5c49;
+    }
+}
+
+.source-btn {
+    margin-left: 20px;
+    cursor: pointer;
+    transition: all 0.2s linear;
     &:hover {
         color: #ff5c49;
     }

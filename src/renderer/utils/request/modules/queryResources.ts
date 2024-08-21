@@ -72,8 +72,8 @@ export function searchResources(
                 ac: 'videolist',
                 pg: curPage,
                 wd: keyWord,
-                wdss: keyWord,
-                h: 24 * 30
+                kw: keyWord,
+                wdss: keyWord
             }
         }).then(xmlData => {
             if (!xmlData) {
@@ -125,13 +125,11 @@ export function queryDetail(ele: IplayResource) {
                 const parseJson = xmlParser((xmlData as unknown) as string);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
                 const result: IplayResource = filterResource(jsonData.list.video);
-                // console.log('name:' , ele.name, 'api:' , ele.api?ele.api:store.getState('SITE_ADDRESS').api);
                 if (ele.playList == null) {
                     ele.remark = result.remark;
                     ele.playList = result.playList;
                     Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
                 }
-                console.log('查询详情');
                 if (ele.remark != result.remark) {
                     console.log('数据库修改前结果：', ele);
                     ele.remark = result.remark;

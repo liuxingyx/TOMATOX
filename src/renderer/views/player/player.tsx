@@ -106,7 +106,12 @@ export default class Player extends React.Component<any, any> {
             autoplay: true,//自动播放
             cssFullscreen: true,//网页样式全屏
             keyShortcut: 'on',//键盘快捷键
-            controls: true, //是否显示播放控件
+            // controls: true, //是否显示播放控件
+            controls: {
+                mode: 'normal'
+            },
+            isLive : false,//是否直播
+            closeVideoDblclick : true,//关闭video双击事件
             playsinline: true,//内联模式
             useHls: true,//移动端环境下打开hls.js解析功能
             volume: getPlayConfig().voice,
@@ -120,7 +125,7 @@ export default class Player extends React.Component<any, any> {
             showHistory: true,
             quitMiniMode: true,
             videoTitle: true,
-            ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
+            ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新， 暂时忽略错误
             preloadTime: 600//预加载时长(秒)
         });
         this.xgPlayer!.currentTime = this.controlState.historyOption?.lastPlayTime || 0;
@@ -162,9 +167,8 @@ export default class Player extends React.Component<any, any> {
                 )}`
             }
         };
-        if (newData.api == '') {
-            newData.api = store.getState('SITE_ADDRESS').api;
-        } 
+        console.log(newData);
+        newData.api = store.getState('SITE_ADDRESS').api;
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
     }
 

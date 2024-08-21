@@ -5,6 +5,13 @@ import { getEnabledOrigin, setEnabledOrigin } from '@/utils/db/storage';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import store from '@/utils/store';
+import { querySourceResource } from '@/utils/request/modules/querySource';
+import { dialog } from 'electron';
+
+const path = require('path');
+const fs = require("fs");
+//获取本地json文件文件的路径
+const source_path = path.join('tomatoxsource.json').replace(/\\/g, "\/");
 
 export default class Setting extends React.Component<any, any> {
     constructor(props: any) {
@@ -16,6 +23,7 @@ export default class Setting extends React.Component<any, any> {
     }
 
     componentWillMount(): void {
+        // querySourceResource();
         Indexed.instance!.queryAll(TABLES.TABLE_ORIGIN).then(res => {
             const result = res as Iorigin[];
             result.sort((a, b) => a.addTime - b.addTime);
@@ -45,7 +53,7 @@ export default class Setting extends React.Component<any, any> {
         });
         Indexed.instance!.deleteById(TABLES.TABLE_ORIGIN, id);
     };
-
+    
     private addOrigin = () => {
         const name = (this.refs.oriNameInput as Input).state.value.trim();
         const addr = (this.refs.oriAddrInput as Input).state.value.trim();
@@ -66,10 +74,51 @@ export default class Setting extends React.Component<any, any> {
         }
     };
 
+    // 在某个事件处理函数中调用 showOpenDialog
+    openFile = async () => {
+        const result = await dialog.showOpenDialog({
+            properties: ['openFile'],
+            filters: [
+                { name: 'Text Files', extensions: ['txt'] },
+                { name: 'All Files', extensions: ['*'] }
+            ]
+        });
+    
+        console.log(result); // 用户选择的文件路径
+    };
+
+    selectFile = async (event: any) => {
+        var inputObj = document.getElementById("fileInput") as HTMLInputElement;
+        inputObj.click();
+    };
+
+    jsReadFiles=(files: any)=> {
+        Indexed.instance?.deleteAll(TABLES.TABLE_ORIGIN);
+        const inputObj = files.target.files[0];
+        let result = JSON.parse(fs.readFileSync(inputObj.path));
+        let resSource = ((result) as Array<Iorigin>) || [];
+        console.log(resSource);
+        let id = 0;
+        for (const value of resSource) {
+            value.addTime = Date.now() + id++;
+            Indexed.instance?.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, value);
+        }
+        Indexed.instance!.queryAll(TABLES.TABLE_ORIGIN).then(res => {
+            const result = res as Iorigin[];
+            result.sort((a, b) => a.addTime - b.addTime);
+            this.setState({
+                selectableOrigins: result
+            });
+        });
+        this.render();
+    }
+
     render(): React.ReactNode {
         return (
             <div className={cssM.settingWrapper}>
                 <span className={cssM.settingTitle}>视频源</span>
+                <input type="file" id="fileInput" style={{ display: "none" }} onChange={this.jsReadFiles.bind(this)}/>
+                <span className={cssM.sourceBtn}><Button onClick={this.selectFile}>导入</Button></span>
                 <div className={cssM.settingContent}>
                     {this.state.selectableOrigins.map((item: Iorigin) => (
                         <Checkbox

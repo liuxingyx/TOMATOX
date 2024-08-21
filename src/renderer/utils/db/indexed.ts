@@ -31,7 +31,7 @@ export default class Indexed {
                         db.deleteObjectStore(TABLES.TABLE_ORIGIN);
                         const table = db.createObjectStore(TABLES.TABLE_ORIGIN, { keyPath: 'id' });
                         table.put(DEFAULT_ORIGIN);
-                        setEnabledOrigin('闪电资源');
+                        setEnabledOrigin('非凡资源');
                     }
                 };
                 dbReq.onsuccess = () => {
@@ -40,7 +40,7 @@ export default class Indexed {
                     // this.instance.deleteAll(TABLES.TABLE_ORIGIN);
                     this.instance.loadCollectedRes();
                     this.instance.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, DEFAULT_ORIGIN);
-                    setEnabledOrigin('闪电资源');
+                    setEnabledOrigin('非凡资源');
                     resolve(this.instance!);
                 };
             } else {
