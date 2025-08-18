@@ -107,9 +107,11 @@ export function searchResources(
 }
 
 export function queryDetail(ele: IplayResource) {
+    console.log("api:", ele.api?ele.api:store.getState('SITE_ADDRESS').api);
     return new Promise(resolve => {
         Req({
             method: 'get',
+            //url: store.getState('SITE_ADDRESS').api,
             url: ele.api?ele.api:store.getState('SITE_ADDRESS').api,
             params: {
                 at: 'xml',

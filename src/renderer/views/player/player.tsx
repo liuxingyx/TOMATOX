@@ -115,7 +115,7 @@ export default class Player extends React.Component<any, any> {
             playsinline: true,//内联模式
             useHls: true,//移动端环境下打开hls.js解析功能
             volume: getPlayConfig().voice,
-            playbackRate: [0.5, 0.75, 1, 1.5, 2],
+            playbackRate: [0.5, 0.75, 1, 1.5, 1.75, 2],
             defaultPlaybackRate: getPlayConfig().speed,
             crossOrigin: true,//是否跨域
             playPrev: true,
@@ -167,8 +167,10 @@ export default class Player extends React.Component<any, any> {
                 )}`
             }
         };
+        if (newData.api == '') {
+            newData.api = store.getState('SITE_ADDRESS').api;
+        }
         console.log(newData);
-        newData.api = store.getState('SITE_ADDRESS').api;
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
     }
 
