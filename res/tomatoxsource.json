@@ -12,6 +12,10 @@
         "api":"https://360zy.com/api.php/seaxml/vod/at/xml"
     },
     {
+        "id":"魔都资源_好用",
+        "api":"https://www.mdzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
         "id":"光速资源",
         "api":"https://api.guangsuapi.com/api.php/provide/vod/at/xml"
     },
@@ -20,8 +24,12 @@
         "api":"http://by.bfzyapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"无尽资源",
-        "api":"https://api.wujinapi.me/api.php/provide/vod/at/xml"
+        "id":"无尽资源1",
+        "api":"https://api.wujinapi.cc/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"无尽资源2",
+        "api":"https://api.wujinapi.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"索尼资源",
@@ -64,8 +72,12 @@
         "api":"https://api.apiyhzy.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"非凡资源_好用",
+        "id":"非凡资源1_好用",
         "api":"http://api.ffzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"非凡资源2_好用",
+        "api":"http://cj.ffzyapi.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"闪电资源",
@@ -128,13 +140,13 @@
         "api":"https://api.maoyanapi.top/api.php/provide/vod/at/xml"
     },
     {
-            "id":"牛牛资源",
-            "api":"https://api.niuniuzy.me/api.php/provide/vod/at/xml"
-        },
+        "id":"速播资源",
+        "api":"https://subocj.com/api.php/provide/vod/at/xml"
+    },
     {
-            "id":"牛牛资源",
-            "api":"https://api.niuniuzy.me/api.php/provide/vod/at/xml"
-        },
+        "id":"天翼资源",
+        "api":"https://www.911ysw.top/tianyi.php/provide/vod/at/xml"
+    },
     {
             "id":"牛牛资源",
             "api":"https://api.niuniuzy.me/api.php/provide/vod/at/xml"

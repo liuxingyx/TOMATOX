@@ -110,4 +110,4 @@ Also remove all mentions of Prettier from the `extends` section in `.eslintrc.js
     任何涉及商业盈利性目的的单位或个人，均不得使用本人发布的资源或软件，否则产生的一切后果将由使用者自己承担！
 
 ## License
-MIT © [yanjiaxuan](https://github.com/yanjiaxuan/TOMATOX)
+MIT © [yanjiaxuan](https://github.com/FreeIess/TOMATOX)
