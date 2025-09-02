@@ -44,15 +44,15 @@
         "api":"https://api.xinlangapi.com/xinlangapi.php/provide/vod/at/xml"
     },
     {
-        "id":"卧龙资源",
+        "id":"卧龙资源1",
         "api":"https://collect.wolongzy.cc/api.php/provide/vod/at/xml"
     },
     {
-        "id":"卧龙资源1",
+        "id":"卧龙资源2",
         "api":"https://collect.wolongzyw.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"卧龙资源2",
+        "id":"卧龙资源3",
         "api":"https://collect.wolongzyw.tv/api.php/provide/vod/at/xml"
     },
     {
@@ -112,12 +112,12 @@
         "api":"https://api.niuniuzy.me/api.php/provide/vod/at/xml"
     },
     {
-        "id":"豆瓣资源",
-        "api":"https://caiji.dbzy5.com/api.php/provide/vod/at/xml"
+        "id":"天涯资源",
+        "api":"https://ty.tyyszy5.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"天涯资源/旺旺资源",
-        "api":"https://ty.tyyszy5.com/api.php/provide/vod/at/xml"
+        "id":"旺旺资源（短剧）",
+        "api":"https://api.wwzy.tv/api.php/provide/vod/at/xml"
     },
     {
         "id":"爱奇艺资源",
@@ -146,6 +146,26 @@
     {
         "id":"一舟影库网",
         "api":"http://www.mandao.site/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"豆瓣资源",
+        "api":"https://caiji.dbzy.tv/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"如意资源",
+        "api":"https://cj.rycjapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"白狐资源",
+        "api":"https://baihuzy.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"天涯影视资源网",
+        "api":"https://tyyszyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"丫丫资源网",
+        "api":"https://cj.yayazy.net/api.php/provide/vod/at/xml"
     },
     {
         "id":"38影院",

@@ -23,7 +23,7 @@ export default class Setting extends React.Component<any, any> {
     }
 
     componentWillMount(): void {
-        // querySourceResource();
+        querySourceResource();
         Indexed.instance!.queryAll(TABLES.TABLE_ORIGIN).then(res => {
             const result = res as Iorigin[];
             result.sort((a, b) => a.addTime - b.addTime);
