@@ -5,19 +5,25 @@ export function filterResources(resources: any[]) {
 }
 
 export function filterResource(resource: any): IplayResource {
-    let listStr = '';
+    let playLists = new Map<string, Map<string, string>>();
     if (resource.dl && resource.dl.dd) {
         if (resource.dl.dd instanceof Array) {
-            const videoList = resource.dl.dd.filter(
-                (item: any) => item.flag && item.flag.includes('m3u8')
-            );
-            if (videoList.length) {
-                listStr = videoList[0].text;
-            }
+            resource.dl.dd.forEach((item: any, index: number) => {
+                if (item.flag && item.flag.includes('m3u8')) {
+                    const listName = item.flag; // 假设使用索引作为播放列表名称
+                    const listStr = item.text;
+                    const playlistMap = filterPlayList(listStr);
+                    playLists.set(listName, playlistMap);
+                }
+            });
         } else {
-            listStr = resource.dl.dd.text;
+            const defaultListName = '默认';
+            const listStr = resource.dl.dd.text;
+            const playlistMap = filterPlayList(listStr);
+            playLists.set(defaultListName, playlistMap);
         }
     }
+    
     return {
         id: resource.id,
         type: resource.type,
@@ -37,19 +43,19 @@ export function filterResource(resource: any): IplayResource {
         tag: '',
         year: resource.year,
         updateTime: resource.last,
-        playList: filterPlayList(listStr)
+        playList: playLists
     };
 }
 
 function filterPlayList(listStr: string) {
     const list = new Map<string, string>();
-    const splitLists = listStr.split('$$$').filter(val => val.includes('.m3u8'));
-    if (splitLists.length) {
-        splitLists[0].split('#').forEach(item => {
-            const [key, val] = item.split('$');
-            key && val && list.set(key, val);
-        });
-    }
+    const splitLists = listStr.split('#').filter(val => val.includes('.m3u8'));
+    splitLists.forEach(item => {
+        const [key, val] = item.split('$');
+        if (key && val) {
+            list.set(key, val);
+        }
+    });
     return list;
 }
 

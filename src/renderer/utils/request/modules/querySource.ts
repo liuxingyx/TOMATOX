@@ -12,7 +12,8 @@ export function querySourceResource(): any {
         console.log('初始化资源：', resSource.length);
         let id = 0;
         for (const value of resSource) {
-            value.addTime = Date.now() + id++;
+            value.addTime = Date.now() + id;
+            id += 10;
             Indexed.instance?.insertOrUpdateOrigin(TABLES.TABLE_ORIGIN, value);
         }
     });

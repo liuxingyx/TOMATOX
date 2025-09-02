@@ -11,7 +11,7 @@ import { dialog } from 'electron';
 const path = require('path');
 const fs = require("fs");
 //获取本地json文件文件的路径
-const source_path = path.join('tomatoxsource.json').replace(/\\/g, "\/");
+const source_path = path.join('tomatoxsource.json').replace(/\\/g, "/");
 
 export default class Setting extends React.Component<any, any> {
     constructor(props: any) {
@@ -76,15 +76,13 @@ export default class Setting extends React.Component<any, any> {
 
     // 在某个事件处理函数中调用 showOpenDialog
     openFile = async () => {
-        const result = await dialog.showOpenDialog({
+        await dialog.showOpenDialog({
             properties: ['openFile'],
             filters: [
                 { name: 'Text Files', extensions: ['txt'] },
                 { name: 'All Files', extensions: ['*'] }
             ]
         });
-    
-        console.log(result); // 用户选择的文件路径
     };
 
     selectFile = async (event: any) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     LeftOutlined,
     MinusOutlined,
@@ -25,7 +25,8 @@ const { ipcRenderer, remote } = require('electron');
 export default class Player extends React.Component<any, any> {
     private xgPlayer: XGPlayer | undefined;
     private sourceList: Map<string, Map<string, string>> = new Map();
-    private selectedKey = '播放列表';
+    private playList: Map<string, Map<string, string>> = new Map();
+    private selectedKey = '';
     private controlState: IplayResource;
     private mainEventHandler: Record<string, () => void> = {
         Up: () => {
@@ -52,31 +53,38 @@ export default class Player extends React.Component<any, any> {
         super(props);
         this.controlState = Control.state;
         if (this.controlState) {
-            this.sourceList.set('播放列表', this.controlState.playList);
+            this.sourceList = this.controlState.playList;
+            const curPlaySrcName = this.controlState.historyOption?.lastPlaySrcName;
             this.state = {
+                curPlaySrcName: curPlaySrcName?.length ? curPlaySrcName : this.controlState.playList.keys().next().value,
                 curPlaySrc:
                     this.controlState.historyOption?.lastPlaySrc ||
-                    this.controlState.playList.values().next().value,
+                    this.controlState.playList.values().next().value?.values().next().value,
                 curPlayDrama:
                     this.controlState.historyOption?.lastPlayDrama ||
-                    this.controlState.playList.keys().next().value,
+                    this.controlState.playList.values().next().value?.keys().next().value,
                 isCollect: Indexed.collectedRes.has(this.controlState.id)
             };
+            this.selectedKey = this.state.curPlaySrcName;
+            const curPlaySrcList = this.controlState.playList.values().next().value;
+            this.playList.set(this.selectedKey, curPlaySrcList!);
         }
     }
 
     private playNext = () => {
-        const dramas = Array.from(this.sourceList.get(this.selectedKey)!.keys());
+        const dramas = Array.from(this.playList.get(this.selectedKey)!.keys());
         const curIdx = dramas.indexOf(this.state.curPlayDrama);
         if (curIdx >= 0 && curIdx < dramas.length - 1) {
             const drama = dramas[curIdx + 1];
-            const src = this.sourceList.get(this.selectedKey)!.get(dramas[curIdx + 1])!;
+            const src = this.playList.get(this.selectedKey)!.get(dramas[curIdx + 1])!;
             this.setState({
+                curPlaySrcName: this.selectedKey,
                 curPlayDrama: drama,
                 curPlaySrc: src
             });
             this.xgPlayer!.src = src;
             this.xgPlayer!.currentTime = 0;
+            console.log('下一集结果：', this.selectedKey, src);
             this.initData();
         }
     };
@@ -99,17 +107,14 @@ export default class Player extends React.Component<any, any> {
         this.xgPlayer = new HlsPlayer({
             el: this.refs.playWrapperRef as any,
             url: this.state.curPlaySrc,
-            // id: 'tomatox',
+            id: 'tomatox',
             width: '100%',
             height: '100%',
             videoInit: true,//初始化显示视频首帧
             autoplay: true,//自动播放
             cssFullscreen: true,//网页样式全屏
-            keyShortcut: 'on',//键盘快捷键
-            // controls: true, //是否显示播放控件
-            controls: {
-                mode: 'normal'
-            },
+            keyShortcut: true,//快捷键功能开启
+            controls: true, //是否显示播放控件
             isLive : false,//是否直播
             closeVideoDblclick : true,//关闭video双击事件
             playsinline: true,//内联模式
@@ -154,10 +159,11 @@ export default class Player extends React.Component<any, any> {
         return hours === 0 ? ms : `${hours < 10 ? '0' : ''}${hours}:${ms}`;
     }
 
-    initData() {
+    initData(_?: any) {
         const newData: IplayResource = {
             ...this.controlState,
             historyOption: {
+                lastPlaySrcName: this.state.curPlaySrcName,
                 lastPlayDrama: this.state.curPlayDrama,
                 lastPlaySrc: this.state.curPlaySrc,
                 lastPlayTime: this.xgPlayer?.currentTime || 0,
@@ -167,7 +173,7 @@ export default class Player extends React.Component<any, any> {
                 )}`
             }
         };
-        if (newData.api == '') {
+        if (newData.api === '') {
             newData.api = store.getState('SITE_ADDRESS').api;
         }
         console.log(newData);
@@ -191,34 +197,37 @@ export default class Player extends React.Component<any, any> {
     descSources() {
         const eles = [];
         // @ts-ignore
-        for (const [key] of this.sourceList) {
+        for (const [key, value] of this.sourceList) {
             eles.push(
                 <Tabs.TabPane tab={key} key={key}>
-                    {this.descSeries(this.sourceList.get(key)!)}
+                    {this.descSeries(key, value)}
                 </Tabs.TabPane>
             );
         }
         return eles;
     }
 
-    descSeries(playList: Map<string, string>) {
+    descSeries(srcName: string, playList: Map<string, string>) {
         const eles = [];
+        console.log('渲染播放链接：', this.selectedKey);
         // @ts-ignore
-        for (const [key] of playList) {
+        for (const [key, value] of playList) {
             eles.push(
                 <span
                     key={key}
                     className={`${cssM.seriesTag} ${
-                        playList.get(key) === this.state.curPlaySrc ? cssM.seriesTagActive : ''
+                        value === this.state.curPlaySrc ? cssM.seriesTagActive : ''
                     }`}
                     onClick={() => {
-                        if (this.state.curPlaySrc !== playList.get(key)) {
+                        if (this.state.curPlaySrc !== value) {
+                            this.selectedKey = srcName;
                             this.setState({
-                                curPlaySrc: playList.get(key),
+                                curPlaySrc: value,
                                 curPlayDrama: key
                             });
                             this.xgPlayer!.currentTime = 0;
-                            this.xgPlayer!.src = playList.get(key)!;
+                            this.xgPlayer!.src = this.state.curPlaySrc;
+                            this.initData();
                         }
                     }}>
                     {key}
@@ -274,12 +283,15 @@ export default class Player extends React.Component<any, any> {
                     <div ref={'playWrapperRef'} className={cssM.playerWrapper} />
                     <div className={[cssM.videoInfoWrapper, 'theme-content'].join(' ')}>
                         <Tabs
-                            defaultActiveKey={'播放列表'}
+                            activeKey={this.state.curPlaySrcName} 
                             className={cssM.sourceTab}
                             onChange={newKey => {
-                                this.selectedKey = newKey.includes('播放列表')
-                                    ? newKey
-                                    : this.selectedKey;
+                                // this.selectedKey = newKey;
+                                if (this.selectedKey !== newKey) {
+                                    this.setState({
+                                        curPlaySrcName: newKey
+                                    });
+                                }
                             }}>
                             {this.descSources()}
                             <Tabs.TabPane tab={'详情'} key={'详情'}>

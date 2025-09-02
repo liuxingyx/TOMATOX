@@ -63,11 +63,11 @@ export default class IptvPlayer extends React.Component<any, any> {
         this.xgPlayer = new PlayerClass({
             el: this.refs.iptvPlayer as any,
             url: this.state.resource.src,
-            // id: 'tomatox-iptv',
+            id: 'tomatox-iptv',
             width: '100%',
             height: '100%',
             volume: getPlayConfig().voice,
-            playbackRate: [0.5, 0.75, 1, 1.5, 2],
+            playbackRate: [0.5, 0.75, 1, 1.5, 1.75, 2],
             defaultPlaybackRate: getPlayConfig().speed,
             videoInit: true,//初始化显示视频首帧
             autoplay: true,//自动播放
@@ -76,13 +76,13 @@ export default class IptvPlayer extends React.Component<any, any> {
             useHls: true,//移动端环境下打开hls.js解析功能
             isLive: true,//直播场景设置为true
             crossOrigin: true,//是否跨域
-            // playPrev: true,
-            // playNextOne: false,
-            // videoStop: true,
-            // showList: true,
-            // showHistory: true,
-            // quitMiniMode: true,
-            // videoTitle: true,
+            playPrev: true,
+            playNextOne: false,
+            videoStop: true,
+            showList: true,
+            showHistory: true,
+            quitMiniMode: true,
+            videoTitle: true,
             ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
             preloadTime: 30//预加载时长(秒)
         });

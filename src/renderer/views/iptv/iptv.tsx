@@ -2,7 +2,8 @@ import React, { ReactElement } from 'react';
 import cssM from './iptv.scss';
 import { queryIptvResource } from '@/utils/request/modules/queryIptv';
 import { Link } from 'react-keeper';
-import { Input, Space } from 'antd';
+import { Input, Space, Button } from 'antd';
+import { dialog } from 'electron';
 import { SearchOutlined } from '@ant-design/icons';
 
 const path = require('path');
@@ -55,9 +56,44 @@ export default class Iptv extends React.Component<any, any> {
         return res;
     };
 
+    // 在某个事件处理函数中调用 showOpenDialog
+    openFile = async () => {
+        const result = await dialog.showOpenDialog({
+            properties: ['openFile'],
+            filters: [
+                { name: 'Text Files', extensions: ['txt'] },
+                { name: 'All Files', extensions: ['*'] }
+            ]
+        });
+    
+        console.log(result); // 用户选择的文件路径
+    };
+
+    selectFile = async (event: any) => {
+        var inputObj = document.getElementById("fileInput") as HTMLInputElement;
+        inputObj.click();
+    };
+
+    jsReadFiles=(files: any)=> {
+        const inputObj = files.target.files[0];
+        let result = JSON.parse(fs.readFileSync(inputObj.path));
+        const res = ((result) as Array<{ sourceName: string; src: string }>) || [];
+        console.log(res);
+        this.allResources.push(...res);
+        this.setState({
+            sources: this.allResources
+        });
+        this.render();
+    }
+
     render(): React.ReactNode {
         return (
-            <div style={{ width: '100%', height: 'calc(100vh - 50px)' }}>
+            <div style={{ width: '100%', height: 'calc(100vh - 80px)' }}>
+                {/* <div className={cssM.inputWrapper}>
+                    <span className={cssM.inputTitle}>直播源</span>
+                    <input type="file" id="fileInput" style={{ display: "none" }} onChange={this.jsReadFiles.bind(this)}/>
+                    <span className={cssM.sourceBtn}><Button onClick={this.selectFile}>导入</Button></span>
+                </div> */}
                 <div className={[cssM.searchWrapper, 'theme-2nd-header', 'theme-input'].join(' ')}>
                     <Search
                         placeholder={'搜索直播频道'}

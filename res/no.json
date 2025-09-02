@@ -37,7 +37,7 @@
     },
     {
         "id":"789盘",
-        "api":"https://www.rrvipw.com/api.php/provide/vod/from/789pan/at/xml"
+        "api":"https://www.rrvipw.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"鱼乐资源",
@@ -100,6 +100,10 @@
         "api":"https://cj.vodimg.top/api.php/provide/vod/at/xml"
     },
     {
+        "id":"忆梦影视(html)",
+        "api":"https://www.gnpt.net/api.php/provide/vod/at/xml"
+    },
+    {
         "id":"极速资源",
         "api":"https://jszyapi.com/api.php/provide/vod/at/xml"
     },
@@ -110,10 +114,6 @@
     {
         "id":"快车资源",
         "api":"https://caiji.kczyapi.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"忆梦影视",
-        "api":"https://www.gnpt.net/api.php/provide/vod/at/xml"
     },
     {
         "id":"TVB云播",
@@ -133,14 +133,26 @@
     },
     {
         "id":"快看资源",
-        "api":"https://kuaikan-api.com/api.php/provide/vod/from/kuaikan/at/xml"
+        "api":"https://kuaikan-api.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"快播资源",
+        "api":"https://gayapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源(18+)",
+        "api":"https://by.bfzyapi.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"最大资源",
         "api":"https://api.zuidapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"搜乐资源",
+        "id":"iKun资源",
+        "api":"https://ikunzy.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"搜乐资源(播放链接失效)",
         "api":"https://api.zeqaht.com/api.php/provide/vod/at/xml"
     },
     {
@@ -164,11 +176,28 @@
  https://taopianapi.com/cjapi/zp/vod/xml
  https://taopianapi.com/cjapi/max/vod/xml
  
+ json
  随缘资源
  https://baobei666.com/inc/apijson_vod.php
+ 段友影视
+ https://shangjihuoke.com/api.php/tv.vod
+ 奴娜TV
+ https://www.nntv.in/api.php/v1.vod
+ 酷我
+ http://www.kuloo.xyz/ruifenglb_api.php/v1.vod
  
- https://lbapi9.com/api.php/provide/vod
- https://dadiapi.com/api.php/provide/vod/at/xml
+ html
+ 沐沐影视
+ https://mmystv.cn
+ 小小影视
+ https://www.56aq.com
+ 
+ 授权
+ http://cj.huohua.vip/api.php/provide/vod
+ 
+ 18+
+ https://ghfast.top/https://raw.githubusercontent.com/ltxxjs/box2022-1/main/m2.json
+ https://ghfast.top/https://raw.githubusercontent.com/ltxxjs/box2022-1/main/m3.json
  
  随机图片
  https://tv.yydsys.top

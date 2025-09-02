@@ -9,10 +9,10 @@ import { queryDetail } from '@/utils/request/modules/queryResources';
 function compareYMStr(a: string, b: string): number {
     var fisrt = a.replace('年', '').replace('月', '');
     var last = b.replace('年', '').replace('月', '');
-    if (fisrt.length != 6) {
+    if (fisrt.length !== 6) {
         fisrt = fisrt.slice(0,4) + '0' + fisrt.slice(4);
     }
-    if (last.length != 6) {
+    if (last.length !== 6) {
         last = last.slice(0,4) + '0' + last.slice(4);
     }
     return +fisrt - +last;

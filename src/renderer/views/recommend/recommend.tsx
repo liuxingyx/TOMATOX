@@ -13,7 +13,7 @@ import { querySourceResource } from '@/utils/request/modules/querySource';
 const path = require('path');
 const fs = require("fs");
 //获取本地json文件文件的路径
-const source_path = path.join('res/tomatoxsource.json').replace(/\\/g, "\/");
+const source_path = path.join('res/tomatoxsource.json').replace(/\\/g, "/");
 
 export default class Recommend extends React.Component<any, any> {
     private page = 0;
