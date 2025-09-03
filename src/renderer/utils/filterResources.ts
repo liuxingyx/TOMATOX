@@ -9,18 +9,29 @@ export function filterResource(resource: any): IplayResource {
     if (resource.dl && resource.dl.dd) {
         if (resource.dl.dd instanceof Array) {
             resource.dl.dd.forEach((item: any, index: number) => {
-                if (item.flag && item.flag.includes('m3u8')) {
-                    const listName = item.flag; // 假设使用索引作为播放列表名称
-                    const listStr = item.text;
+                const listName = item.flag; // 假设使用索引作为播放列表名称
+                const listStr = item.text;
+                if (listName && listName.includes('m3u8')) {
                     const playlistMap = filterPlayList(listStr);
                     playLists.set(listName, playlistMap);
                 }
             });
+
+            if (playLists.size == 1) {
+                const listStr = resource.dl.dd.text;
+                if (listStr.includes('m3u8')) {
+                    const defaultListName = '默认';
+                    const playlistMap = filterPlayList(listStr);
+                    playLists.set(defaultListName, playlistMap);
+                }
+            }
         } else {
-            const defaultListName = '默认';
             const listStr = resource.dl.dd.text;
-            const playlistMap = filterPlayList(listStr);
-            playLists.set(defaultListName, playlistMap);
+            if (listStr.includes('m3u8')) {
+                const defaultListName = '默认';
+                const playlistMap = filterPlayList(listStr);
+                playLists.set(defaultListName, playlistMap);
+            }
         }
     }
     

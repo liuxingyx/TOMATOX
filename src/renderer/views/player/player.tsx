@@ -55,19 +55,33 @@ export default class Player extends React.Component<any, any> {
         if (this.controlState) {
             this.sourceList = this.controlState.playList;
             const curPlaySrcName = this.controlState.historyOption?.lastPlaySrcName;
-            this.state = {
-                curPlaySrcName: curPlaySrcName?.length ? curPlaySrcName : this.controlState.playList.keys().next().value,
-                curPlaySrc:
-                    this.controlState.historyOption?.lastPlaySrc ||
-                    this.controlState.playList.values().next().value?.values().next().value,
-                curPlayDrama:
-                    this.controlState.historyOption?.lastPlayDrama ||
-                    this.controlState.playList.values().next().value?.keys().next().value,
-                isCollect: Indexed.collectedRes.has(this.controlState.id)
-            };
-            this.selectedKey = this.state.curPlaySrcName;
-            const curPlaySrcList = this.controlState.playList.values().next().value;
-            this.playList.set(this.selectedKey, curPlaySrcList!);
+            console.log(this.sourceList);
+            if (this.sourceList.keys.length > 0) {
+                this.state = {
+                    curPlaySrcName: curPlaySrcName?.length ? curPlaySrcName : this.controlState.playList.keys().next().value,
+                    curPlaySrc:
+                        this.controlState.historyOption?.lastPlaySrc ||
+                        this.controlState.playList.values().next().value?.values().next().value,
+                    curPlayDrama:
+                        this.controlState.historyOption?.lastPlayDrama ||
+                        this.controlState.playList.values().next().value?.keys().next().value,
+                    isCollect: Indexed.collectedRes.has(this.controlState.id)
+                };
+                const curPlaySrcList = this.controlState.playList.values().next().value;
+                this.selectedKey = this.state.curPlaySrcName;
+                this.playList.set(this.selectedKey, curPlaySrcList!);
+            } else {
+                this.playList = this.controlState.playList;
+                this.state = {
+                    curPlaySrc:
+                        this.controlState.historyOption?.lastPlaySrc ||
+                        this.playList.values().next().value,
+                    curPlayDrama:
+                        this.controlState.historyOption?.lastPlayDrama ||
+                        this.playList.keys().next().value,
+                    isCollect: Indexed.collectedRes.has(this.controlState.id)
+                };
+            }
         }
     }
 
@@ -163,7 +177,7 @@ export default class Player extends React.Component<any, any> {
         const newData: IplayResource = {
             ...this.controlState,
             historyOption: {
-                lastPlaySrcName: this.state.curPlaySrcName,
+                lastPlaySrcName: this.state.curPlaySrcName ?? '默认',
                 lastPlayDrama: this.state.curPlayDrama,
                 lastPlaySrc: this.state.curPlaySrc,
                 lastPlayTime: this.xgPlayer?.currentTime || 0,
@@ -209,7 +223,7 @@ export default class Player extends React.Component<any, any> {
 
     descSeries(srcName: string, playList: Map<string, string>) {
         const eles = [];
-        console.log('渲染播放链接：', this.selectedKey);
+        // console.log('渲染播放链接：', playList);
         // @ts-ignore
         for (const [key, value] of playList) {
             eles.push(

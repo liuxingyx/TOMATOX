@@ -76,8 +76,6 @@ export default class History extends React.Component<any, any> {
         });
     }
 
-    
-
     async updateHistorySource() {
         const resourcesHistory = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY) as IplayResource[];
         for (const ele of resourcesHistory) {

@@ -107,17 +107,17 @@ export function searchResources(
 }
 
 export function queryDetail(ele: IplayResource) {
-    console.log("api:", ele.api?ele.api:store.getState('SITE_ADDRESS').api);
+    // console.log("api:", ele.api);
     return new Promise(resolve => {
         Req({
             method: 'get',
-            url: ele.api?ele.api:store.getState('SITE_ADDRESS').api,
+            url: ele.api,
             params: {
                 at: 'xml',
                 ac: 'detail',
                 ids: ele.id
             }
-        }).then(xmlData => {
+        }).then(async xmlData => {
             if (!xmlData) {
                 resolve(xmlData);
                 return;
@@ -126,12 +126,7 @@ export function queryDetail(ele: IplayResource) {
                 const parseJson = xmlParser((xmlData as unknown) as string);
                 const jsonData = parseJson.rss ? parseJson.rss : parseJson;
                 const result: IplayResource = filterResource(jsonData.list.video);
-                if (ele.playList == null) {
-                    ele.remark = result.remark;
-                    ele.playList = result.playList;
-                    Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
-                }
-                if (ele.remark !== result.remark) {
+                if (ele.remark !== result.remark || ele.playList === null || ele.playList.size === 0) {
                     console.log('数据库修改前结果：', ele);
                     ele.remark = result.remark;
                     ele.playList = result.playList;
