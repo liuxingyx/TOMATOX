@@ -15,24 +15,30 @@ let mainWindow: Electron.BrowserWindow | null;
 function createWindow() {
     if (process.platform === 'darwin') {
         const template = [
-          {
-            label: "Application",
-            submenu: [
-              { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
-            ]
-          }, 
-          {
-            label: "Edit",
-            submenu: [
-              { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
-              { label: "Paste", accelerator: "CmdOrCtrl+V", selector: "paste:" },
-            ]
-          }
+            {
+                label: 'Application',
+                submenu: [
+                    {
+                        label: 'Quit',
+                        accelerator: 'Command+Q',
+                        click() {
+                            app.quit();
+                        }
+                    }
+                ]
+            },
+            {
+                label: 'Edit',
+                submenu: [
+                    { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
+                    { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' }
+                ]
+            }
         ];
-        Menu.setApplicationMenu(Menu.buildFromTemplate(template))
-      } else {
-        Menu.setApplicationMenu(null)
-      }
+        Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+    } else {
+        Menu.setApplicationMenu(null);
+    }
 
     // 创建浏览器窗口,宽高自定义具体大小你开心就好
     mainWindow = new BrowserWindow({
@@ -64,11 +70,11 @@ function createWindow() {
             })
         );
     }
-    
+
     mainWindow.on('ready-to-show', () => {
         mainWindow?.show();
     });
-    
+
     initUpdater(mainWindow);
 }
 

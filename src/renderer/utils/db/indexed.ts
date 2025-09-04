@@ -60,6 +60,21 @@ export default class Indexed {
         });
     }
 
+    public queryByApi(tableName: string, Api: any, newApi: any) {
+        return new Promise(resolve => {
+            const req = Indexed.db!.transaction(tableName, 'readonly')
+                .objectStore(tableName)
+                .getAll();
+            req.onsuccess = () => {
+                const results = req.result;
+                const filteredResults = results.filter(
+                    item => item.id.includes(newApi) && item.id !== Api
+                );
+                resolve(filteredResults);
+            };
+        });
+    }
+
     public queryAll(tableName: string) {
         return new Promise(resolve => {
             const req = Indexed.db!.transaction(tableName, 'readonly')

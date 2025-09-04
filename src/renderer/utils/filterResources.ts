@@ -5,25 +5,22 @@ export function filterResources(resources: any[]) {
 }
 
 export function filterResource(resource: any): IplayResource {
-    let playLists = new Map<string, Map<string, string>>();
+    const playLists = new Map<string, Map<string, string>>();
     if (resource.dl && resource.dl.dd) {
         if (resource.dl.dd instanceof Array) {
             resource.dl.dd.forEach((item: any, index: number) => {
-                const listName = item.flag; // 假设使用索引作为播放列表名称
+                const listName = item.flag;
                 const listStr = item.text;
-                if (listName && listName.includes('m3u8')) {
+                if (listName.includes('m3u8') || listStr.includes('m3u8')) {
                     const playlistMap = filterPlayList(listStr);
                     playLists.set(listName, playlistMap);
                 }
             });
 
-            if (playLists.size == 1) {
-                const listStr = resource.dl.dd.text;
-                if (listStr.includes('m3u8')) {
-                    const defaultListName = '默认';
-                    const playlistMap = filterPlayList(listStr);
-                    playLists.set(defaultListName, playlistMap);
-                }
+            if (playLists.size === 1) {
+                const playlistMap = playLists.values().next().value!;
+                playLists.clear();
+                playLists.set('默认', playlistMap);
             }
         } else {
             const listStr = resource.dl.dd.text;
@@ -34,10 +31,11 @@ export function filterResource(resource: any): IplayResource {
             }
         }
     }
-    
+
     return {
         id: resource.id,
         type: resource.type,
+        apiname: '',
         api: '',
         picture: resource.pic,
         lang: resource.lang,
@@ -74,6 +72,7 @@ export function cleanResourceData(dataType: string, data: IplayResource): IplayR
     const optData: IplayResource = {
         id: data.id,
         type: data.type,
+        apiname: data.apiname,
         api: data.api,
         picture: data.picture,
         lang: data.lang,

@@ -74,7 +74,7 @@ export default class Search extends React.Component<any, any> {
             store.setState('GLOBAL_LOADING', false);
             return;
         }
-        let res = await searchResources(++this.page, keyword);
+        const res = await searchResources(++this.page, keyword);
         if (!res) {
             this.pageCount = 0;
             return;

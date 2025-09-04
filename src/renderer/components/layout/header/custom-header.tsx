@@ -62,7 +62,7 @@ export default function CustomHeader() {
                     onClick={() => {
                         ipcRenderer.send('WINDOW_DEBUG');
                     }}
-                />
+                    />
                 {process.env.NODE_ENV !== 'production' && (
                     <ReloadOutlined
                         onClick={() => {

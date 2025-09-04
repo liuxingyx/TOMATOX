@@ -13,10 +13,7 @@ import Indexed from '@/utils/db/indexed';
 // pg: 页数
 // wd：搜索like
 // at：输出格式，可选xml
-export function queryResources(
-    curPage: number,
-    type?: number
-): any {
+export function queryResources(curPage: number, type?: number): any {
     return new Promise(resolve => {
         Req({
             method: 'get',
@@ -43,7 +40,6 @@ export function queryResources(
                             : [jsonData.list.video];
                     result.push(...filterResources(videoList));
                 }
-                console.log('json:' , jsonData.list.pagecount);
                 resolve({
                     limit: jsonData.list.pagesize,
                     list: result,
@@ -59,21 +55,18 @@ export function queryResources(
     });
 }
 
-export function searchResources(
-    curPage: number, 
-    keyWord: string
-):any {
+export function searchResources(curPage: number, keyWord: string, api?: string): any {
     return new Promise(resolve => {
         Req({
             method: 'get',
-            url: store.getState('SITE_ADDRESS').api,
+            url: api || store.getState('SITE_ADDRESS').api,
             params: {
                 at: 'xml',
                 ac: 'videolist',
                 pg: curPage,
                 wd: keyWord,
                 kw: keyWord,
-                keyWords: keyWord
+                keyWord
             }
         }).then(xmlData => {
             if (!xmlData) {
@@ -107,7 +100,11 @@ export function searchResources(
 }
 
 export function queryDetail(ele: IplayResource) {
-    // console.log("api:", ele.api);
+    console.log(
+        '请求详情：',
+        store.getState('SITE_ADDRESS').id,
+        store.getState('SITE_ADDRESS').api
+    );
     return new Promise(resolve => {
         Req({
             method: 'get',
@@ -117,28 +114,69 @@ export function queryDetail(ele: IplayResource) {
                 ac: 'detail',
                 ids: ele.id
             }
-        }).then(async xmlData => {
-            if (!xmlData) {
-                resolve(xmlData);
-                return;
-            }
-            try {
-                const parseJson = xmlParser((xmlData as unknown) as string);
-                const jsonData = parseJson.rss ? parseJson.rss : parseJson;
-                const result: IplayResource = filterResource(jsonData.list.video);
-                if (ele.remark !== result.remark || ele.playList === null || ele.playList.size === 0) {
-                    console.log('数据库修改前结果：', ele);
-                    ele.remark = result.remark;
-                    ele.playList = result.playList;
-                    console.log('数据库修改后结果：', ele);
-                    Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+        })
+            .then(async xmlData => {
+                if (!xmlData) {
+                    resolve(xmlData);
+                    return;
                 }
-                resolve({});
-            } catch (e) {
-                message.error(e);
+                try {
+                    const parseJson = xmlParser((xmlData as unknown) as string);
+                    const jsonData = parseJson.rss ? parseJson.rss : parseJson;
+                    const result: IplayResource = filterResource(jsonData.list.video);
+                    if (
+                        ele.remark !== result.remark ||
+                        ele.playList === null ||
+                        ele.playList.size === 0
+                    ) {
+                        if (result.playList.size > 0) {
+                            console.log('数据库修改前结果：', ele);
+                            ele.remark = result.remark;
+                            ele.playList = result.playList;
+                            console.log('数据库修改后结果：', ele);
+                            Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                        }
+                    }
+                    if (result.playList.size === 0) {
+                        const res = await searchResources(1, ele.name, ele.api);
+                        res.list.forEach((item: any) => {
+                            const id = item.id;
+                            if (
+                                ele.remark !== result.remark &&
+                                id === ele.id &&
+                                result.playList.size > 0
+                            ) {
+                                console.log('数据库修改前结果：', ele);
+                                ele.remark = result.remark;
+                                ele.playList = result.playList;
+                                console.log('数据库修改后结果：', ele);
+                                Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                            }
+                        });
+                    }
+                    resolve({});
+                } catch (e) {
+                    message.error(e);
+                    resolve(null);
+                }
+            })
+            .catch(async e => {
+                const apiname = ele.apiname;
+                const newapi = apiname.slice(0, 4);
+                console.log('请求详情失败：', apiname);
+                const origin = (await Indexed.instance!.queryByApi(
+                    TABLES.TABLE_ORIGIN,
+                    apiname,
+                    newapi
+                )) as Iorigin[];
+                origin.forEach((item: Iorigin) => {
+                    // console.log('请求详情失败更新：', item.id, ele.apiname);
+                    ele.api = item.api;
+                    ele.apiname = item.id;
+                    Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                });
                 resolve(null);
-            }
-        });
+            });
     });
 }
 

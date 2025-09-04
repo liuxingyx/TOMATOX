@@ -55,16 +55,25 @@ export default class Player extends React.Component<any, any> {
         if (this.controlState) {
             this.sourceList = this.controlState.playList;
             const curPlaySrcName = this.controlState.historyOption?.lastPlaySrcName;
-            console.log(this.sourceList);
-            if (this.sourceList.keys.length > 0) {
+            if (this.sourceList.size > 0) {
                 this.state = {
-                    curPlaySrcName: curPlaySrcName?.length ? curPlaySrcName : this.controlState.playList.keys().next().value,
+                    curPlaySrcName: curPlaySrcName?.length
+                        ? curPlaySrcName
+                        : this.controlState.playList.keys().next().value,
                     curPlaySrc:
                         this.controlState.historyOption?.lastPlaySrc ||
-                        this.controlState.playList.values().next().value?.values().next().value,
+                        this.controlState.playList
+                            .values()
+                            .next()
+                            .value?.values()
+                            .next().value,
                     curPlayDrama:
                         this.controlState.historyOption?.lastPlayDrama ||
-                        this.controlState.playList.values().next().value?.keys().next().value,
+                        this.controlState.playList
+                            .values()
+                            .next()
+                            .value?.keys()
+                            .next().value,
                     isCollect: Indexed.collectedRes.has(this.controlState.id)
                 };
                 const curPlaySrcList = this.controlState.playList.values().next().value;
@@ -124,19 +133,19 @@ export default class Player extends React.Component<any, any> {
             id: 'tomatox',
             width: '100%',
             height: '100%',
-            videoInit: true,//初始化显示视频首帧
-            autoplay: true,//自动播放
-            cssFullscreen: true,//网页样式全屏
-            keyShortcut: true,//快捷键功能开启
-            controls: true, //是否显示播放控件
-            isLive : false,//是否直播
-            closeVideoDblclick : true,//关闭video双击事件
-            playsinline: true,//内联模式
-            useHls: true,//移动端环境下打开hls.js解析功能
+            videoInit: true, // 初始化显示视频首帧
+            autoplay: true, // 自动播放
+            cssFullscreen: true, // 网页样式全屏
+            keyShortcut: true, // 快捷键功能开启
+            controls: true, // 是否显示播放控件
+            isLive: false, // 是否直播
+            closeVideoDblclick: true, // 关闭video双击事件
+            playsinline: true, // 内联模式
+            useHls: true, // 移动端环境下打开hls.js解析功能
             volume: getPlayConfig().voice,
             playbackRate: [0.5, 0.75, 1, 1.5, 1.75, 2],
             defaultPlaybackRate: getPlayConfig().speed,
-            crossOrigin: true,//是否跨域
+            crossOrigin: true, // 是否跨域
             playPrev: true,
             playNextOne: true,
             videoStop: true,
@@ -145,7 +154,7 @@ export default class Player extends React.Component<any, any> {
             quitMiniMode: true,
             videoTitle: true,
             ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新， 暂时忽略错误
-            preloadTime: 600//预加载时长(秒)
+            preloadTime: 600 // 预加载时长(秒)
         });
         this.xgPlayer!.currentTime = this.controlState.historyOption?.lastPlayTime || 0;
         this.xgPlayer?.play();
@@ -189,8 +198,11 @@ export default class Player extends React.Component<any, any> {
         };
         if (newData.api === '') {
             newData.api = store.getState('SITE_ADDRESS').api;
+            newData.apiname = store.getState('SITE_ADDRESS').id;
+            // newData.apiname = '卧龙资源3';
+            // newData.api = 'https://collect.wolongzyw.tv/api.php/provide/vod/at/xml';
         }
-        console.log(newData);
+        console.log('保存数据库:', newData);
         Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, newData);
     }
 
@@ -297,7 +309,8 @@ export default class Player extends React.Component<any, any> {
                     <div ref={'playWrapperRef'} className={cssM.playerWrapper} />
                     <div className={[cssM.videoInfoWrapper, 'theme-content'].join(' ')}>
                         <Tabs
-                            activeKey={this.state.curPlaySrcName} 
+                            defaultActiveKey={'默认'}
+                            activeKey={this.state.curPlaySrcName}
                             className={cssM.sourceTab}
                             onChange={newKey => {
                                 // this.selectedKey = newKey;

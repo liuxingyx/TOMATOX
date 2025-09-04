@@ -22,8 +22,8 @@ instance.interceptors.response.use(
         return data;
     },
     err => {
-        message.error(err.message);
-        return null;
+        // message.error(err.message);
+        return Promise.reject(err);
     }
 );
 

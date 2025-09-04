@@ -7,13 +7,13 @@ import store from '@/utils/store';
 import { queryDetail } from '@/utils/request/modules/queryResources';
 
 function compareYMStr(a: string, b: string): number {
-    var fisrt = a.replace('年', '').replace('月', '');
-    var last = b.replace('年', '').replace('月', '');
+    let fisrt = a.replace('年', '').replace('月', '');
+    let last = b.replace('年', '').replace('月', '');
     if (fisrt.length !== 6) {
-        fisrt = fisrt.slice(0,4) + '0' + fisrt.slice(4);
+        fisrt = `${fisrt.slice(0, 4)}0${fisrt.slice(4)}`;
     }
     if (last.length !== 6) {
-        last = last.slice(0,4) + '0' + last.slice(4);
+        last = `${last.slice(0, 4)}0${last.slice(4)}`;
     }
     return +fisrt - +last;
 }
@@ -32,8 +32,10 @@ export default class History extends React.Component<any, any> {
 
     async componentWillMount() {
         this.updateHistorySource();
-        const resources = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY) as IplayResource[];
-        console.log('count:' , resources.length);
+        const resources = (await Indexed.instance!.queryAll(
+            TABLES.TABLE_HISTORY
+        )) as IplayResource[];
+        console.log('历史记录:', resources.length);
         const resMap = new Map<string, Map<string, IplayResource[]>>();
         // step1: convert list to map
         resources.forEach(resource => {
@@ -77,13 +79,14 @@ export default class History extends React.Component<any, any> {
     }
 
     async updateHistorySource() {
-        const resourcesHistory = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY) as IplayResource[];
+        const resourcesHistory = (await Indexed.instance!.queryAll(
+            TABLES.TABLE_HISTORY
+        )) as IplayResource[];
         for (const ele of resourcesHistory) {
             queryDetail(ele);
         }
     }
 
-    
     renderD(dData: Map<string, IplayResource[]>, ym: string) {
         const res: ReactElement[] = [];
         dData.forEach((value, key) => {
@@ -91,7 +94,7 @@ export default class History extends React.Component<any, any> {
                 <div key={key}>
                     <div className={[cssM.yearMonthStyle, 'theme-color'].join(' ')}>{ym}</div>
                     <div className={[cssM.dayStyle, 'theme-color'].join(' ')}>{key}</div>
-                    <TomatoxWaterfall data={value} isDisplayDelete={true}/>
+                    <TomatoxWaterfall data={value} isDisplayDelete={true} />
                 </div>
             );
         });

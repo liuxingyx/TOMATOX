@@ -4,16 +4,16 @@ import store from '@/utils/store';
 import InfiniteScroll from 'react-infinite-scroller';
 import CustomSpin from '@/components/custom-spin/custom-spin';
 import TomatoxWaterfall from '@/components/tomatox-waterfall/tomatox-waterfall';
-import { queryResources , queryDetail } from '@/utils/request/modules/queryResources';
+import { queryResources, queryDetail } from '@/utils/request/modules/queryResources';
 import cssM from './recommend.scss';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import { querySourceResource } from '@/utils/request/modules/querySource';
 
 const path = require('path');
-const fs = require("fs");
-//获取本地json文件文件的路径
-const source_path = path.join('res/tomatoxsource.json').replace(/\\/g, "/");
+const fs = require('fs');
+// 获取本地json文件文件的路径
+const source_path = path.join('res/tomatoxsource.json').replace(/\\/g, '/');
 
 export default class Recommend extends React.Component<any, any> {
     private page = 0;
@@ -46,9 +46,13 @@ export default class Recommend extends React.Component<any, any> {
     }
 
     async updateHistorySource() {
-        const resourcesHistory = await Indexed.instance!.queryAll(TABLES.TABLE_HISTORY) as IplayResource[];
+        const resourcesHistory = (await Indexed.instance!.queryAll(
+            TABLES.TABLE_HISTORY
+        )) as IplayResource[];
         for (const ele of resourcesHistory) {
-            queryDetail(ele);
+            setTimeout(() => {
+                queryDetail(ele);
+            }, 1000);
         }
         // querySourceResource();
     }
@@ -61,9 +65,7 @@ export default class Recommend extends React.Component<any, any> {
         if (this.page >= this.pageCount) {
             return;
         }
-        Promise.all([
-            queryResources(++this.page, this.type)
-        ]).then(
+        Promise.all([queryResources(++this.page, this.type)]).then(
             resLst => {
                 const collectRes: IplayResource[] = [];
                 resLst.forEach(res => {

@@ -10,6 +10,7 @@ declare interface Iorigin {
 declare interface IplayResource {
     id: string;
     type: string;
+    apiname: string;
     api: string;
     picture: string;
     lang: string;
@@ -28,7 +29,7 @@ declare interface IplayResource {
     updateTime: string;
     playList: Map<string, Map<string, string>>;
     historyOption?: {
-        lastPlaySrcName?: string,
+        lastPlaySrcName?: string;
         lastPlaySrc?: string;
         lastPlayTime?: number;
         lastPlayDate?: number;

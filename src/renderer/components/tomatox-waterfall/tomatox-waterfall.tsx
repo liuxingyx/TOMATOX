@@ -1,31 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-keeper';
+import { Link, Route } from 'react-keeper';
 import TOMATOX_ICON from '@/images/svg/icon.svg';
 import { HeartOutlined, HeartFilled, DeleteFilled } from '@ant-design/icons';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import cssM from './tomatox-waterfall.scss';
-import { Route } from 'react-keeper';
+
 import History from '@/views/history/history';
 
-export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDisplayDelete : boolean}) {
+export default function tomatoxWaterfall(props: {
+    data: IplayResource[];
+    isDisplayDelete: boolean;
+}) {
     const [collectRes, setCollectRes] = useState(Indexed.collectedRes);
     const [historyRes, setHistoryRes] = useState(props.data);
     let cardsData = props.data;
-    const removeHistory = (id : string) => {
+    const removeHistory = (id: string) => {
         if (props.isDisplayDelete) {
             setHistoryRes(current =>
                 current.filter(history => {
                     return history.id !== id;
-                }),
+                })
             );
         }
     };
-    const updateHistory = async (ele:IplayResource) => {
-        const history = await Indexed.instance!.queryById(TABLES.TABLE_HISTORY, ele.id) as IplayResource;
+    const updateHistory = async (ele: IplayResource) => {
+        const history = (await Indexed.instance!.queryById(
+            TABLES.TABLE_HISTORY,
+            ele.id
+        )) as IplayResource;
         if (ele.historyOption?.lastPlayDesc !== history.historyOption?.lastPlayDesc) {
             ele.historyOption = history.historyOption;
-            removeHistory("-1");
+            removeHistory('-1');
         }
     };
     if (props.isDisplayDelete) {
@@ -34,7 +40,7 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDispl
     const convertEle = () => {
         const res = [];
         for (let index = 0; index < cardsData.length; index++) {
-            let ele = cardsData[index];
+            const ele = cardsData[index];
             if (props.isDisplayDelete) {
                 updateHistory(ele);
             }
@@ -45,21 +51,24 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDispl
                             <div>
                                 <img src={ele.picture} className={cssM.descImg} />
                                 <span className={cssM.topRightTitle}>{ele.remark}</span>
-                                {
-                                    props.isDisplayDelete ? 
-                                    (<div>
-                                        <DeleteFilled 
+                                {props.isDisplayDelete ? (
+                                    <div>
+                                        <DeleteFilled
                                             className={cssM.resourceDelete}
                                             onClick={e => {
-                                                Indexed.instance?.deleteById(TABLES.TABLE_HISTORY,ele.id);
+                                                Indexed.instance?.deleteById(
+                                                    TABLES.TABLE_HISTORY,
+                                                    ele.id
+                                                );
                                                 removeHistory(ele.id);
                                                 e.stopPropagation();
                                                 e.preventDefault();
                                             }}
-                                        ></DeleteFilled>
-                                    </div>)
-                                    : (<div> </div>)
-                                }
+                                            />
+                                    </div>
+                                ) : (
+                                    <div> </div>
+                                )}
                                 <div>
                                     {collectRes.has(ele.id) ? (
                                         <HeartFilled
@@ -99,6 +108,6 @@ export default function tomatoxWaterfall(props: { data: IplayResource[] ,isDispl
             );
         }
         return res;
-    }
+    };
     return <div className={cssM.cardList}>{convertEle()}</div>;
 }

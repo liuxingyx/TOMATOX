@@ -7,10 +7,10 @@ import { dialog } from 'electron';
 import { SearchOutlined } from '@ant-design/icons';
 
 const path = require('path');
-const fs = require("fs");
-//获取本地json文件文件的路径
-const zhibo_path = path.join('res/zhibo.json').replace(/\\/g, "\/");
-const original_path = path.join('res/original.json').replace(/\\/g, "\/");
+const fs = require('fs');
+// 获取本地json文件文件的路径
+const zhibo_path = path.join('res/zhibo.json').replace(/\\/g, '/');
+const original_path = path.join('res/original.json').replace(/\\/g, '/');
 
 const { Search } = Input;
 
@@ -27,7 +27,8 @@ export default class Iptv extends React.Component<any, any> {
         // let result = JSON.parse(fs.readFileSync(zhibo_path));
         // let result = JSON.parse(fs.readFileSync(original_path));
         // const res = ((result) as Array<{ sourceName: string; src: string }>) || [];
-        const res = ((await queryIptvResource()) as Array<{ sourceName: string; src: string }>) || [];
+        const res =
+            ((await queryIptvResource()) as Array<{ sourceName: string; src: string }>) || [];
         this.allResources.push(...res);
         this.setState({
             sources: this.allResources
@@ -58,33 +59,30 @@ export default class Iptv extends React.Component<any, any> {
 
     // 在某个事件处理函数中调用 showOpenDialog
     openFile = async () => {
-        const result = await dialog.showOpenDialog({
+        await dialog.showOpenDialog({
             properties: ['openFile'],
             filters: [
                 { name: 'Text Files', extensions: ['txt'] },
                 { name: 'All Files', extensions: ['*'] }
             ]
         });
-    
-        console.log(result); // 用户选择的文件路径
     };
 
     selectFile = async (event: any) => {
-        var inputObj = document.getElementById("fileInput") as HTMLInputElement;
+        const inputObj = document.getElementById('fileInput') as HTMLInputElement;
         inputObj.click();
     };
 
-    jsReadFiles=(files: any)=> {
+    jsReadFiles = (files: any) => {
         const inputObj = files.target.files[0];
-        let result = JSON.parse(fs.readFileSync(inputObj.path));
-        const res = ((result) as Array<{ sourceName: string; src: string }>) || [];
-        console.log(res);
+        const result = JSON.parse(fs.readFileSync(inputObj.path));
+        const res = (result as Array<{ sourceName: string; src: string }>) || [];
         this.allResources.push(...res);
         this.setState({
             sources: this.allResources
         });
         this.render();
-    }
+    };
 
     render(): React.ReactNode {
         return (

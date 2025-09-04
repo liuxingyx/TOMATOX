@@ -22,10 +22,10 @@ export default function CustomLayout() {
                 getEnabledOrigin()
             );
             store.setState('SITE_ADDRESS', origin);
-            console.log('api：', store.getState('SITE_ADDRESS'));
+            console.log('初始化api：', store.getState('SITE_ADDRESS'));
             setLoaded(true);
         });
-    } 
+    }
     return (
         <>
             {loaded ? (

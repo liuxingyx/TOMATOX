@@ -59,7 +59,7 @@ export default class IptvPlayer extends React.Component<any, any> {
         const PlayerClass = (this.state.resource.src.includes('.m3u8')
             ? HlsPlayer
             : FlvPlayer) as any;
-        console.log(PlayerClass);
+        console.log('iptv类型:', PlayerClass);
         this.xgPlayer = new PlayerClass({
             el: this.refs.iptvPlayer as any,
             url: this.state.resource.src,
@@ -69,13 +69,13 @@ export default class IptvPlayer extends React.Component<any, any> {
             volume: getPlayConfig().voice,
             playbackRate: [0.5, 0.75, 1, 1.5, 1.75, 2],
             defaultPlaybackRate: getPlayConfig().speed,
-            videoInit: true,//初始化显示视频首帧
-            autoplay: true,//自动播放
-            cssFullscreen: true,//网页样式全屏
-            playsinline: true,//内联模式
-            useHls: true,//移动端环境下打开hls.js解析功能
-            isLive: true,//直播场景设置为true
-            crossOrigin: true,//是否跨域
+            videoInit: true, // 初始化显示视频首帧
+            autoplay: true, // 自动播放
+            cssFullscreen: true, // 网页样式全屏
+            playsinline: true, // 内联模式
+            useHls: true, // 移动端环境下打开hls.js解析功能
+            isLive: true, // 直播场景设置为true
+            crossOrigin: true, // 是否跨域
             playPrev: true,
             playNextOne: false,
             videoStop: true,
@@ -84,7 +84,7 @@ export default class IptvPlayer extends React.Component<any, any> {
             quitMiniMode: true,
             videoTitle: true,
             ignores: ['replay', 'error'], // 为了切换播放器类型时避免显示错误刷新，暂时忽略错误
-            preloadTime: 30//预加载时长(秒)
+            preloadTime: 30 // 预加载时长(秒)
         });
         this.xgPlayer?.play();
         this.xgPlayer?.on('volumechange', this.updateVolumeConf);
