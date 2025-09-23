@@ -124,35 +124,31 @@ export function queryDetail(ele: IplayResource) {
                     const parseJson = xmlParser((xmlData as unknown) as string);
                     const jsonData = parseJson.rss ? parseJson.rss : parseJson;
                     const result: IplayResource = filterResource(jsonData.list.video);
-                    if (
+                    if (result.playList.size === 0) {
+                        const res = await searchResources(1, ele.name, ele.api);
+                        res.list.forEach((item: any) => {
+                            if (
+                                ele.remark !== result.remark &&
+                                item.id === ele.id &&
+                                result.playList.size > 0
+                            ) {
+                                console.log('搜索修改前结果：', ele);
+                                ele.remark = result.remark;
+                                ele.playList = result.playList;
+                                console.log('搜索修改后结果：', ele);
+                                Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                            }
+                        });
+                    } else if (
                         ele.remark !== result.remark ||
                         ele.playList === null ||
                         ele.playList.size === 0
                     ) {
-                        if (result.playList.size > 0) {
-                            console.log('数据库修改前结果：', ele);
-                            ele.remark = result.remark;
-                            ele.playList = result.playList;
-                            console.log('数据库修改后结果：', ele);
-                            Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
-                        }
-                    }
-                    if (result.playList.size === 0) {
-                        const res = await searchResources(1, ele.name, ele.api);
-                        res.list.forEach((item: any) => {
-                            const id = item.id;
-                            if (
-                                ele.remark !== result.remark &&
-                                id === ele.id &&
-                                result.playList.size > 0
-                            ) {
-                                console.log('数据库修改前结果：', ele);
-                                ele.remark = result.remark;
-                                ele.playList = result.playList;
-                                console.log('数据库修改后结果：', ele);
-                                Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
-                            }
-                        });
+                        console.log('详情修改前结果：', ele);
+                        ele.remark = result.remark;
+                        ele.playList = result.playList;
+                        console.log('详情修改后结果：', ele);
+                        Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
                     }
                     resolve({});
                 } catch (e) {
@@ -163,7 +159,8 @@ export function queryDetail(ele: IplayResource) {
             .catch(async e => {
                 const apiname = ele.apiname;
                 const newapi = apiname.slice(0, 4);
-                console.log('请求详情失败：', apiname);
+                console.log('请求详情失败：', ele.api);
+                ele.historyOption!.lastPlayDate = Date.now();
                 const origin = (await Indexed.instance!.queryByApi(
                     TABLES.TABLE_ORIGIN,
                     apiname,

@@ -83,7 +83,9 @@ export default class History extends React.Component<any, any> {
             TABLES.TABLE_HISTORY
         )) as IplayResource[];
         for (const ele of resourcesHistory) {
-            queryDetail(ele);
+            setTimeout(() => {
+                queryDetail(ele);
+            }, 1000);
         }
     }
 

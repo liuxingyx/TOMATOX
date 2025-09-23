@@ -5,7 +5,6 @@ import { HeartOutlined, HeartFilled, DeleteFilled } from '@ant-design/icons';
 import Indexed from '@/utils/db/indexed';
 import { TABLES } from '@/utils/constants';
 import cssM from './tomatox-waterfall.scss';
-
 import History from '@/views/history/history';
 
 export default function tomatoxWaterfall(props: {

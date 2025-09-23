@@ -116,10 +116,6 @@
         "api":"https://caiji.kczyapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"TVB云播",
-        "api":"http://www.tvyb03.com/api.php/provide/vod/at/xml"
-    },
-    {
         "id":"小猫咪资源",
         "api":"http://zy.xiaomaomi.cc/api.php/provide/vod/at/xml"
     },
@@ -185,25 +181,463 @@
  https://www.nntv.in/api.php/v1.vod
  酷我
  http://www.kuloo.xyz/ruifenglb_api.php/v1.vod
+ 龙门影视
+ https://movie.iqinu.com/api.php/v1.vod
+ 闪影
+ http://38.47.213.61:41271/mogai_api.php/v1.vod
+ 暴风
+ http://43.138.242.105:8686/api.php?key=104847348&id=id1
+ 
+ 
+ 
+ http://172.247.31.147:25321/mtys.php/v6/index_video
+ http://172.247.31.147:25321/mtys.php/v6/search?pg={pg}&tid=0&text={wd}
+ http://172.247.31.147:25321/mtys.php/v6/video_detail?id=+vod_id
  
  html
  沐沐影视
  https://mmystv.cn
  小小影视
  https://www.56aq.com
+ 猫放时光
+ https://www.mervod.com
+ 在线之家
+ https://www.zxzjhd.com
+ https://www.zxzjys.com
+ 奥特影视
+ https://auete.com
+ 新6V
+ https://www.xb6v.com
+ 6v电影-新版
+ https://www.66ss.org
+ 555电影
+ https://www.zhenfanjixie.com
+ 去看吧
+ https://qkan8.com
+ 叁虎影视
+ https://www.sanhuwuliu.com
+ 阳光影视
+ https://m.aimoon.me
+ 厂长
+ https://www.cz233.com
+ https://www.czzymovie.com
+ 爱看机器人
+ https://v.ikanbot.com
+ 69美剧
+ https://www.69mj.com
+ 低端
+ https://ddys.pro
+ HDmoli
+ https://www.hdmoli.pro
+ libvio
+ https://www.libvio.pw
+ https://www.libvio.cc
+ https://www.libvio.me
+ https://www.libvio.link
+ 美剧迷
+ https://www.meijumi.net
+ 玩偶4K
+ https://www.wo4k.com
+ 校长影视
+ https://mj028.cn
+ 斗球直播
+ http://www.whbax.cn
+ 4K影库
+ http://4kfm.com
+ 骚火电影
+ https://shdy5.us
+ 不太灵影视
+ https://web.mukaku.com
+ 韩剧佬
+ https://www.laohanju.com
+ 看戏网
+ https://www.ikanxi.com
+ 看片狂人
+ https://www.kpkuang.fun
+ 电影先生
+ https://xn--44qz85a01qpc.com
+ 电影港
+ https://www.dygang.tv
+ 在线电影吧
+ https://www.zaixiandianying8.com
+ 皮狗影院
+ https://www.lapigou.com
+ 克拉TV
+ https://www.kelatv.com
+ 歪片星球
+ https://waipian30.com
+ 348电影网
+ https://www.348z.com
+ 39影视
+ https://www.394tv.com
+ 新站影视
+ https://www.kanjuw.net
+ Vidhub视频库
+ https://vidhub.tv
+ 北川影视
+ https://www.bcyingshi.xyz
+ 巨人影院
+ https://juren.biib.to
+ 剧白白影院
+ http://k.jsyudong.com
+ 耐看点播
+ https://www.nkvod.com
+ 万能影视
+ https://wnvod.net
+ 兄弟影视
+ https://www.brovods.top
+ inmi 映迷
+ https://www.inmi.app
+ 佳程影视
+ https://www.hzjcqc.com
+ APP影院
+ https://www.appmovie.click
+ 大师兄影视
+ https://dsxys.com
+ https://www.dsxysproo.com
+ 奈落影视
+ https://newfii.com
+ 饭团影院
+ http://www.bzpos.com
+ 皮狗影院
+ https://www.lapigou.com
+ 稀饭影院
+ https://www.xifanys.com
+ https://app.xifanys.com
+ 快看影视
+ http://k.schxlgc.com
+ 多瑙影院
+ https://www.duonaovod.com
+ 4080影院
+ https://www.soukk.top
+ 影视大全
+ https://www.iysdq.com
+ 永乐视频
+ https://www.ylys.tv
+ 面包网
+ https://v.aiwule.com
+ 西瓜影院
+ https://sszzyy.com
+ 百思派
+ https://www.bestpipe.cn
+ 修罗影视
+ https://v.xlys.ltd.ua
+ Mp4电影
+ https://mp4.z6.net.cn
+ 七味
+ https://www.qwnull.com
+ 剧透社
+ https://1.star2.cn
+ 四个圈影视
+ https://pg.fenwe078.cf
+ 海纳TV
+ https://www.hainatv.net
+ 思古影视
+ https://siguyy.cn
+ 剧圈圈
+ https://www.jqqzx.top
+ 异世界动漫
+ https://www.dmmiku.com
+ 56动漫
+ https://www.56dm.cc
+ NT动漫
+ https://www.ntdm8.com
+ Anime1动畫
+ https://anime1.me
+ 动画片大全
+ https://www.dhpdq2.com
+ 路漫漫
+ https://www.lmm97.com
+ 动漫岛
+ https://www.dmand5.com
+ https://www.88dmw.com
+ 去看吧
+ https://www.k9dm.com
+ 奇米动漫
+ https://www.qimiqimi.net
+ 花子动漫
+ https://www.huazidm.com
+ 修罗影视
+ https://v.xlys.ltd.ua
+ https://xl01.com.de
+ 追剧狂人
+ https://www.zjkrmv.vip
+ 国外剧
+ https://guowaiju.com
+ 光影迷
+ https://www.guangyingmi.com
+ 米兔影视
+ https://new.tkbot.fun
+ 樱花动漫
+ https://yinghuadm.cn
+ 动漫巴士
+ https://dm84.net
+ 咕咕番
+ https://www.gugu3.com
+ 金牌影院
+ https://www.jiabaide.cn
+ https://www.sizhengxt.com
+ https://www.9zhoukj.com
+ https://cqzuoer.com
+ 界影视
+ https://www.hkybqufgh.com
+ TVB云播
+ http://www.viptv01.com
+ UZVOD优质影院
+ https://mxvod.com
+ 七味
+ https://www.pkmp4.xyz
+ https://www.qwnull.com
+ https://www.qwmkv.com
+ https://www.qwfilm.com
+ https://www.qnmp4.com
+ https://www.qnnull.com
+ https://www.qnhot.com
+ 狐狸君
+ https://www.foxjun.com
+ girigiri愛動漫
+ https://ani.girigirilove.com
+ 看看趣
+ https://www.kankanqu.cc
+ VS影院
+ https://www.xiongyunming.com
+ 久久影视
+ https://www.putaojuchang.com
+ 白嫖者联盟影视
+ https://www.qyzf88.com
+ 可可影视
+ https://www.kkys02.com
+ 农民影视
+ https://www.gymboreejn.com
+ 星河影院
+ http://www.jjxh.cn
+ 4k影视
+ https://www.4kvm.tv
+ 哆啦新番社
+ https://dora.xiaoxinbk.com
+ OmoFun动漫
+ https://omofuns.xy
+
+
+
+
+ 
+ 厂长资源地址
+ https://cz01.vip
+ https://www.czzy.site
+ 达达龟地址
+ https://dadagui.vip
+ 皮皮虾地址
+ https://ppx.cool
+ https://docs.qq.com/pdf/DWEFVTEF2Q3NmQUhh
+ 不太灵影视发布页
+ https://admin.butai0.com
+ 韩剧佬发布页
+ https://www.hztv.app
+ 555影视
+ https://5543198.vip
+ https://55u21.art
+ https://55qm8.art
+ Auete影视
+ https://auete.com
+ https://auete.pro
+ 奇优影院地址发布页
+ http://zhuan.qiyo.cc
+ https://www.qiyoudy.info
+ hdmoli地址发布页
+ https://www.hdmoli.com
+ 大米星球地址发布页
+ https://dmuqe.art
+ 柒月影视发布页
+ https://www.9day.cc
+ OmoFun动漫地址发布页，收藏我回家不迷路！
+ https://omofun111.top
+
+ 
+ 短剧
+ 红果
+ https://www.hongguodj.cc
+ 甜圈
+ https://mov.cenguigui.cn
+ 河马
+ https://www.kuaikaw.cn
+ 
+ 
+ 云盘
+ https://www.qupanshe.com
+ https://pan.xwbeta.com
+ https://pan.aichuguang.com
+ https://alist.shenzjd.com
+ https://al.chirmyram.com
+ https://alist.xiaoya.pro
+ https://zi0.cc
+ https://pan.mediy.cn
+ https://panku8.com
+ 雷鲸小站-天翼云盘交流站
+ https://www.leijing.xyz
+ https://www.leijing1.com
+ https://leijing.xyz
+ https://leijing1.com
+ 海绵小站-天翼云盘资源|网盘搜索|网盘下载|网盘分享
+ https://www.haimianxz.com
+ https://www.hmxz.org
  
  授权
  http://cj.huohua.vip/api.php/provide/vod
+ http://ldys.sq1005.top
+ 
+ 
+ https://pan.72.chat
+ 
+ 
+ apk
+ https://xz4k.top
+ http://ys.qist.top
+ 
  
  18+
+ https://ghfast.top/https://raw.githubusercontent.com/c120487/00/main/05155.txt
+ 左临右射
  https://ghfast.top/https://raw.githubusercontent.com/ltxxjs/box2022-1/main/m2.json
  https://ghfast.top/https://raw.githubusercontent.com/ltxxjs/box2022-1/main/m3.json
+ https://ghfast.top/https://raw.githubusercontent.com/wokaotianshi123/wokaotianshi123.github.io/main/pglblb/0618.txt
+ 
+ https://smsm30.icu
+ https://www.shludkj.cn
+ https://257d2613.com
+ http://8900ck.cc
+ https://26gaoac.com
+ https://www.kmxibanyayu.com
+ https://h5.rqywk.com
+ https://api.leduotv.com
+ https://www.wai727yu.space/portal.html
+ https://xzzgmb.d16hwzhef.com/dx5biszzu/1758003672417/xz/z1281425339/idx.html?#hash=10577998872013816
+
+ { "key": "鸡坤资源", "name": "鸡坤资源", "type": 1, "api": "https://jkunzyapi.com/api.php/provide/vod/", "searchable": 0, "quickSearch": 0, "filterable": 0 },
+ {
+             "key": "奶香m",
+             "name": "采集.奶香香",
+             "type": 1,
+             "api": "https://Naixxzy.com/api.php/provide/vod/?ac=list",
+             "searchable": 1
+         },
+ "name": "大地采集",
+             "type": 0,
+             "api": "https://dadiapi.com/api.php",
  
  随机图片
  https://tv.yydsys.top
  https://tv.yydsys.cc
  https://tv.214521.xyz
+ https://api.btstu.cn/sjbz/api.php
+ https://jiejie.uk/blog
+ 随机视频
+ http://api.yujn.cn/api/zzxjj.php
  
+ iptv
  https://cc-im-kefu-cos.7moor-fs2.com/im/2768a390-5474-11ea-afc9-7b323e3e16c0/d4fe44c5-107c-4511-af02-aa08fb10dff7/2024-04-25/2024-04-25_17:22:21/1714036941087/98644330/wexiptv.txt
+ https://ghfast.top/https://raw.githubusercontent.com/anaer/Meow/main/meow.json
+ https://ghfast.top/https://raw.githubusercontent.com/guot55/yg/main/pg/market.json
+ https://epg.51zmt.top:8001/
+
+
+ 普通接口-自定义写法:
+ {name:"这里填 普通接口 名称",url:"这里填 普通接口 地址",jxb:"原",zd:"1"},
+
+ Json接口-自定义写法（GET）:
+ {name:"这里填 Json接口 名称",url:"这里填 Json接口 地址",json:"1",jxb:"原",zd:"1"},
+ 
+ Json接口-自定义写法（POST）:
+ {name:"这里填 Json接口 名称",url:"这里填 Json接口 地址",json:"2",data:"url=网址&ac=jx",jxb:"原",zd:"1"},
+
+ 采集源解析
+ {name:"这里填 采集源 名称",url:"这里填 采集源 地址",json:"3",jxb:"原",zd:"1",qp:"1"},
+ 
+ vip:"DP|七牛|记忆播放器  /  强制搜索|跳转|弹大窗|弹小窗  /  油管  /  json并发|轮询  /  自动点击  /  爬虫接口  /   播放器"    DP|七牛|记忆 播放器
+ 强制 搜索|跳转|弹大窗|弹小窗
+ 油管
+ json并发|轮询
+ 自动点击
+ 爬虫接口
+ 播放器
+ 
+ jxb:"原/跳/指定接口名称"    解析失败或超过设置的等待时间触发切换解析，原：随机原页；跳：随机弹窗；指定接口：指定接口,如jxb:"江湖"
+ 
+ diy:"sj/随机/#fffffff/占位/消失/隐藏/透明"    指定接口随机/颜色/占位/消失/隐藏/透明
+ 
+ jjj:"qq|mgtv"    接口在指定域名显示，以|分隔，如：qq|youku
+ jjjj:"qq|mgtv"    接口不在指定域名显示
+ 
+ zd:"1/0/开/关"    自动下集1或开为开启，0或关为关闭，默认关闭
+ json:"1/2/小白"    1为原页播放，2为跳转播放，小白为小白播放器播放
+ 
+ vip解析
+ {name:"8090g",url:"https://www.8090g.cn/jiexi/?url=",diy:"darkorange"},
+ {name:"虾米",url:"https://jx.xmflv.com/?url=",diy:"darkorange"},
+ {name:"小米",url:"https://jx.xmflv.cc/?url=",diy:"darkorange"},
+ {name:"999",url:"http://huayong.net/999/?v=",diy:"darkorange"},
+ {name:"华勇",url:"http://huayong.net/vip4/?url=",diy:"darkorange"},
+ {name:"m3u8",url:"https://jx.m3u8.tv/jiexi/?url=",diy:"darkorange"},
+ {name:"qlplayer",url:"https://t2.qlplayer.cyou/player/analysis.php?v=",diy:"darkorange"},
+ {name:"ckplayer",url:"https://www.ckplayer.vip/jiexi/?url=",diy:"darkorange"},
+ {name:"artplayer",url:"https://nm.xxxc137.top/static/player/artplayer.html?url=",diy:"darkorange"},
+ {name:"七七云解析",url:"https://jx.77flv.cc/?url=",diy:"darkorange"},
+ {name:"七智乐",url:"https://jx.2s0.cn/player/?url=",diy:"darkorange"},
+ {name:"夜幕",url:"https://www.yemu.xyz/?url=",diy:"darkorange"},
+ {name:"剖云",url:"https://www.pouyun.com/?url=",diy:"darkorange"},
+ {name:"咸鱼",url:"https://jx.xymp4.cc/?url=",diy:"darkorange"},
+ {name:"云解析1",url:"https://yparse.ik9.cc/index.php?url=",diy:"darkorange"},
+ {name:"云解析2",url:"https://jx.yparse.com/index.php?url=",diy:"darkorange"},
+ {name:"冰豆1",url:"https://bd.jx.cn/?url=",diy:"darkorange"},
+ {name:"冰豆2",url:"https://player.bingdou.com.cn/?url=",diy:"darkorange"},
+ {name:"playm3u8",url:"https://www.playm3u8.cn/jiexi.php?url=",diy:"darkorange"},
+ {name:"盘古",url:"https://www.pangujiexi.com/pangu/?url=",diy:"darkorange"},
+ {name:"JY视频播放器",url:"https://jx.playerjy.com/?url=",diy:"darkorange"},
+ {name:"百度播放器",url:"https://jx.jxbdzyw.com/m3u8/?url=",diy:"darkorange"},
+ {name:"醉仙",url:"https://jx.zui.cm/?url=",diy:"darkorange"},
+ {name:"萝卜影视",url:"https://ys.lbbb.cc/?url=",diy:"darkorange"},
+ {name:"M1907解析",url:"https://im1907.top/?jx=",diy:"darkorange"},
+ {name:"大地",url:"https://play.dadiapi.com/watch?url=",diy:"darkorange"},
+ {name:"zykbf",url:"https://vip.zykbf.com/?url=",diy:"darkorange"},
+ {name:"HLS",url:"https://jx.hls.one/?url=",diy:"darkorange"},
+ {name:"七哥1",url:"https://jx.nnxv.cn/tv.php?url=",diy:"darkorange"},
+ {name:"七哥2",url:"https://jx.mmkv.cn/tv.php?url=",diy:"darkorange"},
+ {name:"魔都",url:"https://jiexi.modujx01.com/?url=",diy:"darkorange"},
+ {name:"弹幕播放器",url:"https://www.ikdmjx.com/?url=",diy:"darkorange"},
+ {name:"纯净",url:"https://tool.bitefu.net/video/?url=",diy:"darkorange"},
+ {name:"夜雨聆风",url:"https://vip.yeyulingfeng.com/?url=",diy:"darkorange"},
+ {name:"极速解析播放器",url:"https://jsjiexi.com/play/?url=",diy:"darkorange"},
+ {name:"暴风",url:"https://bfzyplayer.com/player/?url=",diy:"darkorange"},
+ {name:"新浪",url:"https://www.xinlangjiexi.com/m3u8/?url=",diy:"darkorange"},
+ {name:"奇迹",url:"https://api.nbyjson.top:7788/api/?key=ws9Lz1EtqfU09AzZKl&url=",diy:"darkorange"},
+ {name:"麦田",url:"http://172.247.31.148:25320/jx.php?url=",diy:"darkorange"},
+ {name:"索尼播放器",url:"https://www.snplayer.com/?url=",diy:"darkorange"},
+ {name:"无尽播放器",url:"https://jx.wujinkk.com/dplayer/?url=",diy:"darkorange"},
+ {name:"丝袜",url:"https://help.siwazywcdn2.com:5278/m3u8.php?url=",diy:"darkorange"},
+ {name:"臻享视听",url:"https://player.maqq.cn/?url=",diy:"darkorange"},
+ {name:"金鹰播放器",url:"https://hd.iapijy.com/play/?url=",diy:"darkorange"},
+ {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
+ {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
+ {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
+ {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
+ 
+ 
+ {name:"gouzi",url:"https://zy.qiaoji8.com/gouzi.php?url=",json:"1",diy:"darkorange"},
+ {name:"xiafan",url:"https://zy.qiaoji8.com/xiafan.php?url=",json:"1",diy:"darkorange"},
+ {name:"neibu",url:" https://pan.qiaoji8.com/tvbox/neibu.php?url=",json:"1",diy:"darkorange"},
+ {name:"全民",url:"http://www.wpsseo.cn/jiexi/?v=",json:"1",diy:"darkorange"},
+ {name:"AG",url:"https://codjx.com/API.php?url=",json:"1",diy:"darkorange"},
+ {name:"韩综",url:"https://jx.armytea.com/jh/API.php?url=",json:"1",diy:"darkorange"},
+ {name:"tkys",url:"https://www.pandown.pro/app/tkys/tkysjx.php?url=",json:"1",diy:"darkorange"},
+ {name:"北部客户",url:"https://vip.byteamone.cn/api/?key=vpO0packXeAp4XYCnA&url=",json:"1",diy:"darkorange"},
+
+ 
+ {name:"猫狸盘搜",url:"https://www.alipansou.com/search?k=%s&s=1&t=-1",vip:"强制搜索",diy:"darkorange"},
+ {name:"千帆搜索",url:"https://pan.qianfan.app/search/?pan=all&q=%s",vip:"强制搜索",diy:"darkorange"},
+ {name:"易搜",url:"https://yiso.fun/info?searchKey=%s",vip:"强制搜索",diy:"darkorange"},
+ {name:"大盘搜",url:" https://dapanso.com/search?keyword=%s",vip:"强制搜索",diy:"darkorange"},
+ {name:"小云搜索",url:" https://www.yunso.net/index/user/s?wd=%s",vip:"强制搜索",diy:"darkorange"},
+ {name:"盘Ta",url:" https://www.91panta.cn/search?keyword=%s",vip:"强制搜索",diy:"darkorange"},
+ {name:"盘库",url:" https://panku8.com/s/%s",vip:"强制搜索",diy:"darkorange"},
 
 

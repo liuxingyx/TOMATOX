@@ -26,7 +26,6 @@ export default class Player extends React.Component<any, any> {
     private xgPlayer: XGPlayer | undefined;
     private sourceList: Map<string, Map<string, string>> = new Map();
     private playList: Map<string, Map<string, string>> = new Map();
-    private selectedKey = '';
     private controlState: IplayResource;
     private mainEventHandler: Record<string, () => void> = {
         Up: () => {
@@ -77,8 +76,7 @@ export default class Player extends React.Component<any, any> {
                     isCollect: Indexed.collectedRes.has(this.controlState.id)
                 };
                 const curPlaySrcList = this.controlState.playList.values().next().value;
-                this.selectedKey = this.state.curPlaySrcName;
-                this.playList.set(this.selectedKey, curPlaySrcList!);
+                this.playList.set(this.state.curPlaySrcName, curPlaySrcList!);
             } else {
                 this.playList = this.controlState.playList;
                 this.state = {
@@ -95,19 +93,18 @@ export default class Player extends React.Component<any, any> {
     }
 
     private playNext = () => {
-        const dramas = Array.from(this.playList.get(this.selectedKey)!.keys());
+        const dramas = Array.from(this.playList.get(this.state.curPlaySrcName)!.keys());
         const curIdx = dramas.indexOf(this.state.curPlayDrama);
         if (curIdx >= 0 && curIdx < dramas.length - 1) {
             const drama = dramas[curIdx + 1];
-            const src = this.playList.get(this.selectedKey)!.get(dramas[curIdx + 1])!;
+            const src = this.playList.get(this.state.curPlaySrcName)!.get(dramas[curIdx + 1])!;
             this.setState({
-                curPlaySrcName: this.selectedKey,
+                curPlaySrcName: this.state.curPlaySrcName,
                 curPlayDrama: drama,
                 curPlaySrc: src
             });
             this.xgPlayer!.src = src;
             this.xgPlayer!.currentTime = 0;
-            console.log('下一集结果：', this.selectedKey, src);
             this.initData();
         }
     };
@@ -226,29 +223,28 @@ export default class Player extends React.Component<any, any> {
         for (const [key, value] of this.sourceList) {
             eles.push(
                 <Tabs.TabPane tab={key} key={key}>
-                    {this.descSeries(key, value)}
+                    {this.descSeries(value)}
                 </Tabs.TabPane>
             );
         }
         return eles;
     }
 
-    descSeries(srcName: string, playList: Map<string, string>) {
+    descSeries(playList: Map<string, string>) {
         const eles = [];
         // console.log('渲染播放链接：', playList);
         // @ts-ignore
-        for (const [key, value] of playList) {
+        for (const [key] of playList) {
             eles.push(
                 <span
                     key={key}
                     className={`${cssM.seriesTag} ${
-                        value === this.state.curPlaySrc ? cssM.seriesTagActive : ''
+                        playList.get(key) === this.state.curPlaySrc ? cssM.seriesTagActive : ''
                     }`}
                     onClick={() => {
-                        if (this.state.curPlaySrc !== value) {
-                            this.selectedKey = srcName;
+                        if (this.state.curPlaySrc !== playList.get(key)) {
                             this.setState({
-                                curPlaySrc: value,
+                                curPlaySrc: playList.get(key),
                                 curPlayDrama: key
                             });
                             this.xgPlayer!.currentTime = 0;
@@ -313,8 +309,7 @@ export default class Player extends React.Component<any, any> {
                             activeKey={this.state.curPlaySrcName}
                             className={cssM.sourceTab}
                             onChange={newKey => {
-                                // this.selectedKey = newKey;
-                                if (this.selectedKey !== newKey) {
+                                if (this.state.curPlaySrcName !== newKey) {
                                     this.setState({
                                         curPlaySrcName: newKey
                                     });
