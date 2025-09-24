@@ -248,7 +248,7 @@ export default class Player extends React.Component<any, any> {
                                 curPlayDrama: key
                             });
                             this.xgPlayer!.currentTime = 0;
-                            this.xgPlayer!.src = this.state.curPlaySrc;
+                            this.xgPlayer!.src = playList.get(key)!;
                             this.initData();
                         }
                     }}>

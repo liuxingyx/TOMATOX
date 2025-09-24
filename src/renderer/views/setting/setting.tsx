@@ -116,15 +116,8 @@ export default class Setting extends React.Component<any, any> {
                 {process.env.NODE_ENV === 'production' && (
                     <div>
                         <span className={cssM.settingTitle}>视频源</span>
-                        <input
-                            type="file"
-                            id="fileInput"
-                            style={{ display: 'none' }}
-                            onChange={this.jsReadFiles.bind(this)}
-                            />
-                        <span className={cssM.sourceBtn}>
-                            <Button onClick={this.selectFile}>导入</Button>
-                        </span>
+                        <input type="file" id="fileInput" style={{ display: "none" }} onChange={this.jsReadFiles.bind(this)}/>
+                        <span className={cssM.sourceBtn}><Button onClick={this.selectFile}>导入</Button></span>
                     </div>
                 )}
                 <div className={cssM.settingContent}>

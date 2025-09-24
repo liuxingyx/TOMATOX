@@ -139,16 +139,18 @@ export function queryDetail(ele: IplayResource) {
                                 Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
                             }
                         });
-                    } else if (
-                        ele.remark !== result.remark ||
-                        ele.playList === null ||
-                        ele.playList.size === 0
-                    ) {
-                        console.log('详情修改前结果：', ele);
-                        ele.remark = result.remark;
-                        ele.playList = result.playList;
-                        console.log('详情修改后结果：', ele);
-                        Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                    } else {
+                        if (
+                            ele.remark !== result.remark ||
+                            ele.playList === null ||
+                            ele.playList.size === 0
+                        ) {
+                            console.log('详情修改前结果：', ele);
+                            ele.remark = result.remark;
+                            ele.playList = result.playList;
+                            console.log('详情修改后结果：', ele);
+                            Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                        }
                     }
                     resolve({});
                 } catch (e) {
