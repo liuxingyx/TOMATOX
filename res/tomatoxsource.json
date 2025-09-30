@@ -32,8 +32,12 @@
         "api":"https://api.guangsuapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"暴风资源",
+        "id":"暴风资源1",
         "api":"http://by.bfzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源2",
+        "api":"http://43.138.242.105:8282/api.php/provide/vod/at/xml"
     },
     {
         "id":"无尽资源1",
