@@ -33,10 +33,10 @@
     },
     {
         "id":"暴风资源1",
-        "api":"http://by.bfzyapi.com/api.php/provide/vod/at/xml"
+        "api":"http://by.bfzyapi.com"
     },
     {
-        "id":"暴风资源2",
+        "id":"暴风资源",
         "api":"http://43.138.242.105:8282/api.php/provide/vod/at/xml"
     },
     {
@@ -212,16 +212,16 @@
         "api":"https://pg.fenwe078.cf/api.php/provide/vod/at/xml"
     },
     {
-        "id":"黑木耳资源",
-        "api":"https://heimuer.ggff.net/api.php/tvbox"
-    },
-    {
         "id":"最大资源网1",
         "api":"https://zuidazy.co/api.php/provide/vod/at/xml"
     },
     {
         "id":"最大资源网2",
         "api":"https://zuida.xyz/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"最大资源网3",
+        "api":"https://api.zuidapi.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"快车资源",
@@ -238,6 +238,10 @@
     {
         "id":"omofun动漫",
         "api":"https://app.omofun1.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"555618",
+        "api":"https://mac.555618.xyz/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源",
