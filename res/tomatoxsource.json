@@ -240,8 +240,16 @@
         "api":"https://app.omofun1.top/api.php/provide/vod/at/xml"
     },
     {
-        "id":"555618",
+        "id":"mac.555618",
         "api":"https://mac.555618.xyz/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"app.555618",
+        "api":"http://app.555618.xyz:1766/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"星星资源",
+        "api":"https://starani.qcanime.xyz/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源",
