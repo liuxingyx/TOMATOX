@@ -252,6 +252,22 @@
         "api":"https://starani.qcanime.xyz/api.php/provide/vod/at/xml"
     },
     {
+        "id":"仓鼠资源",
+        "api":"https://hk421appcms.cs4k.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"灵虎资源",
+        "api":"http://app.555618.xyz:1766/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"冬日资源",
+        "api":"http://www.drdm.fun/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"漫屋资源",
+        "api":"https://www.yunwuee.icu/api.php/provide/vod/at/xml"
+    },
+    {
         "id":"量子资源",
         "api":"https://cj.lziapi.com/api.php/provide/vod/at/xml"
     },
