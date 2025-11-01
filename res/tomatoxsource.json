@@ -36,7 +36,11 @@
         "api":"http://by.bfzyapi.com"
     },
     {
-        "id":"暴风资源",
+        "id":"暴风资源2",
+        "api":"https://bf.xoxowin86cisyap.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源3",
         "api":"http://43.138.242.105:8282/api.php/provide/vod/at/xml"
     },
     {
@@ -252,8 +256,12 @@
         "api":"https://starani.qcanime.xyz/api.php/provide/vod/at/xml"
     },
     {
-        "id":"仓鼠资源",
+        "id":"仓鼠资源1",
         "api":"https://hk421appcms.cs4k.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"仓鼠资源2",
+        "api":"https://newappcms.cs4k.top/api.php/provide/vod/at/xml"
     },
     {
         "id":"灵虎资源",
@@ -268,6 +276,10 @@
         "api":"https://www.yunwuee.icu/api.php/provide/vod/at/xml"
     },
     {
+        "id":"于浅资源",
+        "api":"http://202.140.143.116:88/api.php/provide/vod/at/xml"
+    },
+    {
         "id":"量子资源",
         "api":"https://cj.lziapi.com/api.php/provide/vod/at/xml"
     },
@@ -277,3 +289,4 @@
     }
 ]
 
+ 
