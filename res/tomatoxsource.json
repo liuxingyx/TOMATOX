@@ -16,8 +16,12 @@
         "api":"https://www.huyaapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"360资源_好",
-        "api":"https://360zy.com/api.php/seaxml/vod/at/xml"
+        "id":"360资源1",
+        "api":"https://360zy.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"360资源2",
+        "api":"https://360zyzz.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"魔都资源1",
@@ -37,10 +41,14 @@
     },
     {
         "id":"暴风资源2",
-        "api":"https://bf.xoxowin86cisyap.com/api.php/provide/vod/at/xml"
+        "api":"https://bfzyapi.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"暴风资源3",
+        "api":"https://bf.xoxowin86cisyap.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源4",
         "api":"http://43.138.242.105:8282/api.php/provide/vod/at/xml"
     },
     {
@@ -278,6 +286,10 @@
     {
         "id":"于浅资源",
         "api":"http://202.140.143.116:88/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"鲶鱼资源",
+        "api":"http://47.122.22.78/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源",
