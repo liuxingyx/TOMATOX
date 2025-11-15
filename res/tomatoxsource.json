@@ -41,7 +41,7 @@
     },
     {
         "id":"暴风资源2",
-        "api":"https://bfzyapi.com/api.php/provide/vod/at/xml"
+        "api":"https://app.bfzyapi.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"暴风资源3",
@@ -290,6 +290,10 @@
     {
         "id":"鲶鱼资源",
         "api":"http://47.122.22.78/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"瀑布盘资源",
+        "api":"https://dh.ha.cn/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源",
