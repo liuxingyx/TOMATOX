@@ -176,8 +176,12 @@
         "api":"http://www.mandao.site/api.php/provide/vod/at/xml"
     },
     {
-        "id":"豆瓣资源",
+        "id":"豆瓣资源1",
         "api":"https://caiji.dbzy.tv/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"豆瓣资源2",
+        "api":"https://caiji.dbzy5.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"如意资源",
