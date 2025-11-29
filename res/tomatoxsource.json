@@ -60,6 +60,10 @@
         "api":"https://api.wujinapi.com/api.php/provide/vod/at/xml"
     },
     {
+        "id":"无尽资源3",
+        "api":"https://api.wujinapi.me/api.php/provide/vod/at/xml"
+    },
+    {
         "id":"索尼资源",
         "api":"https://suoniapi.com/api.php/provide/vod/at/xml"
     },
@@ -233,10 +237,14 @@
     },
     {
         "id":"最大资源网2",
-        "api":"https://zuida.xyz/api.php/provide/vod/at/xml"
+        "api":"https://zuida.me/api.php/provide/vod/at/xml"
     },
     {
         "id":"最大资源网3",
+        "api":"https://zuida.xyz/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"最大资源网4",
         "api":"https://api.zuidapi.com/api.php/provide/vod/at/xml"
     },
     {
@@ -298,6 +306,14 @@
     {
         "id":"瀑布盘资源",
         "api":"https://dh.ha.cn/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"小猫影院",
+        "api":"http://xm.xmyqd.icu/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"魔方影院",
+        "api":"https://app.ybn-ooo.top/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源",
