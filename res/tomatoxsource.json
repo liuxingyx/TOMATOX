@@ -5,11 +5,15 @@
     },
     {
         "id":"量子资源2",
-        "api":"https://lzizy.com/api.php/provide/vod/at/xml"
+        "api":"https://www.lzizy.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源3",
-        "api":"http://lzizy.net/api.php/provide/vod/at/xml"
+        "api":"http://www.lzizy.net/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"量子资源4",
+        "api":"http://www.lzzy.tv/api.php/provide/vod/at/xml"
     },
     {
         "id":"虎牙资源",
@@ -57,11 +61,15 @@
     },
     {
         "id":"无尽资源2",
-        "api":"https://api.wujinapi.com/api.php/provide/vod/at/xml"
+        "api":"https://api.wujinapi.me/api.php/provide/vod/at/xml"
     },
     {
         "id":"无尽资源3",
-        "api":"https://api.wujinapi.me/api.php/provide/vod/at/xml"
+        "api":"https://api.wujinapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"无尽资源4",
+        "api":"https://api.wujinapi.net/api.php/provide/vod/at/xml"
     },
     {
         "id":"索尼资源",

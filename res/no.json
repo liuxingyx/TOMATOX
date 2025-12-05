@@ -825,6 +825,8 @@
  https://www.ys.mk
  瑞奇影视
  http://rqxk.gdata.fun
+ 清影
+ http://www.revohd.com
  
  
  
@@ -906,6 +908,7 @@
  https://55pen.wiki
  https://55dot.wiki
  https://55fnr.wiki
+ https://w55xy.com
  https://555vex.com
  https://5516617.vip
  https://5543198.vip
@@ -1058,6 +1061,7 @@
  https://www.dafenqi.mom
  https://m.173647.com
  https://m.533851.com
+ https://yg.vving.vip
  https://jiexi.ddmz6.com/api/publicApi.php
  
  http://mogg.xn--yetu07f.top
@@ -1132,6 +1136,8 @@
  http://williamc.tplinkdns.com/iptv/ysclive.txt
  https://raw.liucn.cc/box/libs/tv/tvlive.txt
  https://raw.kkgithub.com/Supprise0901/TVBox_live/main/live.txt
+ https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv6.m3u
+ 
  
  https://epg-1.iill.top/v/302.mp4
  https://epg-1.iill.top/v/301.mp4
@@ -1265,7 +1271,8 @@
  {name:"百度播放器",url:"https://jx.jxbdzyw.com/m3u8/?url=",diy:"darkorange"},
  {name:"醉仙",url:"https://jx.zui.cm/?url=",diy:"darkorange"},
  {name:"萝卜影视",url:"https://ys.lbbb.cc/?url=",diy:"darkorange"},
- {name:"M1907解析",url:"https://im1907.top/?jx=",diy:"darkorange"},
+ {name:"M1907解析1",url:"https://im1907.top/?jx=",diy:"darkorange"},
+ {name:"M1907解析2",url:"https://am1907.top/?jx=",diy:"darkorange"},
  {name:"大地",url:"https://play.dadiapi.com/watch?url=",diy:"darkorange"},
  {name:"zykbf",url:"https://vip.zykbf.com/?url=",diy:"darkorange"},
  {name:"HLS",url:"https://jx.hls.one/?url=",diy:"darkorange"},
@@ -1293,6 +1300,10 @@
  {name:"火花",url:"https://api.huohua.live/bfq/?key=JziU1RWLujwmvoOKhs&url=",diy:"darkorange"},
  {name:"u酷",url:"https://api.ukubf.com/m3u8/?url=",diy:"darkorange"},
  {name:"忆漫",url:"https://2.66movie.top/player/?url=",diy:"darkorange"},
+ {name:"全名1",url:"https://www.quanminjiexi.com/jiexi/?jx=",diy:"darkorange"},
+ {name:"全名2",url:"http://www.quanminjiexi.com/jiexi/?v=",diy:"darkorange"},
+ {name:"zyplayer",url:"https://web.zyplayer.fun/?url=",diy:"darkorange"},
+ {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
  {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
  {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
  {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
