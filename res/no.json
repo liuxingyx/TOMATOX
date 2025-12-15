@@ -68,10 +68,6 @@
         "api":"http://dmsvip1.top/api.php/provide/vod/at/xml"
     },
     {
-        "id":"暴风资源",
-        "api":"http://bfzy.tv/api.php/provide/vod/at/xml"
-    },
-    {
         "id":"韩剧资源",
         "api":"http://www.hanjuzy.com/inc/api.php"
     },
@@ -104,10 +100,6 @@
         "api":"https://www.gnpt.net/api.php/provide/vod/at/xml"
     },
     {
-        "id":"极速资源",
-        "api":"https://jszyapi.com/api.php/provide/vod/at/xml"
-    },
-    {
         "id":"八戒云",
         "api":"http://cj.bajiecaiji.com/inc/api.php"
     },
@@ -136,16 +128,68 @@
         "api":"https://gayapi.com/api.php/provide/vod/at/xml"
     },
     {
+        "id":"暴风资源",
+        "api":"http://bfzy.tv/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源",
+        "api":"https://app.bfzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
         "id":"暴风资源(18+)",
         "api":"https://by.bfzyapi.com"
     },
     {
-        "id":"iKun资源",
-        "api":"https://ikunzy.com/api.php/provide/vod/at/xml"
+        "id":"黑料资源网(18+)",
+        "api":"https://heiliaozyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"香蕉资源网(18+)",
+        "api":"https://www.xiangjiaozyw.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"搜乐资源(播放链接失效)",
         "api":"https://api.zeqaht.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"魔方影院",
+        "api":"https://app.ybn-ooo.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"鲶鱼资源",
+        "api":"http://47.122.22.78/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"仓鼠资源",
+        "api":"https://newappcms.cs4k.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"TVB云播",
+        "api":"http://www.tvyb03.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"于浅资源",
+        "api":"http://202.140.143.116:88/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"最大资源网",
+        "api":"https://zuida.me/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"速影TV",
+        "api":"https://xn--k5d-suyingtvcom-lc40a84t7o9i3urako0c.suyingok.com/inc/api.php"
+    },
+    {
+        "id":"至尊宝盒TV",
+        "api":"http://7.qqqtv.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"星河影视",
+        "api":"http://121.62.22.204:9876/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"魔爪资源",
+        "api":"https://mozhuazy.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"黑木耳资源",
@@ -160,6 +204,10 @@
  搜索
  ac=search
  q=key
+ 
+ cms
+ https://gfjhgdngsbghgfbfdfd.fdagdsdsfdsagfdhagdsfdsa.com
+ 
  
  淘片资源
  https://taopianapi.com/cjapi/sda/vod/xml
@@ -218,6 +266,8 @@
  https://www.66s6.cc
  555电影
  https://pic5z.com
+ https://www.555dy.me
+ https://www.55yy5.com
  https://www.55dy1.com
  https://www.zhenfanjixie.com
  https://www.5r5c6r5q1x7.shop
@@ -230,6 +280,7 @@
  https://m.aimoon.me
  厂长
  https://www.cz233.com
+ https://www.ilingyu.com
  https://www.czzymovie.com
  爱看机器人
  https://v.aikanbot.com
@@ -258,6 +309,8 @@
  友嗨影院
  http://www.whbax.cn
  https://mblys.com
+ 4KMP
+ https://4kmp.com
  4K影库
  http://4kfm.com
  4k影院
@@ -334,25 +387,30 @@
  佳程影视
  https://www.hzjcqc.com
  APP影院
- https://www.appmovie.click
  https://www.appmovie.vip
+ https://www.appmovie.art
+ https://www.appmovie.click
  大师兄影视
  https://dsxys.com
  https://www.dsxysproo.com
  奈落影视
  https://newfii.com
  饭团影院
- http://www.bzpos.com
  http://k.mdegp.com
- 饭团影视
+ http://www.bzpos.com
+ 饭团影视-专注影视动漫更新高清的免费影视动漫网
+ https://www.fwdq.cc
+ 饭团影视 - 在线看蓝光电影追剧就上饭团影院网页版
  https://fantuansjz.com
  稀饭影院
  https://www.xifanys.com
  快看影视
  http://k.schxlgc.com
- 多瑙影院
+ 多瑙影院 - 海外华人喜爱的线上影视平台
  https://www.duonaovod.com
  https://www.duonaovod.org
+ 多瑙影院 - 热门影视剧集资讯与剧情介绍平台
+ https://www.oulevod.org
  4080影院
  https://www.soukk.top
  永乐视频
@@ -388,6 +446,11 @@
  https://www.yjys.cc.ua
  追剧狂人
  https://www.zjkrmv.vip
+ https://www.zjkrmv.com
+ 追劇網
+ https://ztv.tw
+ 追剧迷
+ https://www.zhuijumi.cc
  国外剧
  https://guowaiju.com
  光影迷
@@ -445,11 +508,10 @@
  白嫖者联盟
  https://www.6699z.cn
  农民影视
- https://www.gymboreejn.com
+ https://nmdvd.top
+ https://www.nmdvd.cc
  星河影院
  http://www.jjxh.cn
- 哆啦新番社
- https://dora.xiaoxinbk.com
  三米影视
  http://www.9-here.com
  音范丝
@@ -484,14 +546,23 @@
  https://www.mayi4k.com
  两个BT影视
  https://www.bttwoo.com
- 奈飞工厂
- https://www.netflixgc.com
- 奈飞
+ 奈飞影院
+ https://www.naifei1.com
+ 奈飞影视
+ https://www.naifei.in
+ 奈飞影视
+ https://www.naifeitv.org
+ 奈飞中文
  https://www.naifei2.org
+ 奈飞工厂
+ https://yanetflix.com
+ https://www.netflixgc.com
  网飞TV
  https://www.wangfei.tv
  网飞啦华人在线影院
  https://wangfei.la
+ 网飞猫
+ https://www.ncat21.com
  时代TV
  https://www.shidai.tv
  万佳影视
@@ -556,6 +627,14 @@
  https://www.nycvod.com
  注视影视
  https://gaze.run
+ 爱看啦aik.la
+ https://aik.la
+ 爱看片
+ https://ikdying.com
+ 爱看电影网_爱看影院
+ https://www.ikdyw.com
+ 爱看影院
+ https://www.ikvod.cc
  爱看影视
  https://ikan6.vip
  https://www.akys.us
@@ -613,10 +692,15 @@
  GimyTV剧迷
  https://gimy.tv
  https://gimy.at
+ https://gimytw.cc
+ https://gimytv.co
  https://gimy01.com
  https://www.jagcys.com
  Gimy劇迷影音
  https://gimy.video
+ https://gimyv.com
+ PttPlay線上看 - Gimy劇迷
+ https://pttplay.co
  忘川影视
  https://www.wcys8.com
  BT影视
@@ -633,6 +717,8 @@
  https://939394.xyz
  voflix HD
  https://www.voflix.fun
+ 木瓜影院
+ http://www.pttvu.com
  木瓜电影网
  http://www.muguatv1.com
  夕云影视网
@@ -645,6 +731,8 @@
  http://k.gcjssj.com
  蛋蛋趣
  https://www.dandanqu.cc
+ 蛋蛋鱼
+ https://www.dandanyu.cc
  青苹果影院
  https://www.miushuo.com
  月亮电影网
@@ -668,6 +756,12 @@
  https://www.laodifang.tv
  星辰影院
  https://www.xcyycn.com
+ 星辰影院
+ http://m.gyxlgs.com
+ 星辰影视
+ https://zhenchengfs.com
+ 星光影院
+ https://xingguangtv.com.cn
  小红影视
  https://www.xiaohys.com
  木雨影视
@@ -696,13 +790,17 @@
  https://4.567.li
  爱迪影视
  https://adys.tv
- 蓝光电影网|蓝光影院
+ 蓝光电影网
  https://www.languangdy.com
+ 蓝光影院
+ https://www.zznzjcty.com
  嘿叭电影
  https://hibady.com
  迅雷电影天堂
  https://xunlei8.cc
  奇优影院
+ http://www.chinatiantuo.net
+ 奇优影院手机版
  http://www.qiyoudy2.com
  时光影院
  https://www.time-chicken.com
@@ -710,9 +808,11 @@
  https://www.zhenlang.cc
  随客影视
  https://www.suike100.com
- 一起看影院-YQK.APP
- https://www.cpldq.com
+ 一起影视
+ https://www.yiqitv.com
  一起看影院
+ https://m.cdlhmq.cn
+ https://www.cpldq.com
  https://www.mpkbuy.com
  麻花影视_麻花影院
  http://k.webjiazu.com
@@ -721,13 +821,17 @@
  SuSu Share
  https://susuifa.com
  大米星球
- https://www.damifan.wiki
+ https://www.dmxq.fun
+ 大米影视
+ http://www.kmgmn.cn
  新视觉影院
  https://6080z.com
  新视觉影院
  https://www.sypfjy.com
  楓林網
  https://imaple.app
+ 楓林網
+ https://imaple8.tv
  观影
  https://www.gyg.si
  https://www.gying.net
@@ -735,6 +839,8 @@
  https://qfys.myqf.asia
  小小
  https://xhww.net
+ 小小影院
+ http://luyu56.com
  539影视
  https://www.539539.xyz
  久播影院
@@ -749,6 +855,8 @@
  https://www.hfjymd.com
  独播库
  https://www.dbku.tv
+ 独播库-热播电影电视剧
+ https://www.lhxifu.com
  小鴨影音
  https://777tv.ai
  https://777tv.ru
@@ -756,6 +864,8 @@
  https://777drama.cc
  小鴨影音
  https://tvbox.im
+ 麦田影视
+ https://guoleda.com
  麦田影院
  https://www.mtyy1.com
  飞快TV
@@ -768,8 +878,6 @@
  https://www.fydy8.com
  剧剧网
  https://jj511.cc
- 追剧网
- https://www.zhuijumi.cc
  看看屋影视_看看影院
  https://www.kkw361.com
  熊猫影视
@@ -827,6 +935,67 @@
  http://rqxk.gdata.fun
  清影
  http://www.revohd.com
+ 小宝影院
+ https://www.xbvod.com
+ 欧乐影院_免费电影网_高清影视
+ https://ouydj.com
+ 欧乐影院 - 免费海外影视欧乐影院在线电影电视剧
+ https://www.olenew.com
+ 2TV2影视网
+ https://2tv2.com
+ 神马电影网
+ https://smdy99.com
+ 4G影视
+ https://www.ggggtv.com
+ 橘猫影视
+ http://yaozs.cc
+ XIAOTV 在线电影电视剧平台
+ https://xiaotv.fun
+ 看电影 C.Movie(登录)
+ https://cmovie.tv
+ 海龟TV - 海龟影院
+ https://www.haigui.tv
+ 片库网
+ https://www.pian-ku.com
+ YouKnowTV
+ https://www.youknow.tv
+ 速速电影院
+ https://danjiatong.com
+ 飘花电影网
+ https://www.kahlercom.com
+ MoMoVOD - 免費線上影視
+ https://momovod.app
+ 小鸡影院
+ https://www.minijj.com
+ 94i影城
+ https://94itv.app
+ 歐飛
+ https://www.ofiii.com
+ 68影院
+ https://www.68yy.com
+ 速影TV
+ https://suyingtv.xyz
+ 爱看视频
+ https://iksp.tv
+ DY-DY电影网
+ https://dy-dy.com
+ 99KUBO|KBTV影音線上看
+ https://99kubo.cc
+ 77电视网_170so电影
+ https://www.170so.com
+ 影视森林
+ https://hc34567.com
+ 看影网
+ https://www.kanyingv.com
+ 哔嘀影视
+ https://www.bidiys.cc
+ 光影时刻
+ https://www.nulltm.com
+ 1080kkk
+ https://www.1080kkk.com
+ 
+ 
+ 
  
  
  
@@ -855,6 +1024,7 @@
  花子动漫
  https://www.huazidm.com
  樱花动漫
+ https://www.295k.cc
  https://yinghuadm.cn
  樱花动漫网
  https://www.aidm9.com
@@ -880,6 +1050,17 @@
  https://www.aowu.tv
  樱之空动漫
  https://skr.skr1.cc:666
+ SSRFun动漫
+ https://www.ssrfun.com
+ 播王
+ https://bowang.su
+ 哆啦新番社
+ https://dora.xiaoxinbk.com
+ 哆啦新番社
+ https://www.dora-video.cn
+ AG動漫 - 阿哥動漫
+ https://agdm.tv
+ 
  
  
  
@@ -926,6 +1107,7 @@
  大米星球地址发布页
  https://dmuqe.art
  https://dmr0x2.com
+ https://www.dmxq.vip
  柒月影视发布页
  https://www.9day.cc
  OmoFun动漫地址发布页，收藏我回家不迷路！
@@ -964,6 +1146,8 @@
  https://kpkuang.surge.sh
  360资源地址发布页
  https://360zy.vip
+ 特狗发布页
+ https://www.tegouys.com
  
 
  
@@ -982,6 +1166,8 @@
  https://djw1.com
  久久看剧
  https://sm3.cc
+ 番茄短剧
+ https://m.shanhuzs.com
  
  
  电视
@@ -1002,6 +1188,7 @@
  云盘
  https://www.qupanshe.com
  https://pan.xwbeta.com
+ https://pan.clun.top
  https://pan.aichuguang.com
  https://alist.shenzjd.com
  https://al.chirmyram.com
@@ -1062,6 +1249,8 @@
  https://m.173647.com
  https://m.533851.com
  https://yg.vving.vip
+ https://www.2tv.app
+ https://www.23wm.net
  https://jiexi.ddmz6.com/api/publicApi.php
  
  http://mogg.xn--yetu07f.top
@@ -1076,13 +1265,17 @@
  小说
  http://www.guahd.com
  https://www.ddxsmf.com
+ https://www.i4ma.com
+ https://www.wb72.com
  
  导航
  https://bhapp.top
  https://789bh.com
  https://cddys.me
  https://www.dsjdh.com
+ https://www.full66.com
  https://www.cddys1.com
+ https://www.zzzypro.com
  
  播客RSS
  https://getpodcast.xyz
@@ -1137,6 +1330,7 @@
  https://raw.liucn.cc/box/libs/tv/tvlive.txt
  https://raw.kkgithub.com/Supprise0901/TVBox_live/main/live.txt
  https://raw.githubusercontent.com/suxuang/myIPTV/main/ipv6.m3u
+ https://raw.githubusercontent.com/Supprise0901/TVBox_live/main/live.txt
  
  
  https://epg-1.iill.top/v/302.mp4
@@ -1155,6 +1349,8 @@
  https://ghfast.top/https://raw.githubusercontent.com/wokaotianshi123/wokaotianshi123.github.io/main/pglblb/tv/Adu.txt
  https://raw.githubusercontent.com/wokaotianshi123/tvtg/main/PG/lib/feimaolive.json
  https://ghfast.top/https://raw.githubusercontent.com/guot55/yg/main/pro.json
+ https://ghfast.top/https://raw.githubusercontent.com/yf20230412/master/main/TvBox/lib/612.txt
+ https://ghfast.top/https://raw.githubusercontent.com/yf20230412/master/main/TvBox/TV/818.txt
  
  https://www.xxibaozyw.com/api.php/provide/vod
  
@@ -1173,10 +1369,13 @@
  https://al11.ndvmssi.cn
  https://api.leduotv.com
  https://d3sdrg8lpodox.cloudfront.net/?dc=rollerpc
+ http://www_hebeiaohua_cn.a357899.cn
  http://www_dzjzygw_com.yss6080.com
  https://m66.yanjiusuo1137.top
  https://shujiazuoye.org
  https://www.uccomic.com
+ https://www.olys.cc
+ http://www.kudianzy.com
  https://xzzgmb.d16hwzhef.com/dx5biszzu/1758003672417/xz/z1281425339/idx.html?#hash=10577998872013816
  https://uucc.qogzez.com
  https://javbee.vip
@@ -1188,6 +1387,8 @@
  https://dytt996.co
  https://tv.ygmgo.cn
  https://www.jiatom.com
+ https://h5.xfiqz.com
+ https://h5.2wv3815iqm.com
  https://ukk.3maha4r.xyz/pc.html
  https://ihq.pubn0gb.xyz/pc.html
  https://qkr.6sj55fg.xyz/pc.html
@@ -1309,7 +1510,6 @@
  {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
  {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
  {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
- {name:"PAR",url:"https://jx.jsonplayer.com/player/?url=",diy:"darkorange"},
  
  
  {name:"gouzi",url:"https://zy.qiaoji8.com/gouzi.php?url=",json:"1",diy:"darkorange"},
@@ -1365,6 +1565,7 @@
  {name:"超级播放器",url:"https://playpro.tyhua.top/player/ec.php?code=Art&if=1&url=",diy:"darkorange"},
  {name:"爱坤播放器",url:"https://bofang.ikdmjx.com/?url=",diy:"darkorange"},
  {name:"茅台播放器",url:"https://mtjiexi.cc:966/?url=",diy:"darkorange"},
+ {name:"奥斯卡",url:"https://aosikazyplayurl.com/?url=",diy:"darkorange"},
  {name:"丝袜播放器",url:"https://help.siwazywcdn2.com:5278/m3u8.php?url=",diy:"darkorange"},
  {name:"奶香香播放器",url:"https://nxxbfjx.com/?url=",diy:"darkorange"},
  

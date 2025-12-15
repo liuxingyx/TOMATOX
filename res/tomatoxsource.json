@@ -5,55 +5,15 @@
     },
     {
         "id":"量子资源2",
-        "api":"https://www.lzizy.com/api.php/provide/vod/at/xml"
+        "api":"https://lzizy.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源3",
-        "api":"http://www.lzizy.net/api.php/provide/vod/at/xml"
+        "api":"http://lzizy.net/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源4",
         "api":"http://www.lzzy.tv/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"虎牙资源",
-        "api":"https://www.huyaapi.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"360资源1",
-        "api":"https://360zy.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"360资源2",
-        "api":"https://360zyzz.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"魔都资源1",
-        "api":"https://www.mdzyapi.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"魔都资源2",
-        "api":"https://moduzy2.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"光速资源",
-        "api":"https://api.guangsuapi.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"暴风资源1",
-        "api":"http://by.bfzyapi.com"
-    },
-    {
-        "id":"暴风资源2",
-        "api":"https://app.bfzyapi.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"暴风资源3",
-        "api":"https://bf.xoxowin86cisyap.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"暴风资源4",
-        "api":"http://43.138.242.105:8282/api.php/provide/vod/at/xml"
     },
     {
         "id":"无尽资源1",
@@ -72,16 +32,32 @@
         "api":"https://api.wujinapi.net/api.php/provide/vod/at/xml"
     },
     {
-        "id":"索尼资源",
-        "api":"https://suoniapi.com/api.php/provide/vod/at/xml"
+        "id":"非凡资源1",
+        "api":"http://api.ffzyapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"豪华资源",
-        "api":"https://hhzyapi.com/api.php/provide/vod/at/xml"
+        "id":"非凡资源2",
+        "api":"http://cj.ffzyapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"新浪资源",
-        "api":"https://api.xinlangapi.com/xinlangapi.php/provide/vod/at/xml"
+        "id":"非凡资源3",
+        "api":"http://www.ffzy.tv/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源1",
+        "api":"https://bfzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源2",
+        "api":"http://by.bfzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源3",
+        "api":"https://bf.xoxowin86cisyap.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"暴风资源4",
+        "api":"http://43.138.242.105:8282/api.php/provide/vod/at/xml"
     },
     {
         "id":"卧龙资源1",
@@ -96,12 +72,72 @@
         "api":"https://collect.wolongzyw.tv/api.php/provide/vod/at/xml"
     },
     {
+        "id":"最大资源网1",
+        "api":"https://zuidazy.co/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"最大资源网2",
+        "api":"https://zuida.xyz/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"最大资源网3",
+        "api":"https://api.zuidapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"360资源1",
+        "api":"https://360zy.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"360资源2",
+        "api":"https://360zyzz.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"魔都资源1",
+        "api":"https://www.mdzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"魔都资源2",
+        "api":"https://moduzy2.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"豆瓣资源1",
+        "api":"https://caiji.dbzy.tv/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"豆瓣资源2",
+        "api":"https://caiji.dbzy5.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"虎牙资源",
+        "api":"https://www.huyaapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"光速资源",
+        "api":"https://api.guangsuapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"索尼资源",
+        "api":"https://suoniapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"豪华资源",
+        "api":"https://hhzyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"新浪资源",
+        "api":"https://api.xinlangapi.com/xinlangapi.php/provide/vod/at/xml"
+    },
+    {
         "id":"红牛资源",
-        "api":"https://www.hongniuzy2.com/api.php/provide/vod/at/xml"
+        "api":"https://www.hongniuzy3.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"U酷资源",
-        "api":"https://api.ukuapi.com/api.php/provide/vod/at/xml"
+        "api":"https://api.ukuapi88.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"iKun资源",
+        "api":"https://ikunzy.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"淘片资源_好用",
@@ -116,18 +152,6 @@
         "api":"https://api.apiyhzy.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"非凡资源1",
-        "api":"http://api.ffzyapi.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"非凡资源2",
-        "api":"http://cj.ffzyapi.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"非凡资源3",
-        "api":"http://www.ffzy.tv/api.php/provide/vod/at/xml"
-    },
-    {
         "id":"闪电资源",
         "api":"https://xsd.sdzyapi.com/api.php/provide/vod/at/xml"
     },
@@ -140,7 +164,11 @@
         "api":"https://api.apibdzy.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"优质资源",
+        "id":"优质资源1",
+        "api":"https://hdzyk.com/inc/api.php/inc/api.php"
+    },
+    {
+        "id":"优质资源2",
         "api":"https://api.yzzy-api.com/inc/api.php"
     },
     {
@@ -168,10 +196,6 @@
         "api":"http://caiji.dyttzyapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"魔爪资源",
-        "api":"https://mozhuazy.com/api.php/provide/vod/at/xml"
-    },
-    {
         "id":"猫眼资源",
         "api":"https://api.maoyanapi.top/api.php/provide/vod/at/xml"
     },
@@ -186,14 +210,6 @@
     {
         "id":"一舟影库网",
         "api":"http://www.mandao.site/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"豆瓣资源1",
-        "api":"https://caiji.dbzy.tv/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"豆瓣资源2",
-        "api":"https://caiji.dbzy5.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"如意资源",
@@ -228,44 +244,12 @@
         "api":"http://ysz.wsmywlkj.top/api.php/provide/vod/at/xml"
     },
     {
-        "id":"至尊宝盒TV",
-        "api":"http://7.qqqtv.top/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"速影TV",
-        "api":"https://xn--k5d-suyingtvcom-lc40a84t7o9i3urako0c.suyingok.com/inc/api.php"
-    },
-    {
         "id":"四个圈影视",
         "api":"https://pg.fenwe078.cf/api.php/provide/vod/at/xml"
     },
     {
-        "id":"最大资源网1",
-        "api":"https://zuidazy.co/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"最大资源网2",
-        "api":"https://zuida.me/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"最大资源网3",
-        "api":"https://zuida.xyz/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"最大资源网4",
-        "api":"https://api.zuidapi.com/api.php/provide/vod/at/xml"
-    },
-    {
         "id":"快车资源",
         "api":"https://caiji.kuaichezy.org/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"TVB云播",
-        "api":"http://www.tvyb03.com/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"星河影视",
-        "api":"http://121.62.22.204:9876/api.php/provide/vod/at/xml"
     },
     {
         "id":"omofun动漫",
@@ -284,12 +268,8 @@
         "api":"https://starani.qcanime.xyz/api.php/provide/vod/at/xml"
     },
     {
-        "id":"仓鼠资源1",
+        "id":"仓鼠资源",
         "api":"https://hk421appcms.cs4k.top/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"仓鼠资源2",
-        "api":"https://newappcms.cs4k.top/api.php/provide/vod/at/xml"
     },
     {
         "id":"灵虎资源",
@@ -304,14 +284,6 @@
         "api":"https://www.yunwuee.icu/api.php/provide/vod/at/xml"
     },
     {
-        "id":"于浅资源",
-        "api":"http://202.140.143.116:88/api.php/provide/vod/at/xml"
-    },
-    {
-        "id":"鲶鱼资源",
-        "api":"http://47.122.22.78/api.php/provide/vod/at/xml"
-    },
-    {
         "id":"瀑布盘资源",
         "api":"https://dh.ha.cn/api.php/provide/vod/at/xml"
     },
@@ -320,8 +292,16 @@
         "api":"http://xm.xmyqd.icu/api.php/provide/vod/at/xml"
     },
     {
-        "id":"魔方影院",
-        "api":"https://app.ybn-ooo.top/api.php/provide/vod/at/xml"
+        "id":"极速资源",
+        "api":"https://jszyapi.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"星空影院",
+        "api":"http://fox.qwqfun.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"神马资源",
+        "api":"https://img.smdyw.top/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源",
