@@ -304,6 +304,18 @@
         "api":"https://img.smdyw.top/api.php/provide/vod/at/xml"
     },
     {
+        "id":"xinliang",
+        "api":"https://xinliang.serv00.net/api.php/tvbox"
+    },
+    {
+        "id":"TVB云播",
+        "api":"http://www.tvyb03.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"艾旦影视",
+        "api":"https://lovedan.net/api.php/provide/vod/at/xml"
+    },
+    {
         "id":"量子资源",
         "api":"https://cj.lziapi.com/api.php/provide/vod/at/xml"
     },
