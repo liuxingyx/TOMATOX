@@ -172,6 +172,10 @@
         "api":"https://api.yzzy-api.com/inc/api.php"
     },
     {
+        "id":"优质资源3",
+        "api":"https://1080zyk.com/inc/api.php"
+    },
+    {
         "id":"茅台资源",
         "api":"https://caiji.maotaizy.cc/api.php/provide/vod/at/xml"
     },
@@ -314,6 +318,10 @@
     {
         "id":"艾旦影视",
         "api":"https://lovedan.net/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"刺桐影视",
+        "api":"http://pg.cttv.vip/api.php/provide/vod/at/xml"
     },
     {
         "id":"量子资源",
