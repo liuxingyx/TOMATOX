@@ -132,16 +132,16 @@
         "api":"https://app.bfzyapi.com/api.php/provide/vod/at/xml"
     },
     {
-        "id":"暴风资源(18+)",
-        "api":"https://by.bfzyapi.com"
-    },
-    {
         "id":"黑料资源网(18+)",
         "api":"https://heiliaozyapi.com/api.php/provide/vod/at/xml"
     },
     {
         "id":"香蕉资源网(18+)",
         "api":"https://www.xiangjiaozyw.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"瀑布盘资源(18+)",
+        "api":"https://dh.ha.cn/api.php/provide/vod/at/xml"
     },
     {
         "id":"搜乐资源(播放链接失效)",
@@ -168,10 +168,6 @@
         "api":"https://zuida.me/api.php/provide/vod/at/xml"
     },
     {
-        "id":"速影TV",
-        "api":"https://xn--k5d-suyingtvcom-lc40a84t7o9i3urako0c.suyingok.com/inc/api.php"
-    },
-    {
         "id":"至尊宝盒TV",
         "api":"http://7.qqqtv.top/api.php/provide/vod/at/xml"
     },
@@ -182,6 +178,58 @@
     {
         "id":"魔爪资源",
         "api":"https://mozhuazy.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"小猫影院",
+        "api":"http://xm.xmyqd.icu/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"神马资源",
+        "api":"https://img.smdyw.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"星空影院",
+        "api":"http://fox.qwqfun.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"漫屋资源",
+        "api":"https://www.yunwuee.icu/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"冬日资源",
+        "api":"http://www.drdm.fun/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"灵虎资源",
+        "api":"http://app.555618.xyz:1766/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"仓鼠资源",
+        "api":"https://hk421appcms.cs4k.top/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"星星资源",
+        "api":"https://starani.qcanime.xyz/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"白狐资源",
+        "api":"https://baihuzy.com/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"一舟影库网",
+        "api":"http://www.mandao.site/api.php/provide/vod/at/xml"
+    },
+    {
+        "id":"天翼资源网",
+        "api":"https://www.911ysw.top/tianyi.php/provide/vod/at/xml"
+    },
+    {
+        "id":"淘片资源",
+        "api":"https://taopianapi.com/cjapi/dm/vod/xml"
+    },
+    {
+        "id":"app.555618",
+        "api":"http://app.555618.xyz:1766/api.php/provide/vod/at/xml"
     },
     {
         "id":"黑木耳资源",
@@ -328,9 +376,7 @@
  https://www.libvio.pw
  https://www.libvio.cc
  https://www.libvio.me
- https://www.libvio.vip
- https://www.libvio.link
- https://www.libvio.site
+ https://www.libvio.fun
  玩偶4K
  https://www.wo4k.com
  https://www.wo4k.net
@@ -1118,6 +1164,8 @@
  https://www.yn007.com
  黄冈影院
  https://tv.socarchina.com
+ 蛋蛋魔法
+ https://ddmf.net
  
  
  
@@ -1162,6 +1210,7 @@
  https://www.aidm9.com
  动漫巴士
  https://dm84.net
+ https://dmbus.cc
  AGE动漫 - 在线动漫观看
  https://www.agedm.io
  AGE动漫-专注动漫的门户网站-AGE动漫官网
