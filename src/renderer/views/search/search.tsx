@@ -36,7 +36,7 @@ export default class Search extends React.Component<any, any> {
     searchResByKW = async () => {
         this.page = 0;
         this.pageCount = 10;
-        store.setState('GLOBAL_LOADING', true);
+        // store.setState('GLOBAL_LOADING', true);
         this.setState(
             {
                 cardsData: [],

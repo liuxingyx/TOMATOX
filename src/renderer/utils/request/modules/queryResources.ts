@@ -100,11 +100,6 @@ export function searchResources(curPage: number, keyWord: string, api?: string):
 }
 
 export function queryDetail(ele: IplayResource) {
-    console.log(
-        '请求详情：',
-        store.getState('SITE_ADDRESS').id,
-        store.getState('SITE_ADDRESS').api
-    );
     return new Promise(resolve => {
         Req({
             method: 'get',
@@ -161,8 +156,13 @@ export function queryDetail(ele: IplayResource) {
             .catch(async e => {
                 const apiname = ele.apiname;
                 const newapi = apiname.slice(0, 4);
-                console.log('请求详情失败：', ele.api);
-                ele.historyOption!.lastPlayDate = Date.now();
+                console.log(
+                    '请求详情失败：',
+                    ele.name,
+                    ele.apiname,
+                    ele.api
+                );
+                // ele.historyOption!.lastPlayDate = Date.now();
                 const origin = (await Indexed.instance!.queryByApi(
                     TABLES.TABLE_ORIGIN,
                     apiname,
@@ -172,8 +172,9 @@ export function queryDetail(ele: IplayResource) {
                     // console.log('请求详情失败更新：', item.id, ele.apiname);
                     ele.api = item.api;
                     ele.apiname = item.id;
-                    Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
+                    //Indexed.instance!.insertOrUpdateResource(TABLES.TABLE_HISTORY, ele);
                 });
+                message.error(e);
                 resolve(null);
             });
     });

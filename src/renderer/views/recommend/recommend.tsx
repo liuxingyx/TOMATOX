@@ -29,7 +29,7 @@ export default class Recommend extends React.Component<any, any> {
     }
 
     async componentWillMount() {
-        store.setState('GLOBAL_LOADING', true);
+        // store.setState('GLOBAL_LOADING', true);
         this.initResource();
         this.updateHistorySource();
         store.subscribe('SITE_ADDRESS', () => {

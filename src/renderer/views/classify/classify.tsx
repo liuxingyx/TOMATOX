@@ -40,7 +40,7 @@ export default class Classify extends React.Component<any, any> {
     }
 
     initResource() {
-        store.setState('GLOBAL_LOADING', true);
+        // store.setState('GLOBAL_LOADING', true);
         queryTypes().then(
             (res: any) => {
                 if (!res) {
@@ -97,7 +97,7 @@ export default class Classify extends React.Component<any, any> {
     }
 
     private changeType(key: string, item: number) {
-        store.setState('GLOBAL_LOADING', true);
+        // store.setState('GLOBAL_LOADING', true);
         this.setState(
             this.setState({
                 selectedType: key,
